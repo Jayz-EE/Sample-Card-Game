@@ -1,0 +1,75 @@
+
+<div class="rest-screen">
+    <h2>REST SITE</h2>
+    
+    <div class="rest-options">
+        <button class="rest-option" @onclick="Rest">
+            <h3>Rest</h3>
+            <p>Heal 33% HP</p>
+        </button>
+        
+        <button class="rest-option" @onclick="Upgrade">
+            <h3>Upgrade</h3>
+            <p>Upgrade a card</p>
+        </button>
+    </div>
+    
+    @if (showUpgradeSelection)
+    {
+        <div class="upgrade-selection">
+            <h3>Select a card to upgrade:</h3>
+            @foreach (var card in Run.Deck.Where(c => !c.IsUpgraded))
+            {
+                var cardDef = Database.Instance.GetCard(card.CardId);
+                <button @onclick="() => UpgradeCard(card.InstanceId)">
+                    @cardDef?.Name
+                </button>
+            }
+        </div>
+    }
+    
+    @if (actionTaken)
+    {
+        <button @onclick="Leave">Continue</button>
+    }
+</div>
+
+@code {
+    [Parameter] public RunState Run { get; set; } = null!;
+    [Parameter] public EventCallback OnRestEnd { get; set; }
+    
+    private bool showUpgradeSelection = false;
+    private bool actionTaken = false;
+    private EventEngine eventEngine = null!;
+    
+    protected override void OnInitialized()
+    {
+        eventEngine = new EventEngine(new RunManager());
+    }
+    
+    private void Rest()
+    {
+        eventEngine.ProcessRest(Run, "HEAL");
+        actionTaken = true;
+        StateHasChanged();
+    }
+    
+    private void Upgrade()
+    {
+        showUpgradeSelection = true;
+        StateHasChanged();
+    }
+    
+    private void UpgradeCard(string instanceId)
+    {
+        new RunManager().UpgradeCard(Run, instanceId);
+        actionTaken = true;
+        showUpgradeSelection = false;
+        StateHasChanged();
+    }
+    
+    private void Leave()
+    {
+        OnRestEnd.InvokeAsync();
+    }
+}

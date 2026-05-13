@@ -1,0 +1,193 @@
+[
+  {
+    "id": "health_potion",
+    "name": "Health Potion",
+    "description": "Restore 30 HP",
+    "rarity": "COMMON",
+    "effects": [
+      {
+        "type": "HEAL",
+        "value": 30,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "energy_elixir",
+    "name": "Energy Elixir",
+    "description": "Gain 3 energy next turn",
+    "rarity": "COMMON",
+    "effects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "ENERGY_SURGE",
+        "value": 3,
+        "duration": 1,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "poison_vial",
+    "name": "Poison Vial",
+    "description": "Apply 5 poison to enemy",
+    "rarity": "COMMON",
+    "effects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 5,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "strength_tonic",
+    "name": "Strength Tonic",
+    "description": "Gain 3 strength for 2 turns",
+    "rarity": "UNCOMMON",
+    "effects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "STRENGTH",
+        "value": 3,
+        "duration": 2,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "shield_potion",
+    "name": "Shield Potion",
+    "description": "Gain 15 shield",
+    "rarity": "COMMON",
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 15,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "smoke_bomb",
+    "name": "Smoke Bomb",
+    "description": "Apply weak to enemy for 2 turns",
+    "rarity": "UNCOMMON",
+    "effects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "WEAK",
+        "value": 3,
+        "duration": 2,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "fire_bomb",
+    "name": "Fire Bomb",
+    "description": "Deal 20 damage and apply 3 burn",
+    "rarity": "RARE",
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 20,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "BURN",
+        "value": 3,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "regeneration_salve",
+    "name": "Regeneration Salve",
+    "description": "Gain 5 regeneration for 3 turns",
+    "rarity": "RARE",
+    "effects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "REGENERATION",
+        "value": 5,
+        "duration": 3,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "miracle_potion",
+    "name": "Miracle Potion",
+    "description": "Restore 50 HP and gain 10 shield",
+    "rarity": "RARE",
+    "effects": [
+      {
+        "type": "HEAL",
+        "value": 50,
+        "target": "SELF"
+      },
+      {
+        "type": "SHIELD",
+        "value": 10,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "explosive_flask",
+    "name": "Explosive Flask",
+    "description": "Deal 35 damage",
+    "rarity": "UNCOMMON",
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 35,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "energy_bar",
+    "name": "Energy Bar",
+    "description": "Restore 1 energy (No energy cost)",
+    "rarity": "COMMON",
+    "effects": [
+      {
+        "type": "RESTORE_ENERGY",
+        "value": 1,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "power_snack",
+    "name": "Power Snack",
+    "description": "Restore 2 energy (No energy cost)",
+    "rarity": "UNCOMMON",
+    "effects": [
+      {
+        "type": "RESTORE_ENERGY",
+        "value": 2,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "mega_snack",
+    "name": "Mega Snack",
+    "description": "Restore 3 energy (No energy cost)",
+    "rarity": "RARE",
+    "effects": [
+      {
+        "type": "RESTORE_ENERGY",
+        "value": 3,
+        "target": "SELF"
+      }
+    ]
+  }
+]

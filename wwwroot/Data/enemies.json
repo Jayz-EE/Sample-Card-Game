@@ -1,0 +1,152 @@
+[
+  {
+    "id": "goblin",
+    "name": "Goblin Raider",
+    "hp": 35,
+    "deck": ["monster_slash", "monster_slash", "monster_slash", "monster_bite", "monster_bite", "monster_defend", "monster_defend", "monster_roar"],
+    "aiPattern": "AGGRESSIVE",
+    "goldReward": 15,
+    "tier": 1,
+    "icon": "fi-sr-goblin"
+  },
+  {
+    "id": "bandit",
+    "name": "Bandit",
+    "hp": 40,
+    "deck": ["monster_claw", "monster_claw", "monster_claw", "monster_poison_spit", "monster_defend", "monster_defend", "monster_weaken", "monster_bite"],
+    "aiPattern": "BALANCED",
+    "goldReward": 20,
+    "tier": 1,
+    "icon": "fi-sr-thief"
+  },
+  {
+    "id": "cultist",
+    "name": "Dark Cultist",
+    "hp": 38,
+    "deck": ["monster_slash", "monster_slash", "monster_bite", "monster_regenerate", "monster_weaken", "monster_defend", "monster_defend", "monster_dark_ritual"],
+    "aiPattern": "DEFENSIVE",
+    "goldReward": 25,
+    "tier": 1,
+    "icon": "fi-sr-grim-reaper"
+  },
+  {
+    "id": "orc_warrior",
+    "name": "Orc Warrior",
+    "hp": 60,
+    "deck": ["monster_heavy_strike", "monster_heavy_strike", "monster_heavy_strike", "monster_claw", "monster_claw", "monster_defend", "monster_defend", "monster_fortify", "monster_roar"],
+    "aiPattern": "AGGRESSIVE",
+    "goldReward": 30,
+    "tier": 2,
+    "icon": "fi-sr-orc"
+  },
+  {
+    "id": "necromancer",
+    "name": "Necromancer",
+    "hp": 55,
+    "deck": ["monster_venom_strike", "monster_venom_strike", "monster_poison_spit", "monster_poison_spit", "monster_weaken", "monster_dark_ritual", "monster_regenerate", "monster_defend", "monster_defend"],
+    "aiPattern": "DEFENSIVE",
+    "goldReward": 35,
+    "tier": 2,
+    "icon": "fi-sr-skull"
+  },
+  {
+    "id": "elite_guard",
+    "name": "Elite Guard",
+    "hp": 80,
+    "deck": ["monster_heavy_strike", "monster_claw", "monster_slash", "monster_iron_hide", "monster_fortify", "monster_defend", "monster_defend", "monster_regenerate"],
+    "aiPattern": "BALANCED",
+    "goldReward": 50,
+    "tier": 3,
+    "icon": "fi-sr-shield"
+  },
+  {
+    "id": "fire_elemental",
+    "name": "Fire Elemental",
+    "hp": 70,
+    "deck": ["pyro_flame_burst", "pyro_scorch", "monster_heavy_strike", "monster_rampage", "monster_roar", "monster_defend"],
+    "aiPattern": "AGGRESSIVE",
+    "goldReward": 45,
+    "tier": 3,
+    "icon": "fi-sr-flame"
+  },
+  {
+    "id": "shadow_assassin",
+    "name": "Shadow Assassin",
+    "hp": 65,
+    "deck": ["monster_venom_strike", "monster_poison_spit", "monster_poison_spit", "monster_rampage", "monster_weaken", "monster_defend"],
+    "aiPattern": "AGGRESSIVE",
+    "goldReward": 48,
+    "tier": 3,
+    "icon": "fi-sr-knife"
+  },
+  {
+    "id": "holy_paladin",
+    "name": "Holy Paladin",
+    "hp": 75,
+    "deck": ["monster_heavy_strike", "monster_dark_ritual", "monster_regenerate", "monster_iron_hide", "monster_fortify", "monster_defend", "monster_defend"],
+    "aiPattern": "DEFENSIVE",
+    "goldReward": 52,
+    "tier": 3,
+    "icon": "fi-sr-angel"
+  },
+  {
+    "id": "iron_golem",
+    "name": "Iron Golem",
+    "hp": 90,
+    "deck": ["monster_devastate", "monster_heavy_strike", "monster_heavy_strike", "monster_iron_hide", "monster_iron_hide", "monster_fortify", "monster_defend", "monster_defend"],
+    "aiPattern": "DEFENSIVE",
+    "goldReward": 55,
+    "tier": 3,
+    "icon": "fi-sr-robot"
+  },
+  {
+    "id": "dragon",
+    "name": "Ancient Dragon",
+    "hp": 150,
+    "deck": ["pyro_inferno_blast", "pyro_meteor", "monster_devastate", "monster_rampage", "monster_heavy_strike", "monster_heavy_strike", "monster_iron_hide", "monster_fortify", "monster_dark_ritual", "monster_defend"],
+    "aiPattern": "BOSS",
+    "goldReward": 100,
+    "tier": 4,
+    "icon": "fi-sr-dragon"
+  },
+  {
+    "id": "lich",
+    "name": "Lich King",
+    "hp": 130,
+    "deck": ["monster_venom_strike", "monster_venom_strike", "monster_poison_spit", "monster_weaken", "monster_weaken", "monster_dark_ritual", "monster_dark_ritual", "monster_regenerate", "monster_iron_hide", "monster_defend", "monster_defend"],
+    "aiPattern": "BOSS",
+    "goldReward": 100,
+    "tier": 4,
+    "icon": "fi-sr-skeleton"
+  },
+  {
+    "id": "demon_lord",
+    "name": "Demon Lord",
+    "hp": 140,
+    "deck": ["pyro_hellfire", "monster_devastate", "monster_devastate", "monster_rampage", "monster_venom_strike", "monster_dark_ritual", "monster_iron_hide", "monster_fortify", "monster_defend"],
+    "aiPattern": "BOSS",
+    "goldReward": 110,
+    "tier": 4,
+    "icon": "fi-sr-devil"
+  },
+  {
+    "id": "void_horror",
+    "name": "Void Horror",
+    "hp": 160,
+    "deck": ["monster_venom_strike", "monster_venom_strike", "monster_poison_spit", "monster_poison_spit", "monster_weaken", "monster_weaken", "monster_dark_ritual", "monster_regenerate", "monster_iron_hide", "monster_defend"],
+    "aiPattern": "BOSS",
+    "goldReward": 120,
+    "tier": 4,
+    "icon": "fi-sr-ghost"
+  },
+  {
+    "id": "titan_king",
+    "name": "Titan King",
+    "hp": 180,
+    "deck": ["monster_devastate", "monster_devastate", "monster_rampage", "monster_heavy_strike", "monster_heavy_strike", "monster_iron_hide", "monster_iron_hide", "monster_fortify", "monster_fortify", "monster_dark_ritual", "monster_defend"],
+    "aiPattern": "BOSS",
+    "goldReward": 130,
+    "tier": 4,
+    "icon": "fi-sr-crown"
+  }
+]

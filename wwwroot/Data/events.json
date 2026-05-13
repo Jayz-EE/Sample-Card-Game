@@ -1,0 +1,192 @@
+[
+  {
+    "id": "mysterious_shrine",
+    "name": "Mysterious Shrine",
+    "description": "An ancient shrine glows with ethereal light. A voice whispers: 'Sacrifice or receive?'",
+    "choices": [
+      {
+        "text": "Pray at the shrine (Lose 10 HP, gain a rare relic)",
+        "effects": [
+          { "type": "DAMAGE", "value": 10, "target": "SELF" },
+          { "type": "GAIN_RELIC", "rarity": "RARE" }
+        ]
+      },
+      {
+        "text": "Leave an offering (Lose 50 gold, heal 20 HP)",
+        "effects": [
+          { "type": "LOSE_GOLD", "value": 50 },
+          { "type": "HEAL", "value": 20, "target": "SELF" }
+        ]
+      },
+      {
+        "text": "Walk away",
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": "merchant_ambush",
+    "name": "Merchant in Distress",
+    "description": "A merchant is being attacked by bandits! He cries for help.",
+    "choices": [
+      {
+        "text": "Help the merchant (Fight bandits, gain 100 gold)",
+        "effects": [
+          { "type": "START_COMBAT", "enemyId": "bandit" },
+          { "type": "GAIN_GOLD", "value": 100 }
+        ]
+      },
+      {
+        "text": "Rob the merchant (Gain 75 gold, lose 5 max HP)",
+        "effects": [
+          { "type": "GAIN_GOLD", "value": 75 },
+          { "type": "LOSE_MAX_HP", "value": 5 }
+        ]
+      },
+      {
+        "text": "Ignore and move on",
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": "ancient_library",
+    "name": "Ancient Library",
+    "description": "Dusty tomes line endless shelves. Knowledge awaits those who seek it.",
+    "choices": [
+      {
+        "text": "Study combat techniques (Upgrade a random card)",
+        "effects": [
+          { "type": "UPGRADE_RANDOM_CARD" }
+        ]
+      },
+      {
+        "text": "Read forbidden texts (Gain a curse, gain a rare card)",
+        "effects": [
+          { "type": "ADD_CURSE" },
+          { "type": "GAIN_CARD", "rarity": "RARE" }
+        ]
+      },
+      {
+        "text": "Leave the library",
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": "healing_fountain",
+    "name": "Healing Fountain",
+    "description": "Crystal-clear water flows from an ornate fountain. It radiates restorative energy.",
+    "choices": [
+      {
+        "text": "Drink deeply (Heal to full HP)",
+        "effects": [
+          { "type": "HEAL_FULL" }
+        ]
+      },
+      {
+        "text": "Fill a vial (Gain a healing potion)",
+        "effects": [
+          { "type": "GAIN_POTION", "potionId": "healing_potion" }
+        ]
+      },
+      {
+        "text": "Move on",
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": "card_master",
+    "name": "The Card Master",
+    "description": "A mysterious figure offers to enhance your deck... for a price.",
+    "choices": [
+      {
+        "text": "Remove a card (Pay 75 gold)",
+        "effects": [
+          { "type": "LOSE_GOLD", "value": 75 },
+          { "type": "REMOVE_CARD" }
+        ]
+      },
+      {
+        "text": "Upgrade a card (Pay 50 gold)",
+        "effects": [
+          { "type": "LOSE_GOLD", "value": 50 },
+          { "type": "UPGRADE_CARD" }
+        ]
+      },
+      {
+        "text": "Decline the offer",
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": "cursed_chest",
+    "name": "Cursed Chest",
+    "description": "A locked chest pulses with dark energy. Opening it could be dangerous...",
+    "choices": [
+      {
+        "text": "Force it open (50% chance: gain relic OR take 15 damage)",
+        "effects": [
+          { "type": "RANDOM_OUTCOME", "outcomes": [
+            { "weight": 50, "effects": [{ "type": "GAIN_RELIC", "rarity": "UNCOMMON" }] },
+            { "weight": 50, "effects": [{ "type": "DAMAGE", "value": 15, "target": "SELF" }] }
+          ]}
+        ]
+      },
+      {
+        "text": "Leave it alone",
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": "dragon_omen",
+    "name": "Scorched Earth",
+    "description": "The path ahead is charred black. Massive claw marks gouge the stone. The air smells of sulfur and ash.",
+    "choices": [
+      {
+        "text": "Search the ruins (gain 30 gold, take 5 fire damage)",
+        "effects": [
+          { "type": "GAIN_GOLD", "value": 30 },
+          { "type": "DAMAGE", "value": 5, "target": "SELF" }
+        ]
+      },
+      {
+        "text": "Prepare for what's ahead (upgrade a card)",
+        "effects": [
+          { "type": "UPGRADE_CARD" }
+        ]
+      },
+      {
+        "text": "Press on cautiously",
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": "lich_omen",
+    "name": "Whispers of the Dead",
+    "description": "Cold mist creeps along the ground. Ghostly whispers echo from nowhere. You feel watched by unseen eyes.",
+    "choices": [
+      {
+        "text": "Listen to the whispers (gain rare card, lose 10 HP)",
+        "effects": [
+          { "type": "GAIN_CARD", "rarity": "RARE" },
+          { "type": "DAMAGE", "value": 10, "target": "SELF" }
+        ]
+      },
+      {
+        "text": "Steel your resolve (gain 5 max HP)",
+        "effects": [
+          { "type": "GAIN_MAX_HP", "value": 5 }
+        ]
+      },
+      {
+        "text": "Ignore them and move on",
+        "effects": []
+      }
+    ]
+  }
+]

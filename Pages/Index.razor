@@ -1,0 +1,170 @@
+@page "/"
+@inject HttpClient Http
+
+<PageTitle>Roguelike Card Game</PageTitle>
+
+<div class="game-container">
+    @if (!dataLoaded)
+    {
+        <div class="loading">
+            <h2>⚔️ Loading Roguelike Card Game...</h2>
+            <p>Preparing your adventure...</p>
+        </div>
+    }
+    else if (db.Arcanas.Count == 0)
+    {
+        <div class="error">
+            <h2>❌ Failed to Load Game Data</h2>
+            <p>Could not load game files. Please refresh the page.</p>
+        </div>
+    }
+    else if (currentRun == null)
+    {
+        <ArcanaSelection OnArcanaSelected="StartRun" />
+    }
+    else if (currentScreen == "map")
+    {
+        <MapScreen Run="currentRun" OnNodeSelected="ProcessNode" OnViewDeck="ViewDeck" OnQuit="QuitRun" />
+    }
+    else if (currentScreen == "combat")
+    {
+        <CombatScreen Run="currentRun" Node="selectedNode" OnCombatEnd="OnCombatEnd" />
+    }
+    else if (currentScreen == "event")
+    {
+        <EventScreen Run="currentRun" Node="selectedNode" OnEventEnd="OnEventEnd" />
+    }
+    else if (currentScreen == "shop")
+    {
+        <ShopScreen Run="currentRun" Node="selectedNode" OnShopEnd="OnShopEnd" />
+    }
+    else if (currentScreen == "rest")
+    {
+        <RestScreen Run="currentRun" OnRestEnd="OnRestEnd" />
+    }
+    else if (currentScreen == "gameover")
+    {
+        <GameOver Run="currentRun" OnRestart="Restart" />
+    }
+    
+    @if (showDeckView && currentRun != null)
+    {
+        <div class="modal-overlay" @onclick="CloseDeck">
+            <div class="deck-modal" @onclick:stopPropagation="true">
+                <h2>Your Deck (@currentRun.Deck.Count cards)</h2>
+                <div class="deck-list">
+                    @foreach (var group in currentRun.Deck.GroupBy(c => c.CardId).OrderBy(g => g.Key))
+                    {
+                        var card = db.GetCard(group.Key);
+                        var count = group.Count();
+                        var upgraded = group.Count(c => c.IsUpgraded);
+                        <div class="deck-card">
+                            <span class="deck-card-name">@card?.Name</span>
+                            <span class="deck-card-count">x@(count) @(upgraded > 0 ? $"({upgraded}+)" : "")</span>
+                        </div>
+                    }
+                </div>
+                <button @onclick="CloseDeck">Close</button>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    private bool dataLoaded = false;
+    private RunState? currentRun;
+    private string currentScreen = "map";
+    private MapNode? selectedNode;
+    private bool showDeckView = false;
+    
+    private Database db = Database.Instance;
+    private RunManager runManager = new();
+    
+    protected override async Task OnInitializedAsync()
+    {
+        await db.LoadAllAsync(Http);
+        dataLoaded = true;
+    }
+    
+    private void StartRun(string arcanaId)
+    {
+        currentRun = runManager.StartNewRun(arcanaId);
+        currentScreen = "map";
+    }
+    
+    private void ProcessNode(MapNode node)
+    {
+        if (currentRun == null) return;
+        
+        selectedNode = node;
+        currentRun.Map.CurrentNodeId = node.Id;
+        
+        currentScreen = node.Type switch
+        {
+            "COMBAT" or "ELITE" or "BOSS" => "combat",
+            "EVENT" => "event",
+            "SHOP" or "MARKET" or "BLACK_MARKET" => "shop",
+            "REST" or "CAMP" => "rest",
+            "TREASURE" or "NPC" or "TRADER" or "BLESSING" => "event",
+            _ => "map"
+        };
+    }
+    
+    private void OnCombatEnd(bool victory)
+    {
+        if (currentRun == null || selectedNode == null) return;
+        
+        if (victory)
+        {
+            runManager.CompleteNode(currentRun, selectedNode);
+            currentScreen = "map";
+        }
+        else
+        {
+            currentScreen = "gameover";
+        }
+    }
+    
+    private void OnEventEnd()
+    {
+        if (currentRun == null || selectedNode == null) return;
+        runManager.CompleteNode(currentRun, selectedNode);
+        currentScreen = "map";
+    }
+    
+    private void OnShopEnd()
+    {
+        if (currentRun == null || selectedNode == null) return;
+        runManager.CompleteNode(currentRun, selectedNode);
+        currentScreen = "map";
+    }
+    
+    private void OnRestEnd()
+    {
+        if (currentRun == null || selectedNode == null) return;
+        runManager.CompleteNode(currentRun, selectedNode);
+        currentScreen = "map";
+    }
+    
+    private void ViewDeck()
+    {
+        showDeckView = true;
+    }
+    
+    private void CloseDeck()
+    {
+        showDeckView = false;
+    }
+    
+    private void QuitRun()
+    {
+        currentRun = null;
+        currentScreen = "map";
+    }
+    
+    private void Restart()
+    {
+        currentRun = null;
+        currentScreen = "map";
+    }
+}

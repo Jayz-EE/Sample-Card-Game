@@ -1,0 +1,147 @@
+[
+  {
+    "id": "wandering_merchant",
+    "name": "Wandering Merchant",
+    "description": "A cheerful merchant with exotic wares.",
+    "greeting": "Ah, a traveler! Care to see my wares?",
+    "choices": [
+      {
+        "text": "Buy a random card (75g)",
+        "goldCost": 75,
+        "effects": [{"type": "GAIN_CARD", "rarity": "UNCOMMON"}]
+      },
+      {
+        "text": "Buy a health potion (50g, heal 20 HP)",
+        "goldCost": 50,
+        "effects": [{"type": "HEAL", "value": 20, "target": "SELF"}]
+      },
+      {
+        "text": "Leave"
+      }
+    ]
+  },
+  {
+    "id": "mysterious_stranger",
+    "name": "Mysterious Stranger",
+    "description": "A hooded figure watches you silently.",
+    "greeting": "I sense great potential in you... or great folly.",
+    "choices": [
+      {
+        "text": "Accept their blessing (lose 10 HP, gain rare card)",
+        "hpCost": 10,
+        "effects": [{"type": "GAIN_CARD", "rarity": "RARE"}]
+      },
+      {
+        "text": "Ask for guidance (gain 50g)",
+        "effects": [{"type": "GAIN_GOLD", "value": 50}]
+      },
+      {
+        "text": "Walk away"
+      }
+    ]
+  },
+  {
+    "id": "old_hermit",
+    "name": "Old Hermit",
+    "description": "An elderly hermit tends to a small fire.",
+    "greeting": "Rest your weary bones, traveler. The road ahead is long.",
+    "choices": [
+      {
+        "text": "Rest and heal (restore 25 HP)",
+        "effects": [{"type": "HEAL", "value": 25, "target": "SELF"}]
+      },
+      {
+        "text": "Ask about the path ahead (remove a card)",
+        "effects": [{"type": "REMOVE_CARD"}]
+      },
+      {
+        "text": "Continue on"
+      }
+    ]
+  },
+  {
+    "id": "fortune_teller",
+    "name": "Fortune Teller",
+    "description": "A mystic gazes into a crystal ball.",
+    "greeting": "Your fate is clouded... but I can help clarify it.",
+    "choices": [
+      {
+        "text": "Pay for a reading (50g, upgrade a random card)",
+        "goldCost": 50,
+        "effects": [{"type": "UPGRADE_RANDOM_CARD"}]
+      },
+      {
+        "text": "Steal the crystal ball (50% chance: gain relic or lose 15 HP)",
+        "effects": [{"type": "RANDOM_OUTCOME", "outcomes": [
+          {"weight": 50, "effects": [{"type": "GAIN_RELIC", "rarity": "COMMON"}]},
+          {"weight": 50, "effects": [{"type": "DAMAGE", "value": 15, "target": "SELF"}]}
+        ]}]
+      },
+      {
+        "text": "Leave"
+      }
+    ]
+  },
+  {
+    "id": "blacksmith",
+    "name": "Traveling Blacksmith",
+    "description": "A burly smith hammers away at an anvil.",
+    "greeting": "Need your gear upgraded? I'm the best there is!",
+    "choices": [
+      {
+        "text": "Upgrade a card (100g)",
+        "goldCost": 100,
+        "effects": [{"type": "UPGRADE_CARD"}]
+      },
+      {
+        "text": "Trade gold for max HP (50g for +5 max HP)",
+        "goldCost": 50,
+        "effects": [{"type": "GAIN_MAX_HP", "value": 5}]
+      },
+      {
+        "text": "Leave"
+      }
+    ]
+  },
+  {
+    "id": "wounded_knight",
+    "name": "Wounded Knight",
+    "description": "A knight leans against the wall, armor scorched and dented.",
+    "greeting": "Turn back... A dragon guards the path ahead. I barely escaped with my life.",
+    "choices": [
+      {
+        "text": "Ask about the dragon's weakness (50g)",
+        "goldCost": 50,
+        "effects": [{"type": "GAIN_CARD", "rarity": "UNCOMMON"}]
+      },
+      {
+        "text": "Offer healing (lose 15 HP, gain 75g)",
+        "hpCost": 15,
+        "effects": [{"type": "GAIN_GOLD", "value": 75}]
+      },
+      {
+        "text": "Leave them"
+      }
+    ]
+  },
+  {
+    "id": "grave_keeper",
+    "name": "Grave Keeper",
+    "description": "An old man tends to graves, muttering prayers.",
+    "greeting": "The Lich King stirs... The dead grow restless. You feel it too, don't you?",
+    "choices": [
+      {
+        "text": "Ask for protection (75g for blessing)",
+        "goldCost": 75,
+        "effects": [{"type": "GAIN_RELIC", "rarity": "COMMON"}]
+      },
+      {
+        "text": "Help consecrate the graves (heal 20 HP)",
+        "effects": [{"type": "HEAL", "value": 20, "target": "SELF"}]
+      },
+      {
+        "text": "Leave quickly"
+      }
+    ]
+  }
+]

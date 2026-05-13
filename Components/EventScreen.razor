@@ -1,0 +1,223 @@
+
+<div class="event-screen">
+    @if (showCardSelection)
+    {
+        <h2>@selectionTitle</h2>
+        <p class="event-description">@selectionDescription</p>
+        <div class="card-selection">
+            @foreach (var card in GetSelectableCards())
+            {
+                var cardDef = Database.Instance.GetCard(card.CardId);
+                <button class="card-select-btn" @onclick="() => SelectCard(card.InstanceId)">
+                    <div class="card-name">@cardDef?.Name@(card.IsUpgraded ? "+" : "")</div>
+                    <div class="card-cost">@cardDef?.Cost ⚡</div>
+                </button>
+            }
+            <button class="event-choice" @onclick="CancelSelection">Cancel</button>
+        </div>
+    }
+    else if (Node.Type == "TREASURE")
+    {
+        <h2>💎 Treasure Chest</h2>
+        <p class="event-description">You discover a treasure chest filled with riches!</p>
+        <div class="event-choices">
+            <button class="event-choice" @onclick="ClaimTreasure">
+                Open the chest (Gain @goldAmount gold)
+            </button>
+        </div>
+    }
+    else if (eventDef != null)
+    {
+        <h2>@eventDef.Name</h2>
+        <p class="event-description">@eventDef.Description</p>
+        
+        <div class="event-choices">
+            @foreach (var choice in eventDef.Choices.Select((c, i) => new { Choice = c, Index = i }))
+            {
+                <button class="event-choice" @onclick="() => MakeChoice(choice.Index)">
+                    @choice.Choice.Text
+                </button>
+            }
+        </div>
+    }
+    else
+    {
+        <h2>@GetDefaultTitle()</h2>
+        <p class="event-description">@GetDefaultDescription()</p>
+        <div class="event-choices">
+            <button class="event-choice" @onclick="Continue">
+                Continue
+            </button>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter] public RunState Run { get; set; } = null!;
+    [Parameter] public MapNode Node { get; set; } = null!;
+    [Parameter] public EventCallback OnEventEnd { get; set; }
+    
+    private EventDefinition? eventDef;
+    private int goldAmount;
+    private bool showCardSelection = false;
+    private string selectionTitle = "";
+    private string selectionDescription = "";
+    private string selectionType = "";
+    private int pendingChoiceIndex = -1;
+    
+    protected override void OnInitialized()
+    {
+        if (Node.Type == "TREASURE")
+        {
+            var rng = new Random(Run.Seed + Run.CurrentFloor);
+            goldAmount = rng.Next(50, 150);
+        }
+        else
+        {
+            eventDef = Database.Instance.GetEvent(Node.EventId ?? "");
+        }
+    }
+    
+    private List<CardInstance> GetSelectableCards()
+    {
+        if (selectionType == "UPGRADE")
+            return Run.Deck.Where(c => !c.IsUpgraded).ToList();
+        else if (selectionType == "REMOVE")
+            return Run.Deck.ToList();
+        return new List<CardInstance>();
+    }
+    
+    private async Task SelectCard(string instanceId)
+    {
+        var rng = new Random(Run.Seed + Run.CurrentFloor);
+        
+        if (selectionType == "UPGRADE")
+        {
+            new RunManager().UpgradeCard(Run, instanceId);
+            var card = Run.Deck.FirstOrDefault(c => c.InstanceId == instanceId);
+            var cardDef = Database.Instance.GetCard(card?.CardId ?? "");
+            eventDef!.Description += $"\n\n✨ Upgraded {cardDef?.Name}!";
+        }
+        else if (selectionType == "REMOVE")
+        {
+            var card = Run.Deck.FirstOrDefault(c => c.InstanceId == instanceId);
+            var cardDef = Database.Instance.GetCard(card?.CardId ?? "");
+            Run.Deck.Remove(card!);
+            eventDef!.Description += $"\n\n🗑️ Removed {cardDef?.Name}!";
+        }
+        
+        showCardSelection = false;
+        
+        // Process remaining effects from the choice
+        if (pendingChoiceIndex >= 0 && eventDef != null)
+        {
+            var choice = eventDef.Choices[pendingChoiceIndex];
+            foreach (var effect in choice.Effects)
+            {
+                if (effect.Type != "UPGRADE_CARD" && effect.Type != "REMOVE_CARD")
+                {
+                    new EventEngine(new RunManager()).ProcessEffect(Run, effect, rng);
+                }
+            }
+        }
+        
+        StateHasChanged();
+        
+        // End the event after card selection
+        await Task.Delay(500);
+        await OnEventEnd.InvokeAsync();
+    }
+    
+    private void CancelSelection()
+    {
+        showCardSelection = false;
+        StateHasChanged();
+    }
+    
+    private async Task ClaimTreasure()
+    {
+        new RunManager().AddGold(Run, goldAmount);
+        await Task.Delay(500);
+        await OnEventEnd.InvokeAsync();
+    }
+    
+    private async Task MakeChoice(int choiceIndex)
+    {
+        if (eventDef == null) return;
+        
+        var choice = eventDef.Choices[choiceIndex];
+        var rng = new Random(Run.Seed + Run.CurrentFloor);
+        
+        // Check if choice requires card selection
+        var needsUpgrade = choice.Effects.Any(e => e.Type == "UPGRADE_CARD");
+        var needsRemove = choice.Effects.Any(e => e.Type == "REMOVE_CARD");
+        
+        if (needsUpgrade && Run.Deck.Any(c => !c.IsUpgraded))
+        {
+            selectionType = "UPGRADE";
+            selectionTitle = "Select a card to upgrade";
+            selectionDescription = "Choose a card from your deck to upgrade.";
+            showCardSelection = true;
+            pendingChoiceIndex = choiceIndex;
+            
+            // Process non-card effects first (like LOSE_GOLD)
+            foreach (var effect in choice.Effects)
+            {
+                if (effect.Type != "UPGRADE_CARD")
+                {
+                    new EventEngine(new RunManager()).ProcessEffect(Run, effect, rng);
+                }
+            }
+            
+            StateHasChanged();
+            return;
+        }
+        else if (needsRemove && Run.Deck.Count > 0)
+        {
+            selectionType = "REMOVE";
+            selectionTitle = "Select a card to remove";
+            selectionDescription = "Choose a card to permanently remove from your deck.";
+            showCardSelection = true;
+            pendingChoiceIndex = choiceIndex;
+            
+            // Process non-card effects first
+            foreach (var effect in choice.Effects)
+            {
+                if (effect.Type != "REMOVE_CARD")
+                {
+                    new EventEngine(new RunManager()).ProcessEffect(Run, effect, rng);
+                }
+            }
+            
+            StateHasChanged();
+            return;
+        }
+        
+        // Normal event processing
+        new EventEngine(new RunManager()).ProcessEventChoice(Run, Node.EventId!, choiceIndex, rng);
+        
+        await Task.Delay(1000);
+        await OnEventEnd.InvokeAsync();
+    }
+    
+    private async Task Continue()
+    {
+        await OnEventEnd.InvokeAsync();
+    }
+    
+    private string GetDefaultTitle() => Node.Type switch
+    {
+        "NPC" => "🧙 Mysterious Stranger",
+        "TRADER" => "🛒 Traveling Trader",
+        "BLESSING" => "✨ Divine Blessing",
+        _ => "Encounter"
+    };
+    
+    private string GetDefaultDescription() => Node.Type switch
+    {
+        "NPC" => "A mysterious figure nods at you and disappears into the shadows.",
+        "TRADER" => "The trader has nothing of interest today.",
+        "BLESSING" => "You feel a warm presence, but nothing happens.",
+        _ => "Nothing of note occurs here."
+    };
+}

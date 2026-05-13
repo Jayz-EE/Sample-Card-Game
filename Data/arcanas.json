@@ -1,0 +1,38 @@
+[
+  {
+    "id": "pyromancer",
+    "name": "Pyromancer",
+    "description": "Master of flames. Deals bonus damage with fire cards.",
+    "passiveEffect": "FIRE_MASTERY",
+    "startingDeck": ["strike", "strike", "fireball", "fireball", "shield", "shield", "heal"],
+    "startingHP": 70,
+    "startingGold": 100
+  },
+  {
+    "id": "cleric",
+    "name": "Cleric",
+    "description": "Divine healer. Gains shield when healing.",
+    "passiveEffect": "DIVINE_BLESSING",
+    "startingDeck": ["strike", "strike", "heal", "heal", "heal", "shield", "draw_two"],
+    "startingHP": 80,
+    "startingGold": 100
+  },
+  {
+    "id": "rogue",
+    "name": "Rogue",
+    "description": "Swift striker. Draws extra cards and plays fast.",
+    "passiveEffect": "SWIFT_HANDS",
+    "startingDeck": ["strike", "strike", "strike", "draw_two", "draw_two", "shield", "poison_strike"],
+    "startingHP": 60,
+    "startingGold": 120
+  },
+  {
+    "id": "knight",
+    "name": "Knight",
+    "description": "Stalwart defender. Gains extra shield value.",
+    "passiveEffect": "IRON_WALL",
+    "startingDeck": ["strike", "strike", "shield", "shield", "shield", "heal", "power_strike"],
+    "startingHP": 90,
+    "startingGold": 80
+  }
+]

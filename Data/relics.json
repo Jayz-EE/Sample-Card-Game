@@ -1,0 +1,66 @@
+[
+  {
+    "id": "burning_amulet",
+    "name": "Burning Amulet",
+    "description": "Fire damage increased by 2.",
+    "rarity": "COMMON",
+    "effect": "FIRE_DAMAGE_BOOST",
+    "value": 2
+  },
+  {
+    "id": "healing_pendant",
+    "name": "Healing Pendant",
+    "description": "Heal effects increased by 2.",
+    "rarity": "COMMON",
+    "effect": "HEAL_BOOST",
+    "value": 2
+  },
+  {
+    "id": "energy_crystal",
+    "name": "Energy Crystal",
+    "description": "Start each turn with +1 energy.",
+    "rarity": "RARE",
+    "effect": "MAX_ENERGY_BOOST",
+    "value": 1
+  },
+  {
+    "id": "iron_plate",
+    "name": "Iron Plate",
+    "description": "Shield effects increased by 2.",
+    "rarity": "COMMON",
+    "effect": "SHIELD_BOOST",
+    "value": 2
+  },
+  {
+    "id": "lucky_coin",
+    "name": "Lucky Coin",
+    "description": "Gain 25% more gold.",
+    "rarity": "UNCOMMON",
+    "effect": "GOLD_BOOST",
+    "value": 25
+  },
+  {
+    "id": "vampiric_fang",
+    "name": "Vampiric Fang",
+    "description": "Heal 1 HP for every 10 damage dealt.",
+    "rarity": "RARE",
+    "effect": "LIFESTEAL",
+    "value": 10
+  },
+  {
+    "id": "phoenix_feather",
+    "name": "Phoenix Feather",
+    "description": "Revive once with 50% HP.",
+    "rarity": "LEGENDARY",
+    "effect": "REVIVE",
+    "value": 50
+  },
+  {
+    "id": "cursed_skull",
+    "name": "Cursed Skull",
+    "description": "Gain +2 max HP per combat. Start with -10 HP.",
+    "rarity": "RARE",
+    "effect": "CURSED_GROWTH",
+    "value": 2
+  }
+]

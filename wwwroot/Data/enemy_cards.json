@@ -1,0 +1,585 @@
+[
+  {
+    "id": "monster_slash",
+    "name": "Slash",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": ["ATTACK"],
+    "effects": [{"type": "DAMAGE", "value": 6, "target": "ENEMY"}]
+  },
+  {
+    "id": "monster_bite",
+    "name": "Bite",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": ["ATTACK"],
+    "effects": [{"type": "DAMAGE", "value": 8, "target": "ENEMY"}]
+  },
+  {
+    "id": "monster_defend",
+    "name": "Defend",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": ["DEFENSE"],
+    "effects": [{"type": "SHIELD", "value": 5, "target": "SELF"}]
+  },
+  {
+    "id": "monster_claw",
+    "name": "Claw",
+    "cost": 2,
+    "rarity": "COMMON",
+    "tags": ["ATTACK"],
+    "effects": [{"type": "DAMAGE", "value": 12, "target": "ENEMY"}]
+  },
+  {
+    "id": "monster_roar",
+    "name": "Roar",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": ["BUFF"],
+    "effects": [{"type": "APPLY_STATUS", "statusType": "STRENGTH", "value": 2, "duration": 2, "target": "SELF"}]
+  },
+  {
+    "id": "monster_poison_spit",
+    "name": "Poison Spit",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": ["ATTACK"],
+    "effects": [
+      {"type": "DAMAGE", "value": 4, "target": "ENEMY"},
+      {"type": "APPLY_STATUS", "statusType": "POISON", "value": 3, "duration": 3, "target": "ENEMY"}
+    ]
+  },
+  {
+    "id": "monster_fire_breath",
+    "name": "Fire Breath",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": ["ATTACK"],
+    "effects": [
+      {"type": "DAMAGE", "value": 10, "target": "ENEMY"},
+      {"type": "APPLY_STATUS", "statusType": "BURN", "value": 2, "duration": 3, "target": "ENEMY"}
+    ]
+  },
+  {
+    "id": "monster_regenerate",
+    "name": "Regenerate",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": ["HEAL"],
+    "effects": [{"type": "APPLY_STATUS", "statusType": "REGENERATION", "value": 4, "duration": 3, "target": "SELF"}]
+  },
+  {
+    "id": "monster_heavy_strike",
+    "name": "Heavy Strike",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": ["ATTACK"],
+    "effects": [{"type": "DAMAGE", "value": 18, "target": "ENEMY"}]
+  },
+  {
+    "id": "monster_drain_life",
+    "name": "Drain Life",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": ["ATTACK"],
+    "effects": [
+      {"type": "DAMAGE", "value": 10, "target": "ENEMY"},
+      {"type": "HEAL", "value": 10, "target": "SELF"}
+    ]
+  },
+  {
+    "id": "monster_fortify",
+    "name": "Fortify",
+    "cost": 1,
+    "rarity": "RARE",
+    "tags": ["DEFENSE"],
+    "effects": [{"type": "SHIELD", "value": 12, "target": "SELF"}]
+  },
+  {
+    "id": "monster_rampage",
+    "name": "Rampage",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": ["ATTACK"],
+    "effects": [
+      {"type": "DAMAGE", "value": 25, "target": "ENEMY"},
+      {"type": "APPLY_STATUS", "statusType": "WEAK", "value": 2, "duration": 2, "target": "SELF"}
+    ]
+  },
+  {
+    "id": "monster_arcane_bolt",
+    "name": "Arcane Bolt",
+    "cost": 2,
+    "rarity": "EPIC",
+    "tags": ["ATTACK", "MAGIC"],
+    "effects": [{"type": "DAMAGE", "value": 20, "target": "ENEMY"}]
+  },
+  {
+    "id": "monster_crushing_blow",
+    "name": "Crushing Blow",
+    "cost": 2,
+    "rarity": "EPIC",
+    "tags": ["ATTACK", "PHYSICAL"],
+    "effects": [{"type": "DAMAGE", "value": 22, "target": "ENEMY"}]
+  },
+  {
+    "id": "monster_dark_ritual",
+    "name": "Dark Ritual",
+    "cost": 2,
+    "rarity": "EPIC",
+    "tags": ["BUFF", "MAGIC"],
+    "effects": [
+      {"type": "APPLY_STATUS", "statusType": "STRENGTH", "value": 4, "duration": 3, "target": "SELF"},
+      {"type": "DAMAGE", "value": 5, "target": "SELF"}
+    ]
+  },
+  {
+    "id": "monster_iron_skin",
+    "name": "Iron Skin",
+    "cost": 2,
+    "rarity": "EPIC",
+    "tags": ["DEFENSE"],
+    "effects": [
+      {"type": "SHIELD", "value": 20, "target": "SELF"},
+      {"type": "APPLY_STATUS", "statusType": "PHYSICAL_RESISTANCE", "value": 15, "duration": 2, "target": "SELF"}
+    ]
+  },
+  {
+    "id": "monster_mana_drain",
+    "name": "Mana Drain",
+    "cost": 1,
+    "rarity": "EPIC",
+    "tags": ["DEBUFF", "MAGIC"],
+    "effects": [
+      {"type": "DAMAGE", "value": 8, "target": "ENEMY"},
+      {"type": "APPLY_STATUS", "statusType": "SLOW", "value": 1, "duration": 2, "target": "ENEMY"}
+    ]
+  },
+  {
+    "id": "monster_blood_pact",
+    "name": "Blood Pact",
+    "cost": 1,
+    "rarity": "EPIC",
+    "tags": ["HEAL", "MAGIC"],
+    "effects": [
+      {"type": "HEAL", "value": 15, "target": "SELF"},
+      {"type": "APPLY_STATUS", "statusType": "REGENERATION", "value": 3, "duration": 3, "target": "SELF"}
+    ]
+  },
+  {
+    "id": "monster_venom_strike",
+    "name": "Venom Strike",
+    "cost": 2,
+    "rarity": "EPIC",
+    "tags": ["ATTACK", "PHYSICAL"],
+    "effects": [
+      {"type": "DAMAGE", "value": 12, "target": "ENEMY"},
+      {"type": "APPLY_STATUS", "statusType": "POISON", "value": 5, "duration": 4, "target": "ENEMY"}
+    ]
+  },
+  {
+    "id": "monster_inferno",
+    "name": "Inferno",
+    "cost": 3,
+    "rarity": "EPIC",
+    "tags": ["ATTACK", "MAGIC"],
+    "effects": [
+      {"type": "DAMAGE", "value": 15, "target": "ENEMY"},
+      {"type": "APPLY_STATUS", "statusType": "BURN", "value": 4, "duration": 4, "target": "ENEMY"}
+    ]
+  },
+  {
+    "id": "monster_battle_cry",
+    "name": "Battle Cry",
+    "cost": 1,
+    "rarity": "EPIC",
+    "tags": ["BUFF"],
+    "effects": [
+      {"type": "APPLY_STATUS", "statusType": "STRENGTH", "value": 3, "duration": 99, "target": "SELF"},
+      {"type": "DRAW", "value": 1, "target": "SELF"}
+    ]
+  },
+  {
+    "id": "monster_shadow_step",
+    "name": "Shadow Step",
+    "cost": 1,
+    "rarity": "EPIC",
+    "tags": ["UTILITY"],
+    "effects": [
+      {"type": "SHIELD", "value": 10, "target": "SELF"},
+      {"type": "DRAW", "value": 2, "target": "SELF"}
+    ]
+  },
+  {
+    "id": "monster_meteor_strike",
+    "name": "Meteor Strike",
+    "cost": 3,
+    "rarity": "LEGENDARY",
+    "tags": ["ATTACK", "MAGIC"],
+    "effects": [
+      {"type": "DAMAGE", "value": 35, "target": "ENEMY"},
+      {"type": "APPLY_STATUS", "statusType": "BURN", "value": 3, "duration": 3, "target": "ENEMY"}
+    ]
+  },
+  {
+    "id": "monster_annihilate",
+    "name": "Annihilate",
+    "cost": 3,
+    "rarity": "LEGENDARY",
+    "tags": ["ATTACK", "PHYSICAL"],
+    "effects": [
+      {"type": "DAMAGE", "value": 40, "target": "ENEMY"}
+    ]
+  },
+  {
+    "id": "monster_divine_shield",
+    "name": "Divine Shield",
+    "cost": 2,
+    "rarity": "LEGENDARY",
+    "tags": ["DEFENSE", "MAGIC"],
+    "effects": [
+      {"type": "SHIELD", "value": 30, "target": "SELF"},
+      {"type": "APPLY_STATUS", "statusType": "MAGIC_RESISTANCE", "value": 25, "duration": 3, "target": "SELF"}
+    ]
+  },
+  {
+    "id": "monster_life_steal",
+    "name": "Life Steal",
+    "cost": 2,
+    "rarity": "LEGENDARY",
+    "tags": ["ATTACK", "HEAL", "MAGIC"],
+    "effects": [
+      {"type": "DAMAGE", "value": 18, "target": "ENEMY"},
+      {"type": "HEAL", "value": 18, "target": "SELF"}
+    ]
+  },
+  {
+    "id": "monster_apocalypse",
+    "name": "Apocalypse",
+    "cost": 4,
+    "rarity": "LEGENDARY",
+    "tags": ["ATTACK", "MAGIC"],
+    "effects": [
+      {"type": "DAMAGE", "value": 50, "target": "ENEMY"},
+      {"type": "APPLY_STATUS", "statusType": "BURN", "value": 5, "duration": 5, "target": "ENEMY"},
+      {"type": "APPLY_STATUS", "statusType": "POISON", "value": 5, "duration": 5, "target": "ENEMY"}
+    ]
+  },
+  {
+    "id": "monster_frost_nova",
+    "name": "Frost Nova",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": ["ATTACK", "MAGIC", "DEBUFF"],
+    "effects": [
+      {"type": "DAMAGE", "value": 10, "target": "ENEMY"},
+      {"type": "APPLY_STATUS", "statusType": "SLOW", "value": 2, "duration": 2, "target": "ENEMY"}
+    ]
+  },
+  {
+    "id": "monster_lightning_bolt",
+    "name": "Lightning Bolt",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": ["ATTACK", "MAGIC"],
+    "effects": [{"type": "DAMAGE", "value": 14, "target": "ENEMY"}]
+  },
+  {
+    "id": "monster_earth_spike",
+    "name": "Earth Spike",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": ["ATTACK", "PHYSICAL"],
+    "effects": [{"type": "DAMAGE", "value": 13, "target": "ENEMY"}]
+  },
+  {
+    "id": "monster_wind_slash",
+    "name": "Wind Slash",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": ["ATTACK", "PHYSICAL"],
+    "effects": [{"type": "DAMAGE", "value": 9, "target": "ENEMY"}]
+  },
+  {
+    "id": "monster_barrier",
+    "name": "Barrier",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": ["DEFENSE", "MAGIC"],
+    "effects": [{"type": "SHIELD", "value": 8, "target": "SELF"}]
+  },
+  {
+    "id": "monster_meditation",
+    "name": "Meditation",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": ["HEAL", "UTILITY"],
+    "effects": [
+      {"type": "HEAL", "value": 8, "target": "SELF"},
+      {"type": "DRAW", "value": 1, "target": "SELF"}
+    ]
+  },
+  {
+    "id": "monster_curse",
+    "name": "Curse",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": ["DEBUFF", "MAGIC"],
+    "effects": [
+      {"type": "APPLY_STATUS", "statusType": "WEAK", "value": 3, "duration": 3, "target": "ENEMY"}
+    ]
+  },
+  {
+    "id": "monster_berserk",
+    "name": "Berserk",
+    "cost": 1,
+    "rarity": "RARE",
+    "tags": ["BUFF"],
+    "effects": [
+      {"type": "APPLY_STATUS", "statusType": "STRENGTH", "value": 5, "duration": 2, "target": "SELF"}
+    ]
+  },
+  {
+    "id": "monster_soul_drain",
+    "name": "Soul Drain",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": ["ATTACK", "HEAL", "MAGIC"],
+    "effects": [
+      {"type": "DAMAGE", "value": 12, "target": "ENEMY"},
+      {"type": "HEAL", "value": 12, "target": "SELF"}
+    ]
+  },
+  {
+    "id": "monster_stone_skin",
+    "name": "Stone Skin",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": ["DEFENSE", "BUFF"],
+    "effects": [
+      {"type": "SHIELD", "value": 15, "target": "SELF"},
+      {"type": "APPLY_STATUS", "statusType": "PHYSICAL_RESISTANCE", "value": 20, "duration": 2, "target": "SELF"}
+    ]
+  },
+  {
+    "id": "monster_plague",
+    "name": "Plague",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": ["DEBUFF", "MAGIC"],
+    "effects": [
+      {"type": "APPLY_STATUS", "statusType": "POISON", "value": 7, "duration": 5, "target": "ENEMY"},
+      {"type": "APPLY_STATUS", "statusType": "WEAK", "value": 2, "duration": 3, "target": "ENEMY"}
+    ]
+  },
+  {
+    "id": "monster_holy_light",
+    "name": "Holy Light",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": ["HEAL", "MAGIC"],
+    "effects": [
+      {"type": "HEAL", "value": 20, "target": "SELF"},
+      {"type": "SHIELD", "value": 10, "target": "SELF"}
+    ]
+  },
+  {
+    "id": "monster_chain_lightning",
+    "name": "Chain Lightning",
+    "cost": 3,
+    "rarity": "EPIC",
+    "tags": ["ATTACK", "MAGIC"],
+    "effects": [
+      {"type": "DAMAGE", "value": 25, "target": "ENEMY"}
+    ]
+  },
+  {
+    "id": "monster_earthquake",
+    "name": "Earthquake",
+    "cost": 3,
+    "rarity": "EPIC",
+    "tags": ["ATTACK", "PHYSICAL"],
+    "effects": [
+      {"type": "DAMAGE", "value": 28, "target": "ENEMY"}
+    ]
+  },
+  {
+    "id": "monster_void_blast",
+    "name": "Void Blast",
+    "cost": 3,
+    "rarity": "EPIC",
+    "tags": ["ATTACK", "MAGIC", "DEBUFF"],
+    "effects": [
+      {"type": "DAMAGE", "value": 20, "target": "ENEMY"},
+      {"type": "APPLY_STATUS", "statusType": "WEAK", "value": 4, "duration": 3, "target": "ENEMY"}
+    ]
+  },
+  {
+    "id": "monster_titan_strength",
+    "name": "Titan Strength",
+    "cost": 2,
+    "rarity": "EPIC",
+    "tags": ["BUFF"],
+    "effects": [
+      {"type": "APPLY_STATUS", "statusType": "STRENGTH", "value": 6, "duration": 99, "target": "SELF"}
+    ]
+  },
+  {
+    "id": "monster_phoenix_rebirth",
+    "name": "Phoenix Rebirth",
+    "cost": 3,
+    "rarity": "EPIC",
+    "tags": ["HEAL", "BUFF", "MAGIC"],
+    "effects": [
+      {"type": "HEAL", "value": 25, "target": "SELF"},
+      {"type": "APPLY_STATUS", "statusType": "REGENERATION", "value": 5, "duration": 5, "target": "SELF"}
+    ]
+  },
+  {
+    "id": "monster_absolute_zero",
+    "name": "Absolute Zero",
+    "cost": 3,
+    "rarity": "EPIC",
+    "tags": ["ATTACK", "DEBUFF", "MAGIC"],
+    "effects": [
+      {"type": "DAMAGE", "value": 18, "target": "ENEMY"},
+      {"type": "APPLY_STATUS", "statusType": "SLOW", "value": 3, "duration": 3, "target": "ENEMY"}
+    ]
+  },
+  {
+    "id": "monster_arcane_mastery",
+    "name": "Arcane Mastery",
+    "cost": 2,
+    "rarity": "EPIC",
+    "tags": ["BUFF", "UTILITY", "MAGIC"],
+    "effects": [
+      {"type": "APPLY_STATUS", "statusType": "MAGIC_RESISTANCE", "value": 30, "duration": 3, "target": "SELF"},
+      {"type": "DRAW", "value": 2, "target": "SELF"}
+    ]
+  },
+  {
+    "id": "monster_war_cry",
+    "name": "War Cry",
+    "cost": 1,
+    "rarity": "EPIC",
+    "tags": ["BUFF", "UTILITY"],
+    "effects": [
+      {"type": "APPLY_STATUS", "statusType": "STRENGTH", "value": 4, "duration": 3, "target": "SELF"},
+      {"type": "SHIELD", "value": 10, "target": "SELF"}
+    ]
+  },
+  {
+    "id": "monster_death_coil",
+    "name": "Death Coil",
+    "cost": 2,
+    "rarity": "LEGENDARY",
+    "tags": ["ATTACK", "HEAL", "MAGIC"],
+    "effects": [
+      {"type": "DAMAGE", "value": 22, "target": "ENEMY"},
+      {"type": "HEAL", "value": 22, "target": "SELF"}
+    ]
+  },
+  {
+    "id": "monster_time_stop",
+    "name": "Time Stop",
+    "cost": 3,
+    "rarity": "LEGENDARY",
+    "tags": ["DEBUFF", "MAGIC"],
+    "effects": [
+      {"type": "APPLY_STATUS", "statusType": "STUN", "value": 1, "duration": 1, "target": "ENEMY"},
+      {"type": "APPLY_STATUS", "statusType": "SLOW", "value": 2, "duration": 3, "target": "ENEMY"}
+    ]
+  },
+  {
+    "id": "monster_immortality",
+    "name": "Immortality",
+    "cost": 3,
+    "rarity": "LEGENDARY",
+    "tags": ["DEFENSE", "HEAL", "BUFF"],
+    "effects": [
+      {"type": "SHIELD", "value": 25, "target": "SELF"},
+      {"type": "APPLY_STATUS", "statusType": "REGENERATION", "value": 8, "duration": 99, "target": "SELF"},
+      {"type": "APPLY_STATUS", "statusType": "PHYSICAL_RESISTANCE", "value": 20, "duration": 99, "target": "SELF"}
+    ]
+  },
+  {
+    "id": "monster_chaos_storm",
+    "name": "Chaos Storm",
+    "cost": 4,
+    "rarity": "LEGENDARY",
+    "tags": ["ATTACK", "MAGIC", "DEBUFF"],
+    "effects": [
+      {"type": "DAMAGE", "value": 45, "target": "ENEMY"},
+      {"type": "APPLY_STATUS", "statusType": "BURN", "value": 4, "duration": 4, "target": "ENEMY"},
+      {"type": "APPLY_STATUS", "statusType": "WEAK", "value": 3, "duration": 3, "target": "ENEMY"}
+    ]
+  },
+  {
+    "id": "monster_god_hand",
+    "name": "God Hand",
+    "cost": 4,
+    "rarity": "LEGENDARY",
+    "tags": ["ATTACK", "PHYSICAL"],
+    "effects": [
+      {"type": "DAMAGE", "value": 60, "target": "ENEMY"}
+    ]
+  },
+  {
+    "id": "monster_demon_pact",
+    "name": "Demon Pact",
+    "cost": 2,
+    "rarity": "LEGENDARY",
+    "tags": ["BUFF", "MAGIC"],
+    "effects": [
+      {"type": "APPLY_STATUS", "statusType": "STRENGTH", "value": 8, "duration": 99, "target": "SELF"},
+      {"type": "DAMAGE", "value": 10, "target": "SELF"}
+    ]
+  },
+  {
+    "id": "monster_celestial_blessing",
+    "name": "Celestial Blessing",
+    "cost": 3,
+    "rarity": "LEGENDARY",
+    "tags": ["HEAL", "BUFF", "MAGIC"],
+    "effects": [
+      {"type": "HEAL", "value": 30, "target": "SELF"},
+      {"type": "APPLY_STATUS", "statusType": "REGENERATION", "value": 6, "duration": 99, "target": "SELF"},
+      {"type": "APPLY_STATUS", "statusType": "MAGIC_RESISTANCE", "value": 25, "duration": 99, "target": "SELF"}
+    ]
+  },
+  {
+    "id": "monster_reality_warp",
+    "name": "Reality Warp",
+    "cost": 3,
+    "rarity": "LEGENDARY",
+    "tags": ["UTILITY", "MAGIC"],
+    "effects": [
+      {"type": "DRAW", "value": 3, "target": "SELF"},
+      {"type": "APPLY_STATUS", "statusType": "STRENGTH", "value": 3, "duration": 99, "target": "SELF"},
+      {"type": "SHIELD", "value": 15, "target": "SELF"}
+    ]
+  },
+  {
+    "id": "monster_oblivion",
+    "name": "Oblivion",
+    "cost": 5,
+    "rarity": "LEGENDARY",
+    "tags": ["ATTACK", "MAGIC"],
+    "effects": [
+      {"type": "DAMAGE", "value": 80, "target": "ENEMY"}
+    ]
+  },
+  {
+    "id": "monster_eternal_fortress",
+    "name": "Eternal Fortress",
+    "cost": 3,
+    "rarity": "LEGENDARY",
+    "tags": ["DEFENSE", "BUFF"],
+    "effects": [
+      {"type": "SHIELD", "value": 40, "target": "SELF"},
+      {"type": "APPLY_STATUS", "statusType": "PHYSICAL_RESISTANCE", "value": 30, "duration": 99, "target": "SELF"},
+      {"type": "APPLY_STATUS", "statusType": "MAGIC_RESISTANCE", "value": 30, "duration": 99, "target": "SELF"}
+    ]
+  }
+]

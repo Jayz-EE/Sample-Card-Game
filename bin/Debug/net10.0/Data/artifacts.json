@@ -1,0 +1,130 @@
+[
+  {
+    "id": "strength_artifact",
+    "name": "Titan's Gauntlet",
+    "description": "Grants +2 Strength at the start of combat.",
+    "rarity": "RARE",
+    "effect": "START_STRENGTH",
+    "value": 2
+  },
+  {
+    "id": "shield_artifact",
+    "name": "Guardian's Aegis",
+    "description": "Grants 8 Shield at the start of combat.",
+    "rarity": "UNCOMMON",
+    "effect": "START_SHIELD",
+    "value": 8
+  },
+  {
+    "id": "regeneration_artifact",
+    "name": "Phoenix Feather",
+    "description": "Grants Regeneration 3 for 3 turns at combat start.",
+    "rarity": "RARE",
+    "effect": "START_REGENERATION",
+    "value": 3
+  },
+  {
+    "id": "energy_artifact",
+    "name": "Arcane Battery",
+    "description": "Start combat with +1 Energy for the first turn.",
+    "rarity": "UNCOMMON",
+    "effect": "START_ENERGY",
+    "value": 1
+  },
+  {
+    "id": "poison_artifact",
+    "name": "Venom Vial",
+    "description": "Apply 2 Poison to enemy at combat start.",
+    "rarity": "UNCOMMON",
+    "effect": "START_POISON_ENEMY",
+    "value": 2
+  },
+  {
+    "id": "draw_artifact",
+    "name": "Scholar's Tome",
+    "description": "Draw 1 extra card at combat start.",
+    "rarity": "RARE",
+    "effect": "START_DRAW",
+    "value": 1
+  },
+  {
+    "id": "hp_artifact",
+    "name": "Vitality Charm",
+    "description": "Increases Max HP by 15.",
+    "rarity": "UNCOMMON",
+    "effect": "MAX_HP_BOOST",
+    "value": 15
+  },
+  {
+    "id": "damage_artifact",
+    "name": "Berserker's Ring",
+    "description": "All damage dealt increased by 2.",
+    "rarity": "RARE",
+    "effect": "DAMAGE_BOOST",
+    "value": 2
+  },
+  {
+    "id": "thorns_artifact",
+    "name": "Thorn Crown",
+    "description": "Reflect 3 damage when hit.",
+    "rarity": "UNCOMMON",
+    "effect": "THORNS",
+    "value": 3
+  },
+  {
+    "id": "burn_artifact",
+    "name": "Inferno Core",
+    "description": "Apply 2 Burn to enemy at combat start.",
+    "rarity": "UNCOMMON",
+    "effect": "START_BURN_ENEMY",
+    "value": 2
+  },
+  {
+    "id": "cursed_strength",
+    "name": "Cursed Gauntlet",
+    "description": "Grants +4 Strength but lose 5 HP at combat start.",
+    "rarity": "CURSED",
+    "effect": "CURSED_STRENGTH",
+    "value": 4
+  },
+  {
+    "id": "cursed_energy",
+    "name": "Void Battery",
+    "description": "Start with +2 Energy but take 3 damage each turn.",
+    "rarity": "CURSED",
+    "effect": "CURSED_ENERGY",
+    "value": 2
+  },
+  {
+    "id": "cursed_draw",
+    "name": "Forbidden Tome",
+    "description": "Draw 2 extra cards but lose 10 Max HP.",
+    "rarity": "CURSED",
+    "effect": "CURSED_DRAW",
+    "value": 2
+  },
+  {
+    "id": "blessed_vitality",
+    "name": "Divine Heart",
+    "description": "Grants +30 Max HP and Regeneration 2 for 5 turns.",
+    "rarity": "BLESSED",
+    "effect": "BLESSED_VITALITY",
+    "value": 30
+  },
+  {
+    "id": "blessed_power",
+    "name": "Holy Relic",
+    "description": "Grants +3 Strength and 10 Shield at combat start.",
+    "rarity": "BLESSED",
+    "effect": "BLESSED_POWER",
+    "value": 3
+  },
+  {
+    "id": "blessed_fortune",
+    "name": "Lucky Talisman",
+    "description": "Start with +2 Energy and draw 1 extra card.",
+    "rarity": "BLESSED",
+    "effect": "BLESSED_FORTUNE",
+    "value": 2
+  }
+]

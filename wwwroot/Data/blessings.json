@@ -1,0 +1,72 @@
+[
+  {
+    "id": "strength_blessing",
+    "name": "Blessing of Strength",
+    "description": "Your attacks feel more powerful.",
+    "effect": "DAMAGE_BOOST",
+    "value": 2
+  },
+  {
+    "id": "vitality_blessing",
+    "name": "Blessing of Vitality",
+    "description": "Your body feels rejuvenated.",
+    "effect": "MAX_HP_BOOST",
+    "value": 15
+  },
+  {
+    "id": "fortune_blessing",
+    "name": "Blessing of Fortune",
+    "description": "Gold seems to find its way to you.",
+    "effect": "GOLD_BOOST",
+    "value": 100
+  },
+  {
+    "id": "protection_blessing",
+    "name": "Blessing of Protection",
+    "description": "You feel more resilient.",
+    "effect": "START_COMBAT_SHIELD",
+    "value": 5
+  },
+  {
+    "id": "wisdom_blessing",
+    "name": "Blessing of Wisdom",
+    "description": "Your mind feels sharper.",
+    "effect": "DRAW_EXTRA_CARD",
+    "value": 1
+  },
+  {
+    "id": "capacity_blessing",
+    "name": "Blessing of Capacity",
+    "description": "You can hold more cards in your hand.",
+    "effect": "HAND_SIZE_BOOST",
+    "value": 1
+  },
+  {
+    "id": "fire_resistance",
+    "name": "Blessing of Fire Resistance",
+    "description": "Reduce burn damage by 50%.",
+    "effect": "BURN_RESISTANCE",
+    "value": 50
+  },
+  {
+    "id": "poison_resistance",
+    "name": "Blessing of Poison Resistance",
+    "description": "Reduce poison damage by 50%.",
+    "effect": "POISON_RESISTANCE",
+    "value": 50
+  },
+  {
+    "id": "physical_resistance",
+    "name": "Blessing of Physical Resistance",
+    "description": "Reduce physical damage by 25%.",
+    "effect": "PHYSICAL_RESISTANCE",
+    "value": 25
+  },
+  {
+    "id": "magic_resistance",
+    "name": "Blessing of Magic Resistance",
+    "description": "Reduce magic damage by 25%.",
+    "effect": "MAGIC_RESISTANCE",
+    "value": 25
+  }
+]

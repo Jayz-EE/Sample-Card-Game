@@ -1,0 +1,98 @@
+[
+  {
+    "id": "goblin",
+    "name": "Goblin Raider",
+    "hp": 25,
+    "deck": ["strike", "strike", "strike"],
+    "aiPattern": "AGGRESSIVE",
+    "goldReward": 15,
+    "tier": 1,
+    "dialogue": ["Grrr! Me smash!", "You look weak!", "Shiny gold mine!"],
+    "attackLines": ["swings wildly", "lunges forward", "strikes with crude blade"],
+    "hurtLines": ["Ow! That hurt!", "Me still strong!", "Grr..."]
+  },
+  {
+    "id": "bandit",
+    "name": "Bandit",
+    "hp": 30,
+    "deck": ["strike", "strike", "poison_strike", "shield"],
+    "aiPattern": "BALANCED",
+    "goldReward": 20,
+    "tier": 1,
+    "dialogue": ["Hand over your gold!", "This'll be easy.", "Nothing personal."],
+    "attackLines": ["slashes with dagger", "strikes from the shadows", "aims for a weak spot"],
+    "hurtLines": ["Tch!", "Not bad...", "You'll pay for that!"]
+  },
+  {
+    "id": "cultist",
+    "name": "Dark Cultist",
+    "hp": 28,
+    "deck": ["strike", "fireball", "heal", "curse"],
+    "aiPattern": "DEFENSIVE",
+    "goldReward": 25,
+    "tier": 1,
+    "dialogue": ["The darkness calls...", "Your soul is forfeit.", "Witness true power!"],
+    "attackLines": ["chants dark incantations", "channels eldritch energy", "casts a sinister spell"],
+    "hurtLines": ["Impossible!", "The shadows protect me!", "You dare..."]
+  },
+  {
+    "id": "orc_warrior",
+    "name": "Orc Warrior",
+    "hp": 45,
+    "deck": ["power_strike", "power_strike", "strike", "shield", "shield"],
+    "aiPattern": "AGGRESSIVE",
+    "goldReward": 30,
+    "tier": 2,
+    "dialogue": ["I crush you!", "Weak human!", "Feel my strength!"],
+    "attackLines": ["swings massive axe", "charges with brutal force", "delivers a crushing blow"],
+    "hurtLines": ["Argh!", "Is that all?", "You fight well..."]
+  },
+  {
+    "id": "necromancer",
+    "name": "Necromancer",
+    "hp": 40,
+    "deck": ["fireball", "fireball", "curse", "curse", "heal", "shield"],
+    "aiPattern": "DEFENSIVE",
+    "goldReward": 35,
+    "tier": 2,
+    "dialogue": ["Death is only the beginning.", "Rise, my servants!", "Your life force is mine."],
+    "attackLines": ["summons dark magic", "drains life energy", "unleashes necrotic power"],
+    "hurtLines": ["Gah!", "I am eternal!", "This body is temporary..."]
+  },
+  {
+    "id": "elite_guard",
+    "name": "Elite Guard",
+    "hp": 60,
+    "deck": ["power_strike", "strike", "strike", "shield", "shield", "shield", "heal"],
+    "aiPattern": "BALANCED",
+    "goldReward": 50,
+    "tier": 3,
+    "dialogue": ["You shall not pass!", "For honor and duty!", "I am the wall!"],
+    "attackLines": ["strikes with precision", "counters with expert timing", "attacks with disciplined form"],
+    "hurtLines": ["Ugh!", "My armor holds!", "I will not fall!"]
+  },
+  {
+    "id": "dragon",
+    "name": "Ancient Dragon",
+    "hp": 120,
+    "deck": ["inferno", "inferno", "fireball", "fireball", "power_strike", "power_strike", "shield", "shield", "heal", "heal"],
+    "aiPattern": "BOSS",
+    "goldReward": 100,
+    "tier": 4,
+    "dialogue": ["Foolish mortal!", "My flames will consume you!", "I have lived for centuries!"],
+    "attackLines": ["breathes scorching fire", "rakes with massive claws", "unleashes infernal fury"],
+    "hurtLines": ["ROAR!", "You dare wound me?!", "Impressive... but futile."]
+  },
+  {
+    "id": "lich",
+    "name": "Lich King",
+    "hp": 100,
+    "deck": ["curse", "curse", "curse", "fireball", "fireball", "heal", "heal", "shield", "shield", "summon"],
+    "aiPattern": "BOSS",
+    "goldReward": 100,
+    "tier": 4,
+    "dialogue": ["Death has no hold on me.", "Your soul will serve me eternally.", "I am beyond mortality!"],
+    "attackLines": ["commands the undead", "casts soul-rending magic", "channels death itself"],
+    "hurtLines": ["Hahaha!", "Pain is meaningless!", "I cannot be destroyed!"]
+  }
+]

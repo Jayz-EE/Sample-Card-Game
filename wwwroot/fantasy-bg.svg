@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a0f2e;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#2d1b3d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f0a1a;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="glowGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#6b46c1;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#6b46c1;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Sky background -->
+  <rect width="1920" height="1080" fill="url(#skyGradient)"/>
+  
+  <!-- Mystical glows -->
+  <circle cx="300" cy="200" r="400" fill="url(#glowGradient)" opacity="0.4"/>
+  <circle cx="1600" cy="300" r="350" fill="url(#glowGradient)" opacity="0.3"/>
+  <circle cx="960" cy="800" r="500" fill="url(#glowGradient)" opacity="0.2"/>
+  
+  <!-- Stars -->
+  <circle cx="150" cy="100" r="2" fill="#ffffff" opacity="0.8"/>
+  <circle cx="400" cy="150" r="1.5" fill="#ffffff" opacity="0.6"/>
+  <circle cx="800" cy="80" r="2" fill="#ffffff" opacity="0.9"/>
+  <circle cx="1200" cy="120" r="1" fill="#ffffff" opacity="0.7"/>
+  <circle cx="1500" cy="90" r="2" fill="#ffffff" opacity="0.8"/>
+  <circle cx="1700" cy="180" r="1.5" fill="#ffffff" opacity="0.6"/>
+  <circle cx="250" cy="300" r="1" fill="#ffffff" opacity="0.5"/>
+  <circle cx="600" cy="250" r="1.5" fill="#ffffff" opacity="0.7"/>
+  <circle cx="1000" cy="200" r="2" fill="#ffffff" opacity="0.9"/>
+  <circle cx="1400" cy="280" r="1" fill="#ffffff" opacity="0.6"/>
+  <circle cx="1800" cy="220" r="1.5" fill="#ffffff" opacity="0.8"/>
+  
+  <!-- Mountain silhouettes -->
+  <polygon points="0,800 300,400 600,650 900,500 1200,700 1500,450 1800,600 1920,550 1920,1080 0,1080" 
+           fill="#0a0515" opacity="0.8"/>
+  <polygon points="0,900 400,600 800,750 1200,650 1600,800 1920,700 1920,1080 0,1080" 
+           fill="#150a25" opacity="0.6"/>
+  
+  <!-- Foreground ground -->
+  <rect x="0" y="950" width="1920" height="130" fill="#0f0a1a" opacity="0.9"/>
+  
+  <!-- Subtle texture overlay -->
+  <rect width="1920" height="1080" fill="url(#noise)" opacity="0.03"/>
+</svg>

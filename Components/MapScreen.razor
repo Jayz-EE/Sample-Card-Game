@@ -1,0 +1,95 @@
+
+<div class="map-screen">
+    <div class="run-status">
+        <div class="status-bar">
+            <span><i class="fi fi-sr-map-marker"></i> Floor: @Run.CurrentFloor/@Run.MaxFloor</span>
+            <span class="hp"><i class="fi fi-sr-heart"></i> HP: @Run.HP/@Run.MaxHP</span>
+            <span class="gold"><i class="fi fi-sr-coins"></i> Gold: @Run.Gold</span>
+            <span><i class="fi fi-sr-playing-cards"></i> Cards: @Run.Deck.Count</span>
+        </div>
+        
+        @if (Run.RelicIds.Count > 0)
+        {
+            <div class="relics">
+                <i class="fi fi-sr-gem"></i> Relics: @string.Join(", ", Run.RelicIds.Select(id => Database.Instance.GetRelic(id)?.Name ?? id))
+            </div>
+        }
+    </div>
+    
+    <h2>Available Paths</h2>
+    <p class="instruction">Choose your next destination</p>
+    
+    <div class="node-list">
+        @if (GetAvailableNodes().Count == 0)
+        {
+            @if (Run.CurrentFloor > Run.Map.Nodes.Max(n => n.Floor))
+            {
+                <div class="completion-message">
+                    <h3>🎉 Congratulations! 🎉</h3>
+                    <p>You have completed this run!</p>
+                    <p>This run was created with an older version. Start a new run to experience all 100 floors!</p>
+                </div>
+            }
+            else
+            {
+                <p class="empty-message">No available paths. This shouldn't happen - please start a new run.</p>
+            }
+        }
+        else
+        {
+            @foreach (var node in GetAvailableNodes())
+            {
+                <button class="node-button @node.Type.ToLower()" @onclick="() => OnNodeSelected.InvokeAsync(node)">
+                    <i class="node-icon @GetNodeIcon(node.Type)"></i>
+                    <span class="node-type">@node.Type</span>
+                </button>
+            }
+        }
+    </div>
+    
+    <div class="actions">
+        <button @onclick="OnViewDeck">View Deck</button>
+        <button @onclick="OnQuit">Quit Run</button>
+    </div>
+</div>
+
+@code {
+    [Parameter] public RunState Run { get; set; } = null!;
+    [Parameter] public EventCallback<MapNode> OnNodeSelected { get; set; }
+    [Parameter] public EventCallback OnViewDeck { get; set; }
+    [Parameter] public EventCallback OnQuit { get; set; }
+    
+    private List<MapNode> GetAvailableNodes()
+    {
+        var nodes = Run.Map.Nodes
+            .Where(n => n.IsAccessible && !n.IsCompleted && n.Floor == Run.CurrentFloor)
+            .ToList();
+        
+        // Safety check: if no nodes available and we're beyond the map, show message
+        if (nodes.Count == 0 && Run.CurrentFloor > Run.Map.Nodes.Max(n => n.Floor))
+        {
+            // Player has completed the run
+            return new List<MapNode>();
+        }
+        
+        return nodes;
+    }
+    
+    private string GetNodeIcon(string nodeType) => nodeType switch
+    {
+        "COMBAT" => "fi fi-sr-sword",
+        "ELITE" => "fi fi-sr-skull-crossbones",
+        "BOSS" => "fi fi-sr-dragon",
+        "EVENT" => "fi fi-sr-book",
+        "SHOP" => "fi fi-sr-shop",
+        "MARKET" => "fi fi-sr-shopping-cart",
+        "BLACK_MARKET" => "fi fi-sr-moon",
+        "REST" => "fi fi-sr-campfire",
+        "CAMP" => "fi fi-sr-tent",
+        "TREASURE" => "fi fi-sr-treasure-chest",
+        "NPC" => "fi fi-sr-user",
+        "TRADER" => "fi fi-sr-handshake",
+        "BLESSING" => "fi fi-sr-magic-wand",
+        _ => "fi fi-sr-interrogation"
+    };
+}

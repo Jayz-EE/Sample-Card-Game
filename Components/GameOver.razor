@@ -1,0 +1,36 @@
+
+<div class="gameover-screen">
+    <h1>@(Run.HP <= 0 ? "YOU HAVE FALLEN" : "RUN COMPLETE")</h1>
+    
+    <div class="stats">
+        <h2>Run Statistics</h2>
+        <div class="stat">Floor Reached: @Run.CurrentFloor/@Run.MaxFloor</div>
+        <div class="stat">HP: @Run.HP/@Run.MaxHP</div>
+        <div class="stat">Gold: @Run.Gold</div>
+        <div class="stat">Combats Won: @Run.TotalCombats</div>
+        <div class="stat">Damage Dealt: @Run.TotalDamageDealt</div>
+        <div class="stat">Damage Taken: @Run.TotalDamageTaken</div>
+        <div class="stat">Cards in Deck: @Run.Deck.Count</div>
+        <div class="stat">Relics: @Run.RelicIds.Count</div>
+        <div class="stat">Blessings: @Run.BlessingIds.Count</div>
+        <div class="stat score">Final Score: @CalculateScore()</div>
+    </div>
+    
+    <button @onclick="OnRestart">Play Again</button>
+</div>
+
+@code {
+    [Parameter] public RunState Run { get; set; } = null!;
+    [Parameter] public EventCallback OnRestart { get; set; }
+    
+    private int CalculateScore()
+    {
+        var score = 0;
+        score += Run.CurrentFloor * 100;
+        score += Run.Gold;
+        score += Run.RelicIds.Count * 50;
+        score += Run.Deck.Count(c => c.IsUpgraded) * 25;
+        score += Run.TotalCombats * 10;
+        return score;
+    }
+}

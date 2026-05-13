@@ -1,0 +1,196 @@
+[
+  {
+    "id": "strike",
+    "name": "Strike",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": ["ATTACK"],
+    "effects": [{ "type": "DAMAGE", "value": 5, "target": "ENEMY" }],
+    "upgradedEffects": [{ "type": "DAMAGE", "value": 8, "target": "ENEMY" }]
+  },
+  {
+    "id": "shield",
+    "name": "Shield",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": ["DEFENSE"],
+    "effects": [{ "type": "SHIELD", "value": 4, "target": "SELF" }],
+    "upgradedEffects": [{ "type": "SHIELD", "value": 7, "target": "SELF" }]
+  },
+  {
+    "id": "heal",
+    "name": "Heal",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": ["HEAL"],
+    "effects": [{ "type": "HEAL", "value": 5, "target": "SELF" }],
+    "upgradedEffects": [{ "type": "HEAL", "value": 8, "target": "SELF" }]
+  },
+  {
+    "id": "draw_two",
+    "name": "Draw Two",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": ["UTILITY"],
+    "effects": [{ "type": "DRAW", "value": 2, "target": "SELF" }],
+    "upgradedEffects": [{ "type": "DRAW", "value": 3, "target": "SELF" }]
+  },
+  {
+    "id": "fireball",
+    "name": "Fireball",
+    "cost": 2,
+    "rarity": "COMMON",
+    "tags": ["ATTACK", "FIRE"],
+    "effects": [{ "type": "DAMAGE", "value": 10, "target": "ENEMY" }],
+    "upgradedEffects": [{ "type": "DAMAGE", "value": 15, "target": "ENEMY" }]
+  },
+  {
+    "id": "power_strike",
+    "name": "Power Strike",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": ["ATTACK"],
+    "effects": [{ "type": "DAMAGE", "value": 12, "target": "ENEMY" }],
+    "upgradedEffects": [{ "type": "DAMAGE", "value": 18, "target": "ENEMY" }]
+  },
+  {
+    "id": "poison_strike",
+    "name": "Poison Strike",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": ["ATTACK", "POISON"],
+    "effects": [
+      { "type": "DAMAGE", "value": 3, "target": "ENEMY" },
+      { "type": "APPLY_STATUS", "statusType": "POISON", "value": 3, "duration": 3, "target": "ENEMY" }
+    ],
+    "upgradedEffects": [
+      { "type": "DAMAGE", "value": 5, "target": "ENEMY" },
+      { "type": "APPLY_STATUS", "statusType": "POISON", "value": 5, "duration": 3, "target": "ENEMY" }
+    ]
+  },
+  {
+    "id": "curse",
+    "name": "Curse",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": ["DEBUFF"],
+    "effects": [
+      { "type": "APPLY_STATUS", "statusType": "WEAK", "value": 2, "duration": 2, "target": "ENEMY" }
+    ],
+    "upgradedEffects": [
+      { "type": "APPLY_STATUS", "statusType": "WEAK", "value": 3, "duration": 3, "target": "ENEMY" }
+    ]
+  },
+  {
+    "id": "inferno",
+    "name": "Inferno",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": ["ATTACK", "FIRE"],
+    "effects": [{ "type": "DAMAGE", "value": 20, "target": "ENEMY" }],
+    "upgradedEffects": [{ "type": "DAMAGE", "value": 28, "target": "ENEMY" }]
+  },
+  {
+    "id": "fortify",
+    "name": "Fortify",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": ["DEFENSE"],
+    "effects": [
+      { "type": "SHIELD", "value": 8, "target": "SELF" },
+      { "type": "APPLY_STATUS", "statusType": "STRENGTH", "value": 1, "duration": 2, "target": "SELF" }
+    ],
+    "upgradedEffects": [
+      { "type": "SHIELD", "value": 12, "target": "SELF" },
+      { "type": "APPLY_STATUS", "statusType": "STRENGTH", "value": 2, "duration": 2, "target": "SELF" }
+    ]
+  },
+  {
+    "id": "meditation",
+    "name": "Meditation",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": ["UTILITY"],
+    "effects": [
+      { "type": "DRAW", "value": 2, "target": "SELF" },
+      { "type": "GAIN_ENERGY", "value": 1 }
+    ],
+    "upgradedEffects": [
+      { "type": "DRAW", "value": 3, "target": "SELF" },
+      { "type": "GAIN_ENERGY", "value": 1 }
+    ]
+  },
+  {
+    "id": "cleave",
+    "name": "Cleave",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": ["ATTACK"],
+    "effects": [{ "type": "DAMAGE", "value": 7, "target": "ENEMY" }],
+    "upgradedEffects": [{ "type": "DAMAGE", "value": 11, "target": "ENEMY" }]
+  },
+  {
+    "id": "regenerate",
+    "name": "Regenerate",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": ["HEAL"],
+    "effects": [
+      { "type": "APPLY_STATUS", "statusType": "REGENERATION", "value": 3, "duration": 3, "target": "SELF" }
+    ],
+    "upgradedEffects": [
+      { "type": "APPLY_STATUS", "statusType": "REGENERATION", "value": 5, "duration": 3, "target": "SELF" }
+    ]
+  },
+  {
+    "id": "execute",
+    "name": "Execute",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": ["ATTACK"],
+    "effects": [{ "type": "EXECUTE", "threshold": 30, "damage": 25, "target": "ENEMY" }],
+    "upgradedEffects": [{ "type": "EXECUTE", "threshold": 40, "damage": 35, "target": "ENEMY" }]
+  },
+  {
+    "id": "summon",
+    "name": "Summon Minion",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": ["SUMMON"],
+    "effects": [{ "type": "SUMMON", "value": 10, "target": "SELF" }],
+    "upgradedEffects": [{ "type": "SUMMON", "value": 15, "target": "SELF" }]
+  },
+  {
+    "id": "vampiric_strike",
+    "name": "Vampiric Strike",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": ["ATTACK"],
+    "effects": [
+      { "type": "DAMAGE", "value": 8, "target": "ENEMY" },
+      { "type": "LIFESTEAL", "percentage": 50 }
+    ],
+    "upgradedEffects": [
+      { "type": "DAMAGE", "value": 12, "target": "ENEMY" },
+      { "type": "LIFESTEAL", "percentage": 75 }
+    ]
+  },
+  {
+    "id": "blight",
+    "name": "Blight",
+    "cost": 0,
+    "rarity": "CURSE",
+    "tags": ["CURSE"],
+    "effects": [{ "type": "UNPLAYABLE" }],
+    "upgradedEffects": []
+  },
+  {
+    "id": "despair",
+    "name": "Despair",
+    "cost": 3,
+    "rarity": "CURSE",
+    "tags": ["CURSE"],
+    "effects": [],
+    "upgradedEffects": []
+  }
+]

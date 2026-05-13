@@ -1,0 +1,21 @@
+
+<div class="arcana-selection">
+    <h1><i class="fi fi-sr-sword"></i> ROGUELIKE CARD GAME <i class="fi fi-sr-sword"></i></h1>
+    <h2>Choose your Arcana</h2>
+    <p class="subtitle">Each Arcana has unique starting stats and abilities</p>
+    
+    <div class="arcana-list">
+        @foreach (var arcana in Database.Instance.Arcanas.Values)
+        {
+            <div class="arcana-card" @onclick="() => OnArcanaSelected.InvokeAsync(arcana.Id)">
+                <h3>@arcana.Name</h3>
+                <p class="arcana-stats"><i class="fi fi-sr-heart"></i> HP: @arcana.StartingHP | <i class="fi fi-sr-coins"></i> Gold: @arcana.StartingGold</p>
+                <p class="arcana-desc">@arcana.Description</p>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter] public EventCallback<string> OnArcanaSelected { get; set; }
+}

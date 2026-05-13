@@ -1,0 +1,8876 @@
+[
+  {
+    "id": "strike",
+    "name": "Strike",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "ATTACK"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 5,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 8,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "shield",
+    "name": "Shield",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "DEFENSE"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 4,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 7,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "heal",
+    "name": "Heal",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "HEAL"
+    ],
+    "effects": [
+      {
+        "type": "HEAL",
+        "value": 5,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "HEAL",
+        "value": 8,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "draw_two",
+    "name": "Draw Two",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "UTILITY"
+    ],
+    "effects": [
+      {
+        "type": "DRAW",
+        "value": 2,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DRAW",
+        "value": 3,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "fireball",
+    "name": "Fireball",
+    "cost": 2,
+    "rarity": "COMMON",
+    "tags": [
+      "ATTACK",
+      "FIRE"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 10,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 15,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "power_strike",
+    "name": "Power Strike",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "ATTACK"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 12,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 18,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "poison_strike",
+    "name": "Poison Strike",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "ATTACK",
+      "POISON"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 3,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 3,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 5,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 5,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "curse",
+    "name": "Curse",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "DEBUFF"
+    ],
+    "effects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "WEAK",
+        "value": 2,
+        "duration": 2,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "WEAK",
+        "value": 3,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "inferno",
+    "name": "Inferno",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK",
+      "FIRE"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 20,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 28,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "fortify",
+    "name": "Fortify",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "DEFENSE"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 8,
+        "target": "SELF"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "STRENGTH",
+        "value": 1,
+        "duration": 2,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 12,
+        "target": "SELF"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "STRENGTH",
+        "value": 2,
+        "duration": 2,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "meditation",
+    "name": "Meditation",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "UTILITY"
+    ],
+    "effects": [
+      {
+        "type": "DRAW",
+        "value": 2,
+        "target": "SELF"
+      },
+      {
+        "type": "GAIN_ENERGY",
+        "value": 1
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DRAW",
+        "value": 3,
+        "target": "SELF"
+      },
+      {
+        "type": "GAIN_ENERGY",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "cleave",
+    "name": "Cleave",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "ATTACK"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 7,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 11,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "regenerate",
+    "name": "Regenerate",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "HEAL"
+    ],
+    "effects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "REGENERATION",
+        "value": 3,
+        "duration": 3,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "REGENERATION",
+        "value": 5,
+        "duration": 3,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "execute",
+    "name": "Execute",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK"
+    ],
+    "effects": [
+      {
+        "type": "EXECUTE",
+        "threshold": 30,
+        "damage": 25,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "EXECUTE",
+        "threshold": 40,
+        "damage": 35,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "summon",
+    "name": "Summon Minion",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "SUMMON"
+    ],
+    "effects": [
+      {
+        "type": "SUMMON",
+        "value": 10,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SUMMON",
+        "value": 15,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "vampiric_strike",
+    "name": "Vampiric Strike",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 8,
+        "target": "ENEMY"
+      },
+      {
+        "type": "LIFESTEAL",
+        "percentage": 50
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 12,
+        "target": "ENEMY"
+      },
+      {
+        "type": "LIFESTEAL",
+        "percentage": 75
+      }
+    ]
+  },
+  {
+    "id": "blight",
+    "name": "Blight",
+    "cost": 0,
+    "rarity": "CURSE",
+    "tags": [
+      "CURSE"
+    ],
+    "effects": [
+      {
+        "type": "UNPLAYABLE"
+      }
+    ],
+    "upgradedEffects": []
+  },
+  {
+    "id": "despair",
+    "name": "Despair",
+    "cost": 3,
+    "rarity": "CURSE",
+    "tags": [
+      "CURSE"
+    ],
+    "effects": [],
+    "upgradedEffects": []
+  },
+  {
+    "id": "pyro_ember",
+    "name": "Ember",
+    "cost": 0,
+    "rarity": "COMMON",
+    "tags": [
+      "ATTACK",
+      "FIRE",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 3,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 5,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "pyro_flame_strike",
+    "name": "Flame Strike",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "ATTACK",
+      "FIRE",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 6,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 9,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "pyro_scorch",
+    "name": "Scorch",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "ATTACK",
+      "FIRE",
+      "MAGIC",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 4,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 2,
+        "duration": 2,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 6,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 3,
+        "duration": 2,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "pyro_ignite",
+    "name": "Ignite",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "MAGIC",
+      "FIRE",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "BURN",
+        "value": 3,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "BURN",
+        "value": 5,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "pyro_fire_shield",
+    "name": "Fire Shield",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "DEFENSE",
+      "FIRE",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 5,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 8,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "pyro_blazing_bolt",
+    "name": "Blazing Bolt",
+    "cost": 2,
+    "rarity": "COMMON",
+    "tags": [
+      "ATTACK",
+      "FIRE",
+      "MAGIC",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 11,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 16,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "pyro_flame_burst",
+    "name": "Flame Burst",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "ATTACK",
+      "FIRE",
+      "MAGIC",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 8,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 4,
+        "duration": 2,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 12,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 6,
+        "duration": 2,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "pyro_incinerate",
+    "name": "Incinerate",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "ATTACK",
+      "FIRE",
+      "MAGIC",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 14,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DRAW",
+        "value": 1,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 20,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DRAW",
+        "value": 1,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "pyro_heat_wave",
+    "name": "Heat Wave",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "MAGIC",
+      "FIRE",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "BURN",
+        "value": 2,
+        "duration": 4,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 3,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "BURN",
+        "value": 3,
+        "duration": 4,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 5,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "pyro_molten_armor",
+    "name": "Molten Armor",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "DEFENSE",
+      "FIRE",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 10,
+        "target": "SELF"
+      },
+      {
+        "type": "BURN",
+        "value": 2,
+        "duration": 2,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 15,
+        "target": "SELF"
+      },
+      {
+        "type": "BURN",
+        "value": 3,
+        "duration": 2,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "pyro_fire_surge",
+    "name": "Fire Surge",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "UTILITY",
+      "FIRE",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "ENERGY_SURGE",
+        "value": 1,
+        "duration": 1,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 1,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "ENERGY_SURGE",
+        "value": 2,
+        "duration": 1,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 1,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "pyro_combustion",
+    "name": "Combustion",
+    "cost": 3,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "ATTACK",
+      "FIRE",
+      "MAGIC",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 18,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 3,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 25,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 5,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "pyro_flame_dance",
+    "name": "Flame Dance",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "ATTACK",
+      "FIRE",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 5,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DAMAGE",
+        "value": 5,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 7,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DAMAGE",
+        "value": 7,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "pyro_wildfire",
+    "name": "Wildfire",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "MAGIC",
+      "FIRE",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "BURN",
+        "value": 5,
+        "duration": 3,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DISCARD",
+        "value": 1,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "BURN",
+        "value": 7,
+        "duration": 3,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DISCARD",
+        "value": 1,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "pyro_phoenix_feather",
+    "name": "Phoenix Feather",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "HEAL",
+      "FIRE",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "HEAL",
+        "value": 6,
+        "target": "SELF"
+      },
+      {
+        "type": "BURN",
+        "value": 2,
+        "duration": 2,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "HEAL",
+        "value": 10,
+        "target": "SELF"
+      },
+      {
+        "type": "BURN",
+        "value": 3,
+        "duration": 2,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "pyro_inferno_blast",
+    "name": "Inferno Blast",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK",
+      "FIRE",
+      "MAGIC",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 22,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 5,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 30,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 7,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "pyro_meteor",
+    "name": "Meteor",
+    "cost": 4,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK",
+      "FIRE",
+      "MAGIC",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 30,
+        "target": "ENEMY"
+      },
+      {
+        "type": "STUN",
+        "value": 1,
+        "duration": 1,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 40,
+        "target": "ENEMY"
+      },
+      {
+        "type": "STUN",
+        "value": 1,
+        "duration": 1,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "pyro_flame_wall",
+    "name": "Flame Wall",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "DEFENSE",
+      "FIRE",
+      "MAGIC",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 12,
+        "target": "SELF"
+      },
+      {
+        "type": "BURN",
+        "value": 4,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 18,
+        "target": "SELF"
+      },
+      {
+        "type": "BURN",
+        "value": 6,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "pyro_immolate",
+    "name": "Immolate",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "MAGIC",
+      "FIRE",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "BURN",
+        "value": 8,
+        "duration": 4,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "BURN",
+        "value": 12,
+        "duration": 4,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "pyro_fire_mastery",
+    "name": "Fire Mastery",
+    "cost": 1,
+    "rarity": "RARE",
+    "tags": [
+      "UTILITY",
+      "FIRE",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "ENERGY_CHARGE",
+        "value": 1,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 2,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "ENERGY_CHARGE",
+        "value": 1,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 3,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "pyro_pyroclasm",
+    "name": "Pyroclasm",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK",
+      "FIRE",
+      "MAGIC",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 15,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 6,
+        "duration": 3,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DRAW",
+        "value": 1,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 22,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 9,
+        "duration": 3,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DRAW",
+        "value": 1,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "pyro_solar_flare",
+    "name": "Solar Flare",
+    "cost": 4,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK",
+      "FIRE",
+      "MAGIC",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 25,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 5,
+        "duration": 4,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 8,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 35,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 7,
+        "duration": 4,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 12,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "pyro_flame_vortex",
+    "name": "Flame Vortex",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK",
+      "FIRE",
+      "MAGIC",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 10,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 3,
+        "duration": 3,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DISCARD",
+        "value": 1,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 15,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 5,
+        "duration": 3,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DISCARD",
+        "value": 2,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "pyro_burning_rage",
+    "name": "Burning Rage",
+    "cost": 1,
+    "rarity": "RARE",
+    "tags": [
+      "UTILITY",
+      "FIRE",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "STRENGTH",
+        "value": 3,
+        "duration": 3,
+        "target": "SELF"
+      },
+      {
+        "type": "BURN",
+        "value": 2,
+        "duration": 2,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "STRENGTH",
+        "value": 5,
+        "duration": 3,
+        "target": "SELF"
+      },
+      {
+        "type": "BURN",
+        "value": 1,
+        "duration": 2,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "pyro_phoenix_rebirth",
+    "name": "Phoenix Rebirth",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "HEAL",
+      "FIRE",
+      "MAGIC",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "HEAL",
+        "value": 15,
+        "target": "SELF"
+      },
+      {
+        "type": "BURN",
+        "value": 5,
+        "duration": 3,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DRAW",
+        "value": 2,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "HEAL",
+        "value": 25,
+        "target": "SELF"
+      },
+      {
+        "type": "BURN",
+        "value": 7,
+        "duration": 3,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DRAW",
+        "value": 2,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "pyro_dragon_breath",
+    "name": "Dragon's Breath",
+    "cost": 5,
+    "rarity": "EPIC",
+    "tags": [
+      "ATTACK",
+      "FIRE",
+      "MAGIC",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 35,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 10,
+        "duration": 4,
+        "target": "ENEMY"
+      },
+      {
+        "type": "STUN",
+        "value": 1,
+        "duration": 1,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 50,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 15,
+        "duration": 4,
+        "target": "ENEMY"
+      },
+      {
+        "type": "STUN",
+        "value": 1,
+        "duration": 1,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "pyro_supernova",
+    "name": "Supernova",
+    "cost": 4,
+    "rarity": "EPIC",
+    "tags": [
+      "ATTACK",
+      "FIRE",
+      "MAGIC",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 28,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 8,
+        "duration": 5,
+        "target": "ENEMY"
+      },
+      {
+        "type": "ENERGY_SURGE",
+        "value": 2,
+        "duration": 1,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 40,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 12,
+        "duration": 5,
+        "target": "ENEMY"
+      },
+      {
+        "type": "ENERGY_SURGE",
+        "value": 3,
+        "duration": 1,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "pyro_eternal_flame",
+    "name": "Eternal Flame",
+    "cost": 3,
+    "rarity": "EPIC",
+    "tags": [
+      "MAGIC",
+      "FIRE",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "BURN",
+        "value": 6,
+        "duration": 999,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 10,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "BURN",
+        "value": 10,
+        "duration": 999,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 15,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "pyro_flame_emperor",
+    "name": "Flame Emperor",
+    "cost": 4,
+    "rarity": "EPIC",
+    "tags": [
+      "UTILITY",
+      "FIRE",
+      "MAGIC",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "ENERGY_CHARGE",
+        "value": 2,
+        "target": "SELF"
+      },
+      {
+        "type": "BURN",
+        "value": 5,
+        "duration": 3,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DRAW",
+        "value": 3,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "ENERGY_CHARGE",
+        "value": 3,
+        "target": "SELF"
+      },
+      {
+        "type": "BURN",
+        "value": 7,
+        "duration": 3,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DRAW",
+        "value": 4,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "pyro_apocalypse",
+    "name": "Apocalypse",
+    "cost": 6,
+    "rarity": "EPIC",
+    "tags": [
+      "ATTACK",
+      "FIRE",
+      "MAGIC",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 45,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 15,
+        "duration": 5,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DISCARD",
+        "value": 2,
+        "target": "ENEMY"
+      },
+      {
+        "type": "STUN",
+        "value": 1,
+        "duration": 1,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 65,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 20,
+        "duration": 5,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DISCARD",
+        "value": 3,
+        "target": "ENEMY"
+      },
+      {
+        "type": "STUN",
+        "value": 1,
+        "duration": 1,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "pyro_cinder",
+    "name": "Cinder",
+    "cost": 0,
+    "rarity": "COMMON",
+    "tags": [
+      "ATTACK",
+      "FIRE",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 2,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 1,
+        "duration": 1,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 4,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 2,
+        "duration": 1,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "pyro_ash_cloud",
+    "name": "Ash Cloud",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "MAGIC",
+      "FIRE",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "WEAK",
+        "value": 1,
+        "duration": 2,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 1,
+        "duration": 2,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "WEAK",
+        "value": 2,
+        "duration": 2,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 2,
+        "duration": 2,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "pyro_spark",
+    "name": "Spark",
+    "cost": 0,
+    "rarity": "COMMON",
+    "tags": [
+      "ATTACK",
+      "FIRE",
+      "MAGIC",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 4,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 7,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "pyro_flame_shield",
+    "name": "Flame Shield",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "DEFENSE",
+      "FIRE",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 6,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 10,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "pyro_fire_bolt",
+    "name": "Fire Bolt",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "ATTACK",
+      "FIRE",
+      "MAGIC",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 7,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 11,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "pyro_smolder",
+    "name": "Smolder",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "MAGIC",
+      "FIRE",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "BURN",
+        "value": 4,
+        "duration": 2,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "BURN",
+        "value": 6,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "pyro_flame_lance",
+    "name": "Flame Lance",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "ATTACK",
+      "FIRE",
+      "MAGIC",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 13,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 2,
+        "duration": 2,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 19,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 3,
+        "duration": 2,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "pyro_fire_storm",
+    "name": "Fire Storm",
+    "cost": 3,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "ATTACK",
+      "FIRE",
+      "MAGIC",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 16,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 4,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 24,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 6,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "pyro_magma_wave",
+    "name": "Magma Wave",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "ATTACK",
+      "FIRE",
+      "MAGIC",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 9,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 3,
+        "duration": 3,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 4,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 14,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 5,
+        "duration": 3,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 6,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "pyro_blazing_speed",
+    "name": "Blazing Speed",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "UTILITY",
+      "FIRE",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "DRAW",
+        "value": 2,
+        "target": "SELF"
+      },
+      {
+        "type": "ENERGY_SURGE",
+        "value": 1,
+        "duration": 1,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DRAW",
+        "value": 3,
+        "target": "SELF"
+      },
+      {
+        "type": "ENERGY_SURGE",
+        "value": 1,
+        "duration": 1,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "pyro_lava_burst",
+    "name": "Lava Burst",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK",
+      "FIRE",
+      "MAGIC",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 12,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 5,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 18,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 8,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "pyro_fire_nova",
+    "name": "Fire Nova",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK",
+      "FIRE",
+      "MAGIC",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 20,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 4,
+        "duration": 4,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 6,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 28,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 6,
+        "duration": 4,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 10,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "pyro_flame_whip",
+    "name": "Flame Whip",
+    "cost": 1,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK",
+      "FIRE",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 6,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DAMAGE",
+        "value": 6,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 2,
+        "duration": 2,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 9,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DAMAGE",
+        "value": 9,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 3,
+        "duration": 2,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "pyro_infernal_pact",
+    "name": "Infernal Pact",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "UTILITY",
+      "FIRE",
+      "MAGIC",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "ENERGY_CHARGE",
+        "value": 1,
+        "target": "SELF"
+      },
+      {
+        "type": "BURN",
+        "value": 3,
+        "duration": 3,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DRAW",
+        "value": 2,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "ENERGY_CHARGE",
+        "value": 2,
+        "target": "SELF"
+      },
+      {
+        "type": "BURN",
+        "value": 4,
+        "duration": 3,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DRAW",
+        "value": 3,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "pyro_volcanic_eruption",
+    "name": "Volcanic Eruption",
+    "cost": 4,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK",
+      "FIRE",
+      "MAGIC",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 26,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 7,
+        "duration": 4,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DISCARD",
+        "value": 1,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 38,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 10,
+        "duration": 4,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DISCARD",
+        "value": 2,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "pyro_flame_spirit",
+    "name": "Flame Spirit",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "SUMMON",
+      "FIRE",
+      "MAGIC",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "SUMMON",
+        "value": 12,
+        "target": "SELF"
+      },
+      {
+        "type": "BURN",
+        "value": 3,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SUMMON",
+        "value": 18,
+        "target": "SELF"
+      },
+      {
+        "type": "BURN",
+        "value": 5,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "pyro_sun_strike",
+    "name": "Sun Strike",
+    "cost": 3,
+    "rarity": "EPIC",
+    "tags": [
+      "ATTACK",
+      "FIRE",
+      "MAGIC",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 24,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 6,
+        "duration": 4,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 8,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 34,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 9,
+        "duration": 4,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 12,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "pyro_hellfire",
+    "name": "Hellfire",
+    "cost": 5,
+    "rarity": "EPIC",
+    "tags": [
+      "ATTACK",
+      "FIRE",
+      "MAGIC",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 32,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 12,
+        "duration": 5,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "WEAK",
+        "value": 3,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 45,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 18,
+        "duration": 5,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "WEAK",
+        "value": 5,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "pyro_flame_god",
+    "name": "Flame God",
+    "cost": 6,
+    "rarity": "EPIC",
+    "tags": [
+      "UTILITY",
+      "FIRE",
+      "MAGIC",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "ENERGY_CHARGE",
+        "value": 3,
+        "target": "SELF"
+      },
+      {
+        "type": "BURN",
+        "value": 10,
+        "duration": 5,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 15,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 3,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "ENERGY_CHARGE",
+        "value": 4,
+        "target": "SELF"
+      },
+      {
+        "type": "BURN",
+        "value": 15,
+        "duration": 5,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 20,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 4,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "pyro_armageddon",
+    "name": "Armageddon",
+    "cost": 7,
+    "rarity": "EPIC",
+    "tags": [
+      "ATTACK",
+      "FIRE",
+      "MAGIC",
+      "PYROMANCER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 50,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 20,
+        "duration": 6,
+        "target": "ENEMY"
+      },
+      {
+        "type": "STUN",
+        "value": 1,
+        "duration": 2,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DISCARD",
+        "value": 3,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 75,
+        "target": "ENEMY"
+      },
+      {
+        "type": "BURN",
+        "value": 30,
+        "duration": 6,
+        "target": "ENEMY"
+      },
+      {
+        "type": "STUN",
+        "value": 1,
+        "duration": 2,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DISCARD",
+        "value": 5,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "cleric_mend",
+    "name": "Mend",
+    "cost": 0,
+    "rarity": "COMMON",
+    "tags": [
+      "HEAL",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "HEAL",
+        "value": 3,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "HEAL",
+        "value": 5,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_smite",
+    "name": "Smite",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "ATTACK",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 6,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 9,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "cleric_blessing",
+    "name": "Blessing",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "HEAL",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "HEAL",
+        "value": 6,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "HEAL",
+        "value": 10,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_holy_shield",
+    "name": "Holy Shield",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "DEFENSE",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 6,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 10,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_purify",
+    "name": "Purify",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "HEAL",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "CURE",
+        "value": 1,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "CURE",
+        "value": 2,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_light_ray",
+    "name": "Light Ray",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "ATTACK",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 5,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 2,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 8,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 3,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_prayer",
+    "name": "Prayer",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "HEAL",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "HEAL",
+        "value": 4,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 1,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "HEAL",
+        "value": 7,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 1,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_divine_touch",
+    "name": "Divine Touch",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "HEAL",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "HEAL",
+        "value": 10,
+        "target": "SELF"
+      },
+      {
+        "type": "SHIELD",
+        "value": 5,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "HEAL",
+        "value": 15,
+        "target": "SELF"
+      },
+      {
+        "type": "SHIELD",
+        "value": 8,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_holy_strike",
+    "name": "Holy Strike",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "ATTACK",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 12,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 4,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 18,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 6,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_cleanse",
+    "name": "Cleanse",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "HEAL",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "CURE",
+        "value": 2,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 5,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "CURE",
+        "value": 3,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 8,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_sanctuary",
+    "name": "Sanctuary",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "DEFENSE",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 12,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 1,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 18,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 2,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_radiance",
+    "name": "Radiance",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "ATTACK",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 10,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 5,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 1,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 15,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 8,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 1,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_divine_favor",
+    "name": "Divine Favor",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "UTILITY",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "ENERGY_SURGE",
+        "value": 1,
+        "duration": 1,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 3,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "ENERGY_SURGE",
+        "value": 2,
+        "duration": 1,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 5,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_holy_light",
+    "name": "Holy Light",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "ATTACK",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 14,
+        "target": "ENEMY"
+      },
+      {
+        "type": "CURE",
+        "value": 1,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 20,
+        "target": "ENEMY"
+      },
+      {
+        "type": "CURE",
+        "value": 2,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_regeneration",
+    "name": "Regeneration",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "HEAL",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "REGENERATION",
+        "value": 4,
+        "duration": 3,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "REGENERATION",
+        "value": 6,
+        "duration": 4,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_divine_wrath",
+    "name": "Divine Wrath",
+    "cost": 3,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "ATTACK",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 18,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 6,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 26,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 10,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_sacred_flame",
+    "name": "Sacred Flame",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "ATTACK",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 11,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 6,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 16,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 10,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_holy_water",
+    "name": "Holy Water",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "HEAL",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "HEAL",
+        "value": 7,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 1,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "HEAL",
+        "value": 12,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 2,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_divine_protection",
+    "name": "Divine Protection",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "DEFENSE",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 10,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 5,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 15,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 8,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_blessed_strike",
+    "name": "Blessed Strike",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "ATTACK",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 8,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 3,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 12,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 5,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_miracle",
+    "name": "Miracle",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "HEAL",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "HEAL",
+        "value": 20,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 3,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "HEAL",
+        "value": 30,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 5,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_judgment",
+    "name": "Judgment",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 22,
+        "target": "ENEMY"
+      },
+      {
+        "type": "STUN",
+        "value": 1,
+        "duration": 1,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 32,
+        "target": "ENEMY"
+      },
+      {
+        "type": "STUN",
+        "value": 1,
+        "duration": 1,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "cleric_divine_intervention",
+    "name": "Divine Intervention",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "HEAL",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "HEAL",
+        "value": 15,
+        "target": "SELF"
+      },
+      {
+        "type": "SHIELD",
+        "value": 10,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 2,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "HEAL",
+        "value": 25,
+        "target": "SELF"
+      },
+      {
+        "type": "SHIELD",
+        "value": 15,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 3,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_holy_nova",
+    "name": "Holy Nova",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 16,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 10,
+        "target": "SELF"
+      },
+      {
+        "type": "SHIELD",
+        "value": 6,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 24,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 15,
+        "target": "SELF"
+      },
+      {
+        "type": "SHIELD",
+        "value": 10,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_resurrection",
+    "name": "Resurrection",
+    "cost": 4,
+    "rarity": "RARE",
+    "tags": [
+      "HEAL",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "HEAL",
+        "value": 25,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 5,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 2,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "HEAL",
+        "value": 40,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 10,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 3,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_divine_power",
+    "name": "Divine Power",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "UTILITY",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "ENERGY_CHARGE",
+        "value": 1,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 8,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "ENERGY_CHARGE",
+        "value": 2,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 12,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_holy_fire",
+    "name": "Holy Fire",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 20,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 8,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 1,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 30,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 12,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 2,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_sacred_ground",
+    "name": "Sacred Ground",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "DEFENSE",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 15,
+        "target": "SELF"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "REGENERATION",
+        "value": 3,
+        "duration": 3,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 22,
+        "target": "SELF"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "REGENERATION",
+        "value": 5,
+        "duration": 4,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_divine_shield",
+    "name": "Divine Shield",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "DEFENSE",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 20,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 2,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 30,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 4,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_angelic_blessing",
+    "name": "Angelic Blessing",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "HEAL",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "HEAL",
+        "value": 12,
+        "target": "SELF"
+      },
+      {
+        "type": "SHIELD",
+        "value": 8,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 1,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "HEAL",
+        "value": 18,
+        "target": "SELF"
+      },
+      {
+        "type": "SHIELD",
+        "value": 12,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 2,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_smite_evil",
+    "name": "Smite Evil",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 15,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 7,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 22,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 11,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_holy_aura",
+    "name": "Holy Aura",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "DEFENSE",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 14,
+        "target": "SELF"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "REGENERATION",
+        "value": 4,
+        "duration": 4,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 20,
+        "target": "SELF"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "REGENERATION",
+        "value": 6,
+        "duration": 5,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_divine_grace",
+    "name": "Divine Grace",
+    "cost": 1,
+    "rarity": "RARE",
+    "tags": [
+      "HEAL",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "HEAL",
+        "value": 10,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 2,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 1,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "HEAL",
+        "value": 16,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 3,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 2,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_heavenly_strike",
+    "name": "Heavenly Strike",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 24,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 10,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 35,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 15,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_sanctify",
+    "name": "Sanctify",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "HEAL",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "HEAL",
+        "value": 14,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 3,
+        "target": "SELF"
+      },
+      {
+        "type": "SHIELD",
+        "value": 6,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "HEAL",
+        "value": 22,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 5,
+        "target": "SELF"
+      },
+      {
+        "type": "SHIELD",
+        "value": 10,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_angel_summon",
+    "name": "Summon Angel",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "SUMMON",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "SUMMON",
+        "value": 15,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 8,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SUMMON",
+        "value": 22,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 12,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_divine_ascension",
+    "name": "Divine Ascension",
+    "cost": 4,
+    "rarity": "EPIC",
+    "tags": [
+      "HEAL",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "HEAL",
+        "value": 30,
+        "target": "SELF"
+      },
+      {
+        "type": "SHIELD",
+        "value": 15,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 5,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 2,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "HEAL",
+        "value": 45,
+        "target": "SELF"
+      },
+      {
+        "type": "SHIELD",
+        "value": 22,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 10,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 3,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_holy_crusade",
+    "name": "Holy Crusade",
+    "cost": 4,
+    "rarity": "EPIC",
+    "tags": [
+      "ATTACK",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 28,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 15,
+        "target": "SELF"
+      },
+      {
+        "type": "SHIELD",
+        "value": 10,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 40,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 22,
+        "target": "SELF"
+      },
+      {
+        "type": "SHIELD",
+        "value": 15,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_divine_judgment",
+    "name": "Divine Judgment",
+    "cost": 5,
+    "rarity": "EPIC",
+    "tags": [
+      "ATTACK",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 35,
+        "target": "ENEMY"
+      },
+      {
+        "type": "STUN",
+        "value": 1,
+        "duration": 2,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 12,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 50,
+        "target": "ENEMY"
+      },
+      {
+        "type": "STUN",
+        "value": 1,
+        "duration": 2,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 18,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_eternal_light",
+    "name": "Eternal Light",
+    "cost": 3,
+    "rarity": "EPIC",
+    "tags": [
+      "HEAL",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "REGENERATION",
+        "value": 8,
+        "duration": 999,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 3,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "REGENERATION",
+        "value": 12,
+        "duration": 999,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 5,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_gods_wrath",
+    "name": "God's Wrath",
+    "cost": 5,
+    "rarity": "EPIC",
+    "tags": [
+      "ATTACK",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 40,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 20,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 3,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 60,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 30,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 5,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_divine_fortress",
+    "name": "Divine Fortress",
+    "cost": 4,
+    "rarity": "EPIC",
+    "tags": [
+      "DEFENSE",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 30,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 15,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 3,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 45,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 22,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 5,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_heavens_blessing",
+    "name": "Heaven's Blessing",
+    "cost": 3,
+    "rarity": "EPIC",
+    "tags": [
+      "UTILITY",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "ENERGY_CHARGE",
+        "value": 2,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 15,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 2,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 2,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "ENERGY_CHARGE",
+        "value": 3,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 25,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 4,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 3,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_seraphim",
+    "name": "Seraphim",
+    "cost": 5,
+    "rarity": "EPIC",
+    "tags": [
+      "SUMMON",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "SUMMON",
+        "value": 25,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 15,
+        "target": "SELF"
+      },
+      {
+        "type": "SHIELD",
+        "value": 12,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SUMMON",
+        "value": 35,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 25,
+        "target": "SELF"
+      },
+      {
+        "type": "SHIELD",
+        "value": 18,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_divine_salvation",
+    "name": "Divine Salvation",
+    "cost": 6,
+    "rarity": "EPIC",
+    "tags": [
+      "HEAL",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "HEAL",
+        "value": 40,
+        "target": "SELF"
+      },
+      {
+        "type": "SHIELD",
+        "value": 20,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 10,
+        "target": "SELF"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "REGENERATION",
+        "value": 10,
+        "duration": 5,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "HEAL",
+        "value": 60,
+        "target": "SELF"
+      },
+      {
+        "type": "SHIELD",
+        "value": 30,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 20,
+        "target": "SELF"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "REGENERATION",
+        "value": 15,
+        "duration": 5,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_holy_apocalypse",
+    "name": "Holy Apocalypse",
+    "cost": 6,
+    "rarity": "EPIC",
+    "tags": [
+      "ATTACK",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 45,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 25,
+        "target": "SELF"
+      },
+      {
+        "type": "STUN",
+        "value": 1,
+        "duration": 2,
+        "target": "ENEMY"
+      },
+      {
+        "type": "CURE",
+        "value": 5,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 70,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 40,
+        "target": "SELF"
+      },
+      {
+        "type": "STUN",
+        "value": 1,
+        "duration": 2,
+        "target": "ENEMY"
+      },
+      {
+        "type": "CURE",
+        "value": 10,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_gods_mercy",
+    "name": "God's Mercy",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "HEAL",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "HEAL",
+        "value": 16,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 2,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "HEAL",
+        "value": 25,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 4,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_holy_barrier",
+    "name": "Holy Barrier",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "DEFENSE",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 16,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 6,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 24,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 10,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_divine_retribution",
+    "name": "Divine Retribution",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 18,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 9,
+        "target": "SELF"
+      },
+      {
+        "type": "SHIELD",
+        "value": 6,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 27,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 14,
+        "target": "SELF"
+      },
+      {
+        "type": "SHIELD",
+        "value": 10,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "cleric_sacred_vow",
+    "name": "Sacred Vow",
+    "cost": 1,
+    "rarity": "RARE",
+    "tags": [
+      "UTILITY",
+      "MAGIC",
+      "CLERIC"
+    ],
+    "effects": [
+      {
+        "type": "ENERGY_SURGE",
+        "value": 2,
+        "duration": 1,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 5,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "ENERGY_SURGE",
+        "value": 3,
+        "duration": 1,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 8,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "rogue_quick_strike",
+    "name": "Quick Strike",
+    "cost": 0,
+    "rarity": "COMMON",
+    "tags": [
+      "ATTACK",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 4,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 6,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "rogue_poison_dart",
+    "name": "Poison Dart",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "ATTACK",
+      "POISON",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 3,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 2,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 5,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 3,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "rogue_backstab",
+    "name": "Backstab",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "ATTACK",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 8,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 12,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "rogue_evade",
+    "name": "Evade",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "DEFENSE",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 5,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 1,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 8,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 1,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "rogue_shiv",
+    "name": "Shiv",
+    "cost": 0,
+    "rarity": "COMMON",
+    "tags": [
+      "ATTACK",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 3,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DRAW",
+        "value": 1,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 5,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DRAW",
+        "value": 1,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "rogue_venom_blade",
+    "name": "Venom Blade",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "ATTACK",
+      "POISON",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 5,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 3,
+        "duration": 2,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 8,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 5,
+        "duration": 2,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "rogue_shadow_step",
+    "name": "Shadow Step",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "UTILITY",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DRAW",
+        "value": 2,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DRAW",
+        "value": 3,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "rogue_deadly_poison",
+    "name": "Deadly Poison",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "POISON",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 5,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 8,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "rogue_ambush",
+    "name": "Ambush",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "ATTACK",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 14,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DRAW",
+        "value": 1,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 20,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DRAW",
+        "value": 2,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "rogue_smoke_bomb",
+    "name": "Smoke Bomb",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "DEFENSE",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 8,
+        "target": "SELF"
+      },
+      {
+        "type": "DISCARD",
+        "value": 1,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 12,
+        "target": "SELF"
+      },
+      {
+        "type": "DISCARD",
+        "value": 2,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "rogue_blade_flurry",
+    "name": "Blade Flurry",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "ATTACK",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 6,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DAMAGE",
+        "value": 6,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DAMAGE",
+        "value": 6,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 9,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DAMAGE",
+        "value": 9,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DAMAGE",
+        "value": 9,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "rogue_toxic_strike",
+    "name": "Toxic Strike",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "ATTACK",
+      "POISON",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 10,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 4,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 15,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 6,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "rogue_disarm",
+    "name": "Disarm",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "DEBUFF",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DISCARD",
+        "value": 2,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "WEAK",
+        "value": 2,
+        "duration": 2,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DISCARD",
+        "value": 3,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "WEAK",
+        "value": 3,
+        "duration": 2,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "rogue_swift_hands",
+    "name": "Swift Hands",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "UTILITY",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DRAW",
+        "value": 3,
+        "target": "SELF"
+      },
+      {
+        "type": "ENERGY_SURGE",
+        "value": 1,
+        "duration": 1,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DRAW",
+        "value": 4,
+        "target": "SELF"
+      },
+      {
+        "type": "ENERGY_SURGE",
+        "value": 1,
+        "duration": 1,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "rogue_venomous_strike",
+    "name": "Venomous Strike",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "ATTACK",
+      "POISON",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 8,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 5,
+        "duration": 4,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 12,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 8,
+        "duration": 4,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "rogue_shadow_dance",
+    "name": "Shadow Dance",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "ATTACK",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 12,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 6,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 18,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 10,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "rogue_crippling_poison",
+    "name": "Crippling Poison",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "POISON",
+      "DEBUFF",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 3,
+        "duration": 4,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "WEAK",
+        "value": 2,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 5,
+        "duration": 4,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "WEAK",
+        "value": 3,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "rogue_preparation",
+    "name": "Preparation",
+    "cost": 0,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "UTILITY",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DRAW",
+        "value": 2,
+        "target": "SELF"
+      },
+      {
+        "type": "ENERGY_SURGE",
+        "value": 1,
+        "duration": 1,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DRAW",
+        "value": 3,
+        "target": "SELF"
+      },
+      {
+        "type": "ENERGY_SURGE",
+        "value": 2,
+        "duration": 1,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "rogue_assassinate",
+    "name": "Assassinate",
+    "cost": 3,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "ATTACK",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 20,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 3,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 30,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 5,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "rogue_fear_strike",
+    "name": "Fear Strike",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "ATTACK",
+      "DEBUFF",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 11,
+        "target": "ENEMY"
+      },
+      {
+        "type": "FEAR",
+        "value": 1,
+        "duration": 2,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 16,
+        "target": "ENEMY"
+      },
+      {
+        "type": "FEAR",
+        "value": 1,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "rogue_poison_cloud",
+    "name": "Poison Cloud",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "POISON",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 7,
+        "duration": 4,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DISCARD",
+        "value": 1,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 11,
+        "duration": 4,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DISCARD",
+        "value": 2,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "rogue_silent_killer",
+    "name": "Silent Killer",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK",
+      "DEBUFF",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 18,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SILENT",
+        "value": 1,
+        "duration": 2,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 27,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SILENT",
+        "value": 1,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "rogue_deadly_ambush",
+    "name": "Deadly Ambush",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK",
+      "POISON",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 16,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 6,
+        "duration": 4,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DRAW",
+        "value": 2,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 24,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 9,
+        "duration": 4,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DRAW",
+        "value": 2,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "rogue_shadow_strike",
+    "name": "Shadow Strike",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 15,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DISCARD",
+        "value": 2,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 22,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DISCARD",
+        "value": 3,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "rogue_master_thief",
+    "name": "Master Thief",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "UTILITY",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "ENERGY_CHARGE",
+        "value": 1,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 3,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "ENERGY_CHARGE",
+        "value": 2,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 4,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "rogue_venom_burst",
+    "name": "Venom Burst",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "POISON",
+      "ATTACK",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 14,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 8,
+        "duration": 5,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 20,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 12,
+        "duration": 5,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "rogue_nightmare",
+    "name": "Nightmare",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "DEBUFF",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "FEAR",
+        "value": 1,
+        "duration": 3,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DISCARD",
+        "value": 2,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "FEAR",
+        "value": 1,
+        "duration": 4,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DISCARD",
+        "value": 3,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "rogue_vanish",
+    "name": "Vanish",
+    "cost": 1,
+    "rarity": "RARE",
+    "tags": [
+      "DEFENSE",
+      "UTILITY",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 10,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 2,
+        "target": "SELF"
+      },
+      {
+        "type": "ENERGY_SURGE",
+        "value": 1,
+        "duration": 1,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 15,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 3,
+        "target": "SELF"
+      },
+      {
+        "type": "ENERGY_SURGE",
+        "value": 2,
+        "duration": 1,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "rogue_toxic_blade",
+    "name": "Toxic Blade",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK",
+      "POISON",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 20,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 6,
+        "duration": 4,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 8,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 30,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 10,
+        "duration": 4,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 12,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "rogue_shadow_clone",
+    "name": "Shadow Clone",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "SUMMON",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "SUMMON",
+        "value": 15,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 2,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SUMMON",
+        "value": 22,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 3,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "rogue_execute",
+    "name": "Execute",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "EXECUTE",
+        "threshold": 25,
+        "damage": 30,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "EXECUTE",
+        "threshold": 35,
+        "damage": 45,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "rogue_poison_mastery",
+    "name": "Poison Mastery",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "POISON",
+      "UTILITY",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 10,
+        "duration": 5,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DRAW",
+        "value": 2,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 15,
+        "duration": 5,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DRAW",
+        "value": 3,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "rogue_blade_dance",
+    "name": "Blade Dance",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 8,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DAMAGE",
+        "value": 8,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DRAW",
+        "value": 1,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 12,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DAMAGE",
+        "value": 12,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DRAW",
+        "value": 2,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "rogue_terror",
+    "name": "Terror",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "DEBUFF",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "FEAR",
+        "value": 1,
+        "duration": 4,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DISCARD",
+        "value": 3,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "WEAK",
+        "value": 3,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "FEAR",
+        "value": 1,
+        "duration": 5,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DISCARD",
+        "value": 4,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "WEAK",
+        "value": 5,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "rogue_deadly_venom",
+    "name": "Deadly Venom",
+    "cost": 4,
+    "rarity": "EPIC",
+    "tags": [
+      "POISON",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 15,
+        "duration": 6,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DISCARD",
+        "value": 2,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 22,
+        "duration": 6,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DISCARD",
+        "value": 3,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "rogue_shadow_assassin",
+    "name": "Shadow Assassin",
+    "cost": 4,
+    "rarity": "EPIC",
+    "tags": [
+      "ATTACK",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 28,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DISCARD",
+        "value": 3,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DRAW",
+        "value": 2,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 42,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DISCARD",
+        "value": 4,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DRAW",
+        "value": 3,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "rogue_venom_nova",
+    "name": "Venom Nova",
+    "cost": 4,
+    "rarity": "EPIC",
+    "tags": [
+      "POISON",
+      "ATTACK",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 22,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 12,
+        "duration": 5,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 10,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 32,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 18,
+        "duration": 5,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 15,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "rogue_grand_heist",
+    "name": "Grand Heist",
+    "cost": 3,
+    "rarity": "EPIC",
+    "tags": [
+      "UTILITY",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "ENERGY_CHARGE",
+        "value": 2,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 4,
+        "target": "SELF"
+      },
+      {
+        "type": "DISCARD",
+        "value": 2,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "ENERGY_CHARGE",
+        "value": 3,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 5,
+        "target": "SELF"
+      },
+      {
+        "type": "DISCARD",
+        "value": 3,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "rogue_death_mark",
+    "name": "Death Mark",
+    "cost": 5,
+    "rarity": "EPIC",
+    "tags": [
+      "ATTACK",
+      "POISON",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 30,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 10,
+        "duration": 999,
+        "target": "ENEMY"
+      },
+      {
+        "type": "FEAR",
+        "value": 1,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 45,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 15,
+        "duration": 999,
+        "target": "ENEMY"
+      },
+      {
+        "type": "FEAR",
+        "value": 1,
+        "duration": 4,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "rogue_phantom_strike",
+    "name": "Phantom Strike",
+    "cost": 3,
+    "rarity": "EPIC",
+    "tags": [
+      "ATTACK",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 25,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SILENT",
+        "value": 1,
+        "duration": 2,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DRAW",
+        "value": 2,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 38,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SILENT",
+        "value": 1,
+        "duration": 3,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DRAW",
+        "value": 3,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "rogue_blade_storm",
+    "name": "Blade Storm",
+    "cost": 4,
+    "rarity": "EPIC",
+    "tags": [
+      "ATTACK",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 10,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DAMAGE",
+        "value": 10,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DAMAGE",
+        "value": 10,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DAMAGE",
+        "value": 10,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 15,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DAMAGE",
+        "value": 15,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DAMAGE",
+        "value": 15,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DAMAGE",
+        "value": 15,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "rogue_toxic_apocalypse",
+    "name": "Toxic Apocalypse",
+    "cost": 5,
+    "rarity": "EPIC",
+    "tags": [
+      "POISON",
+      "ATTACK",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 28,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 18,
+        "duration": 6,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DISCARD",
+        "value": 3,
+        "target": "ENEMY"
+      },
+      {
+        "type": "FEAR",
+        "value": 1,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 42,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 28,
+        "duration": 6,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DISCARD",
+        "value": 5,
+        "target": "ENEMY"
+      },
+      {
+        "type": "FEAR",
+        "value": 1,
+        "duration": 4,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "rogue_shadow_master",
+    "name": "Shadow Master",
+    "cost": 4,
+    "rarity": "EPIC",
+    "tags": [
+      "SUMMON",
+      "UTILITY",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "SUMMON",
+        "value": 20,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 3,
+        "target": "SELF"
+      },
+      {
+        "type": "ENERGY_SURGE",
+        "value": 2,
+        "duration": 1,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SUMMON",
+        "value": 30,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 4,
+        "target": "SELF"
+      },
+      {
+        "type": "ENERGY_SURGE",
+        "value": 3,
+        "duration": 1,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "rogue_ultimate_poison",
+    "name": "Ultimate Poison",
+    "cost": 6,
+    "rarity": "EPIC",
+    "tags": [
+      "POISON",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 25,
+        "duration": 8,
+        "target": "ENEMY"
+      },
+      {
+        "type": "STUN",
+        "value": 1,
+        "duration": 1,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DISCARD",
+        "value": 4,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 40,
+        "duration": 8,
+        "target": "ENEMY"
+      },
+      {
+        "type": "STUN",
+        "value": 1,
+        "duration": 2,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DISCARD",
+        "value": 6,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "rogue_nightmare_king",
+    "name": "Nightmare King",
+    "cost": 5,
+    "rarity": "EPIC",
+    "tags": [
+      "DEBUFF",
+      "ATTACK",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 32,
+        "target": "ENEMY"
+      },
+      {
+        "type": "FEAR",
+        "value": 1,
+        "duration": 5,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SILENT",
+        "value": 1,
+        "duration": 3,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DISCARD",
+        "value": 3,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 48,
+        "target": "ENEMY"
+      },
+      {
+        "type": "FEAR",
+        "value": 1,
+        "duration": 6,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SILENT",
+        "value": 1,
+        "duration": 4,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DISCARD",
+        "value": 5,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "rogue_assassins_creed",
+    "name": "Assassin's Creed",
+    "cost": 6,
+    "rarity": "EPIC",
+    "tags": [
+      "ATTACK",
+      "UTILITY",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 40,
+        "target": "ENEMY"
+      },
+      {
+        "type": "ENERGY_CHARGE",
+        "value": 2,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 4,
+        "target": "SELF"
+      },
+      {
+        "type": "SHIELD",
+        "value": 15,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 60,
+        "target": "ENEMY"
+      },
+      {
+        "type": "ENERGY_CHARGE",
+        "value": 3,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 5,
+        "target": "SELF"
+      },
+      {
+        "type": "SHIELD",
+        "value": 20,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "rogue_venom_god",
+    "name": "Venom God",
+    "cost": 7,
+    "rarity": "EPIC",
+    "tags": [
+      "POISON",
+      "ATTACK",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 35,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 30,
+        "duration": 10,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DISCARD",
+        "value": 5,
+        "target": "ENEMY"
+      },
+      {
+        "type": "STUN",
+        "value": 1,
+        "duration": 2,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 55,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 50,
+        "duration": 10,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DISCARD",
+        "value": 7,
+        "target": "ENEMY"
+      },
+      {
+        "type": "STUN",
+        "value": 1,
+        "duration": 2,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "rogue_dagger_rain",
+    "name": "Dagger Rain",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 7,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DAMAGE",
+        "value": 7,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DAMAGE",
+        "value": 7,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 11,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DAMAGE",
+        "value": 11,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DAMAGE",
+        "value": 11,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "rogue_stealth",
+    "name": "Stealth",
+    "cost": 1,
+    "rarity": "RARE",
+    "tags": [
+      "DEFENSE",
+      "UTILITY",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 12,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 2,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 18,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 3,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "rogue_poison_bomb",
+    "name": "Poison Bomb",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "POISON",
+      "ATTACK",
+      "ROGUE"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 12,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 9,
+        "duration": 4,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 18,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 14,
+        "duration": 4,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "knight_defend",
+    "name": "Defend",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 7,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 11,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_bash",
+    "name": "Bash",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "ATTACK",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 6,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 3,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 9,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 5,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_iron_wall",
+    "name": "Iron Wall",
+    "cost": 2,
+    "rarity": "COMMON",
+    "tags": [
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 12,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 18,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_cleave",
+    "name": "Cleave",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "ATTACK",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 7,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 11,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "knight_shield_bash",
+    "name": "Shield Bash",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "ATTACK",
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 5,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 5,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 8,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 8,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_fortify",
+    "name": "Fortify",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 6,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 1,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 10,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 1,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_heavy_strike",
+    "name": "Heavy Strike",
+    "cost": 2,
+    "rarity": "COMMON",
+    "tags": [
+      "ATTACK",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 12,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 18,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "knight_shield_wall",
+    "name": "Shield Wall",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 15,
+        "target": "SELF"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "STRENGTH",
+        "value": 1,
+        "duration": 2,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 22,
+        "target": "SELF"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "STRENGTH",
+        "value": 2,
+        "duration": 2,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_counter",
+    "name": "Counter",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "DEFENSE",
+      "ATTACK",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 8,
+        "target": "SELF"
+      },
+      {
+        "type": "DAMAGE",
+        "value": 6,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 12,
+        "target": "SELF"
+      },
+      {
+        "type": "DAMAGE",
+        "value": 10,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "knight_bulwark",
+    "name": "Bulwark",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 18,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 27,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_power_slash",
+    "name": "Power Slash",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "ATTACK",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 14,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 6,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 21,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 10,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_stalwart",
+    "name": "Stalwart",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 10,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 4,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 15,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 7,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_rampart",
+    "name": "Rampart",
+    "cost": 3,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 20,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 1,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 30,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 2,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_shield_charge",
+    "name": "Shield Charge",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "ATTACK",
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 10,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 10,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 15,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 15,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_iron_resolve",
+    "name": "Iron Resolve",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 12,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 1,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 18,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 2,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_crushing_blow",
+    "name": "Crushing Blow",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "ATTACK",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 16,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "WEAK",
+        "value": 2,
+        "duration": 2,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 24,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "WEAK",
+        "value": 3,
+        "duration": 2,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "knight_guardian",
+    "name": "Guardian",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 14,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 6,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 20,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 10,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_battle_cry",
+    "name": "Battle Cry",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "UTILITY",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "STRENGTH",
+        "value": 2,
+        "duration": 3,
+        "target": "SELF"
+      },
+      {
+        "type": "SHIELD",
+        "value": 5,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "STRENGTH",
+        "value": 3,
+        "duration": 3,
+        "target": "SELF"
+      },
+      {
+        "type": "SHIELD",
+        "value": 8,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_retaliate",
+    "name": "Retaliate",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "DEFENSE",
+      "ATTACK",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 12,
+        "target": "SELF"
+      },
+      {
+        "type": "DAMAGE",
+        "value": 8,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 18,
+        "target": "SELF"
+      },
+      {
+        "type": "DAMAGE",
+        "value": 12,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "knight_armored_strike",
+    "name": "Armored Strike",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "ATTACK",
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 11,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 8,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 17,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 12,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_fortress",
+    "name": "Fortress",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 25,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 8,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 38,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 12,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_impenetrable",
+    "name": "Impenetrable",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 20,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 2,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 30,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 3,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_juggernaut",
+    "name": "Juggernaut",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK",
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 18,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 12,
+        "target": "SELF"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "STRENGTH",
+        "value": 2,
+        "duration": 2,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 27,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 18,
+        "target": "SELF"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "STRENGTH",
+        "value": 3,
+        "duration": 2,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_shield_slam",
+    "name": "Shield Slam",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK",
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 15,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 10,
+        "target": "SELF"
+      },
+      {
+        "type": "STUN",
+        "value": 1,
+        "duration": 1,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 22,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 15,
+        "target": "SELF"
+      },
+      {
+        "type": "STUN",
+        "value": 1,
+        "duration": 1,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "knight_unbreakable",
+    "name": "Unbreakable",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 22,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 2,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 33,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 3,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_titan_guard",
+    "name": "Titan Guard",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 28,
+        "target": "SELF"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "REGENERATION",
+        "value": 3,
+        "duration": 3,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 42,
+        "target": "SELF"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "REGENERATION",
+        "value": 5,
+        "duration": 3,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_iron_fist",
+    "name": "Iron Fist",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 17,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 8,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 26,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 12,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_bastion",
+    "name": "Bastion",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 24,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 10,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 1,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 36,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 15,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 2,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_warlord",
+    "name": "Warlord",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "UTILITY",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "ENERGY_CHARGE",
+        "value": 1,
+        "target": "SELF"
+      },
+      {
+        "type": "SHIELD",
+        "value": 12,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "ENERGY_CHARGE",
+        "value": 2,
+        "target": "SELF"
+      },
+      {
+        "type": "SHIELD",
+        "value": 18,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_devastate",
+    "name": "Devastate",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 22,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 10,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 33,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 15,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_aegis",
+    "name": "Aegis",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 26,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 2,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 1,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 39,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 3,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 2,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_sentinel",
+    "name": "Sentinel",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 18,
+        "target": "SELF"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "STRENGTH",
+        "value": 2,
+        "duration": 3,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 27,
+        "target": "SELF"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "STRENGTH",
+        "value": 3,
+        "duration": 3,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_colossus",
+    "name": "Colossus",
+    "cost": 4,
+    "rarity": "RARE",
+    "tags": [
+      "DEFENSE",
+      "ATTACK",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 22,
+        "target": "SELF"
+      },
+      {
+        "type": "DAMAGE",
+        "value": 18,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 8,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 33,
+        "target": "SELF"
+      },
+      {
+        "type": "DAMAGE",
+        "value": 27,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 12,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_immortal",
+    "name": "Immortal",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 20,
+        "target": "SELF"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "REGENERATION",
+        "value": 5,
+        "duration": 4,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 30,
+        "target": "SELF"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "REGENERATION",
+        "value": 8,
+        "duration": 4,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_champion",
+    "name": "Champion",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK",
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 20,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 14,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 1,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 30,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 21,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 2,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_divine_armor",
+    "name": "Divine Armor",
+    "cost": 4,
+    "rarity": "EPIC",
+    "tags": [
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 35,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 15,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 3,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 52,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 22,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 5,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_titan_strike",
+    "name": "Titan Strike",
+    "cost": 4,
+    "rarity": "EPIC",
+    "tags": [
+      "ATTACK",
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 30,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 18,
+        "target": "SELF"
+      },
+      {
+        "type": "STUN",
+        "value": 1,
+        "duration": 1,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 45,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 27,
+        "target": "SELF"
+      },
+      {
+        "type": "STUN",
+        "value": 1,
+        "duration": 2,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "knight_invincible",
+    "name": "Invincible",
+    "cost": 4,
+    "rarity": "EPIC",
+    "tags": [
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 40,
+        "target": "SELF"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "REGENERATION",
+        "value": 6,
+        "duration": 5,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 60,
+        "target": "SELF"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "REGENERATION",
+        "value": 10,
+        "duration": 5,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_holy_crusader",
+    "name": "Holy Crusader",
+    "cost": 5,
+    "rarity": "EPIC",
+    "tags": [
+      "ATTACK",
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 28,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 20,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 12,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 2,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 42,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 30,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 18,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 3,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_iron_emperor",
+    "name": "Iron Emperor",
+    "cost": 4,
+    "rarity": "EPIC",
+    "tags": [
+      "UTILITY",
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "ENERGY_CHARGE",
+        "value": 2,
+        "target": "SELF"
+      },
+      {
+        "type": "SHIELD",
+        "value": 25,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 3,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "ENERGY_CHARGE",
+        "value": 3,
+        "target": "SELF"
+      },
+      {
+        "type": "SHIELD",
+        "value": 38,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 4,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_mountain",
+    "name": "Mountain",
+    "cost": 3,
+    "rarity": "EPIC",
+    "tags": [
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 30,
+        "target": "SELF"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "REGENERATION",
+        "value": 8,
+        "duration": 999,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 45,
+        "target": "SELF"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "REGENERATION",
+        "value": 12,
+        "duration": 999,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_apocalypse_strike",
+    "name": "Apocalypse Strike",
+    "cost": 5,
+    "rarity": "EPIC",
+    "tags": [
+      "ATTACK",
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 35,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 22,
+        "target": "SELF"
+      },
+      {
+        "type": "STUN",
+        "value": 1,
+        "duration": 2,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 10,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 52,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 33,
+        "target": "SELF"
+      },
+      {
+        "type": "STUN",
+        "value": 1,
+        "duration": 2,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 15,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_eternal_fortress",
+    "name": "Eternal Fortress",
+    "cost": 5,
+    "rarity": "EPIC",
+    "tags": [
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 45,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 20,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 5,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 2,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 68,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 30,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 10,
+        "target": "SELF"
+      },
+      {
+        "type": "DRAW",
+        "value": 3,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_god_of_war",
+    "name": "God of War",
+    "cost": 6,
+    "rarity": "EPIC",
+    "tags": [
+      "ATTACK",
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 40,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 25,
+        "target": "SELF"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "STRENGTH",
+        "value": 5,
+        "duration": 5,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 15,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 60,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 38,
+        "target": "SELF"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "STRENGTH",
+        "value": 8,
+        "duration": 5,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 22,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_ultimate_defense",
+    "name": "Ultimate Defense",
+    "cost": 6,
+    "rarity": "EPIC",
+    "tags": [
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 50,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 25,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 10,
+        "target": "SELF"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "REGENERATION",
+        "value": 10,
+        "duration": 5,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 75,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 40,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 20,
+        "target": "SELF"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "REGENERATION",
+        "value": 15,
+        "duration": 5,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_guardian_angel",
+    "name": "Guardian Angel",
+    "cost": 5,
+    "rarity": "EPIC",
+    "tags": [
+      "SUMMON",
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "SUMMON",
+        "value": 25,
+        "target": "SELF"
+      },
+      {
+        "type": "SHIELD",
+        "value": 20,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 15,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SUMMON",
+        "value": 38,
+        "target": "SELF"
+      },
+      {
+        "type": "SHIELD",
+        "value": 30,
+        "target": "SELF"
+      },
+      {
+        "type": "HEAL",
+        "value": 22,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_kings_decree",
+    "name": "King's Decree",
+    "cost": 7,
+    "rarity": "EPIC",
+    "tags": [
+      "ATTACK",
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 45,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 30,
+        "target": "SELF"
+      },
+      {
+        "type": "STUN",
+        "value": 1,
+        "duration": 2,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 20,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 5,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 70,
+        "target": "ENEMY"
+      },
+      {
+        "type": "SHIELD",
+        "value": 45,
+        "target": "SELF"
+      },
+      {
+        "type": "STUN",
+        "value": 1,
+        "duration": 3,
+        "target": "ENEMY"
+      },
+      {
+        "type": "HEAL",
+        "value": 30,
+        "target": "SELF"
+      },
+      {
+        "type": "CURE",
+        "value": 10,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_steel_resolve",
+    "name": "Steel Resolve",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "DEFENSE",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 16,
+        "target": "SELF"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "STRENGTH",
+        "value": 1,
+        "duration": 3,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 24,
+        "target": "SELF"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "STRENGTH",
+        "value": 2,
+        "duration": 3,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_shield_master",
+    "name": "Shield Master",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "DEFENSE",
+      "UTILITY",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 20,
+        "target": "SELF"
+      },
+      {
+        "type": "ENERGY_SURGE",
+        "value": 1,
+        "duration": 1,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 30,
+        "target": "SELF"
+      },
+      {
+        "type": "ENERGY_SURGE",
+        "value": 2,
+        "duration": 1,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "knight_berserker",
+    "name": "Berserker",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK",
+      "KNIGHT"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 24,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "STRENGTH",
+        "value": 3,
+        "duration": 3,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 36,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "STRENGTH",
+        "value": 5,
+        "duration": 3,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "monster_slash",
+    "name": "Slash",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "ATTACK",
+      "MONSTER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 6,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 9,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "monster_bite",
+    "name": "Bite",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "ATTACK",
+      "MONSTER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 5,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 8,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "monster_claw",
+    "name": "Claw",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "ATTACK",
+      "MONSTER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 7,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 11,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "monster_defend",
+    "name": "Defend",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "DEFENSE",
+      "MONSTER"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 5,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 8,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "monster_roar",
+    "name": "Roar",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": [
+      "UTILITY",
+      "MONSTER"
+    ],
+    "effects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "STRENGTH",
+        "value": 1,
+        "duration": 2,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "STRENGTH",
+        "value": 2,
+        "duration": 2,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "monster_heavy_strike",
+    "name": "Heavy Strike",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "ATTACK",
+      "MONSTER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 12,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 18,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "monster_poison_spit",
+    "name": "Poison Spit",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "ATTACK",
+      "POISON",
+      "MONSTER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 4,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 3,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 6,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 5,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "monster_fortify",
+    "name": "Fortify",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "DEFENSE",
+      "MONSTER"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 8,
+        "target": "SELF"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "STRENGTH",
+        "value": 1,
+        "duration": 2,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 12,
+        "target": "SELF"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "STRENGTH",
+        "value": 2,
+        "duration": 2,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "monster_regenerate",
+    "name": "Regenerate",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "HEAL",
+      "MONSTER"
+    ],
+    "effects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "REGENERATION",
+        "value": 3,
+        "duration": 3,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "REGENERATION",
+        "value": 5,
+        "duration": 3,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "monster_weaken",
+    "name": "Weaken",
+    "cost": 1,
+    "rarity": "UNCOMMON",
+    "tags": [
+      "DEBUFF",
+      "MONSTER"
+    ],
+    "effects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "WEAK",
+        "value": 2,
+        "duration": 2,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "WEAK",
+        "value": 3,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "monster_rampage",
+    "name": "Rampage",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK",
+      "MONSTER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 10,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DAMAGE",
+        "value": 10,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 15,
+        "target": "ENEMY"
+      },
+      {
+        "type": "DAMAGE",
+        "value": 15,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "monster_dark_ritual",
+    "name": "Dark Ritual",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "MAGIC",
+      "MONSTER"
+    ],
+    "effects": [
+      {
+        "type": "HEAL",
+        "value": 10,
+        "target": "SELF"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "STRENGTH",
+        "value": 2,
+        "duration": 3,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "HEAL",
+        "value": 15,
+        "target": "SELF"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "STRENGTH",
+        "value": 3,
+        "duration": 3,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "monster_iron_hide",
+    "name": "Iron Hide",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "DEFENSE",
+      "MONSTER"
+    ],
+    "effects": [
+      {
+        "type": "SHIELD",
+        "value": 15,
+        "target": "SELF"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "SHIELD",
+        "value": 22,
+        "target": "SELF"
+      }
+    ]
+  },
+  {
+    "id": "monster_venom_strike",
+    "name": "Venom Strike",
+    "cost": 2,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK",
+      "POISON",
+      "MONSTER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 8,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 5,
+        "duration": 4,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 12,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "POISON",
+        "value": 8,
+        "duration": 4,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "monster_devastate",
+    "name": "Devastate",
+    "cost": 3,
+    "rarity": "RARE",
+    "tags": [
+      "ATTACK",
+      "MONSTER"
+    ],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 20,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "WEAK",
+        "value": 2,
+        "duration": 2,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 30,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "WEAK",
+        "value": 3,
+        "duration": 2,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "frost_bolt",
+    "name": "Frost Bolt",
+    "cost": 1,
+    "rarity": "COMMON",
+    "tags": ["ATTACK", "MAGIC", "ICE"],
+    "effects": [
+      {
+        "type": "DAMAGE",
+        "value": 6,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "SLOW",
+        "value": 1,
+        "duration": 2,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "DAMAGE",
+        "value": 9,
+        "target": "ENEMY"
+      },
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "SLOW",
+        "value": 1,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ]
+  },
+  {
+    "id": "time_warp",
+    "name": "Time Warp",
+    "cost": 2,
+    "rarity": "UNCOMMON",
+    "tags": ["MAGIC", "DEBUFF"],
+    "effects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "SLOW",
+        "value": 2,
+        "duration": 3,
+        "target": "ENEMY"
+      }
+    ],
+    "upgradedEffects": [
+      {
+        "type": "APPLY_STATUS",
+        "statusType": "SLOW",
+        "value": 2,
+        "duration": 4,
+        "target": "ENEMY"
+      }
+    ]
+  }
+]

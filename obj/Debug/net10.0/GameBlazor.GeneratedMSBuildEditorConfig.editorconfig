@@ -1,0 +1,77 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.VerifyReferenceTrimCompatibility = 
+build_property.VerifyReferenceAotCompatibility = 
+build_property.TargetFramework = net10.0
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v10.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = GameBlazor
+build_property.RootNamespace = GameBlazor
+build_property.ProjectDir = /home/classify/Documents/Misc/Practice/GameBlazor/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = false
+build_property.RazorLangVersion = 9.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /home/classify/Documents/Misc/Practice/GameBlazor
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 10.0
+build_property.EnableCodeStyleSeverity = 
+
+[/home/classify/Documents/Misc/Practice/GameBlazor/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/classify/Documents/Misc/Practice/GameBlazor/Components/ArcanaSelection.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9BcmNhbmFTZWxlY3Rpb24ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/classify/Documents/Misc/Practice/GameBlazor/Components/CombatScreen.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Db21iYXRTY3JlZW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/classify/Documents/Misc/Practice/GameBlazor/Components/EventScreen.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9FdmVudFNjcmVlbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/classify/Documents/Misc/Practice/GameBlazor/Components/GameOver.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9HYW1lT3Zlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/classify/Documents/Misc/Practice/GameBlazor/Components/MapScreen.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9NYXBTY3JlZW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/classify/Documents/Misc/Practice/GameBlazor/Components/RestScreen.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9SZXN0U2NyZWVuLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/classify/Documents/Misc/Practice/GameBlazor/Components/ShopScreen.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9TaG9wU2NyZWVuLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/classify/Documents/Misc/Practice/GameBlazor/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L01haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/classify/Documents/Misc/Practice/GameBlazor/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L05hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/classify/Documents/Misc/Practice/GameBlazor/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/classify/Documents/Misc/Practice/GameBlazor/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 

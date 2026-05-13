@@ -1,0 +1,676 @@
+@inject HttpClient Http
+
+<div class="combat-container">
+    <!-- Action Log - Top Right -->
+    <div class="action-log">
+        <h4><i class="fi fi-sr-scroll"></i> Combat Log</h4>
+        <div class="log-entries">
+            @foreach (var log in combatLog.TakeLast(8))
+            {
+                <div class="log-entry">@log</div>
+            }
+        </div>
+    </div>
+
+    @if (state == null)
+    {
+        <div class="loading">Preparing for battle...</div>
+    }
+    else if (state.IsGameOver)
+    {
+        <div class="combat-result">
+            @if (state.WinnerPlayerId == 1)
+            {
+                <h2>⚔️ VICTORY! ⚔️</h2>
+                <p class="gold">+@goldReward Gold</p>
+                
+                @if (cardRewards.Count > 0)
+                {
+                    <h3>Choose Your Reward:</h3>
+                    <div class="card-rewards">
+                        @foreach (var cardId in cardRewards)
+                        {
+                            var card = Database.Instance.GetCard(cardId);
+                            var cardType = GetCardType(card);
+                            var rarity = card?.Rarity?.ToLower() ?? "common";
+                            <button class="game-card @cardType.ToLower() rarity-@rarity reward-card-view" @onclick="() => SelectCardReward(cardId)">
+                                <div class="card-header">
+                                    <span class="card-type-icon">@GetCardTypeIcon(cardType)</span>
+                                    <span class="card-name">@card?.Name</span>
+                                </div>
+                                <div class="card-divider"></div>
+                                <div class="card-description">
+                                    @GetCardDescription(card, false)
+                                </div>
+                                <div class="card-footer">
+                                    <div class="card-effects-icons">
+                                        @GetCardEffects(card, false)
+                                    </div>
+                                    <span class="card-cost">@card?.Cost⚡</span>
+                                </div>
+                            </button>
+                        }
+                        @if (showEnergyReward)
+                        {
+                            <button class="reward-card stat-reward" @onclick="SelectEnergyReward">
+                                <div class="card-name">⚡ Energy Boost</div>
+                                <div class="card-effects">+1 Max Energy</div>
+                            </button>
+                        }
+                        @if (showHealthReward)
+                        {
+                            <button class="reward-card stat-reward" @onclick="SelectHealthReward">
+                                <div class="card-name">❤️ Vitality Boost</div>
+                                <div class="card-effects">+10 Max HP</div>
+                            </button>
+                        }
+                        <button class="skip-btn" @onclick="SkipReward">Skip Reward</button>
+                    </div>
+                }
+                else
+                {
+                    <button @onclick="() => OnCombatEnd.InvokeAsync(true)">Continue Journey</button>
+                }
+            }
+            else
+            {
+                <h2>💀 DEFEAT 💀</h2>
+                <p>Your journey ends here...</p>
+                <button @onclick="() => OnCombatEnd.InvokeAsync(false)">End Run</button>
+            }
+        </div>
+    }
+    else
+    {
+        <!-- Main Combat Area -->
+        <div class="combat-main">
+            <!-- Enemy Section -->
+            <div class="enemy-section">
+                <i class="enemy-portrait @(Database.Instance.GetEnemy(Node.EnemyId!)?.Icon ?? "fi-sr-skull")"></i>
+                <div class="enemy-info">
+                    <h3>
+                        @enemy.Name <span class="enemy-level">Lv.@Run.CurrentFloor</span>
+                        @if (!string.IsNullOrEmpty(Node.ArtifactId))
+                        {
+                            var artifact = Database.Instance.GetArtifact(Node.ArtifactId);
+                            <span class="artifact-badge" title="@artifact?.Name: @artifact?.Description">
+                                🎭 @artifact?.Name
+                            </span>
+                        }
+                    </h3>
+                    <div class="hp-bar">
+                        <div class="hp-fill" style="width: @((enemy.HP * 100.0 / enemy.MaxHP))%"></div>
+                        <span class="hp-text">@enemy.HP / @enemy.MaxHP HP</span>
+                    </div>
+                    <div class="enemy-cards-count">
+                        <span class="card-icon">🃏</span> @enemy.Hand.Count cards in hand
+                    </div>
+                    @if (enemy.StatusEffects.Count > 0)
+                    {
+                        <div class="status-row">
+                            @foreach (var eff in enemy.StatusEffects)
+                            {
+                                <span class="status-badge @eff.Type.ToLower()" title="@eff.Type: @GetStatusDescription(eff)">
+                                    @GetStatusIcon(eff.Type) @eff.Value
+                                    @if (eff.Duration < 999)
+                                    {
+                                        <span class="duration">(@eff.Duration)</span>
+                                    }
+                                </span>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <!-- Player Section -->
+            <div class="player-section">
+                <div class="player-stats">
+                    <div class="stat-box hp">
+                        <span class="stat-label"><i class="fi fi-sr-heart"></i> HP</span>
+                        <span class="stat-value">@player.HP/@player.MaxHP</span>
+                    </div>
+                    <div class="stat-box energy">
+                        <span class="stat-label"><i class="fi fi-sr-bolt"></i> Energy</span>
+                        <span class="stat-value">@player.Energy/@player.MaxEnergy</span>
+                    </div>
+                    @if (player.MinionHP > 0)
+                    {
+                        <div class="stat-box minion">
+                            <span class="stat-label">👼 Minion</span>
+                            <span class="stat-value">@player.MinionHP HP</span>
+                        </div>
+                    }
+                    <div class="stat-box turn">
+                        <span class="stat-label"><i class="fi fi-sr-refresh"></i> Turn</span>
+                        <span class="stat-value">@state.TurnNumber</span>
+                    </div>
+                </div>
+                
+                @if (player.StatusEffects.Count > 0)
+                {
+                    <div class="status-row">
+                        @foreach (var eff in player.StatusEffects)
+                        {
+                            <span class="status-badge @eff.Type.ToLower()" title="@eff.Type: @GetStatusDescription(eff)">
+                                @GetStatusIcon(eff.Type) @eff.Value
+                                @if (eff.Duration < 999)
+                                {
+                                    <span class="duration">(@eff.Duration)</span>
+                                }
+                            </span>
+                        }
+                    </div>
+                }
+                
+                @if (Run.RelicIds.Count > 0 || Run.ArtifactIds.Count > 0)
+                {
+                    <div class="relics-row">
+                        @foreach (var relicId in Run.RelicIds)
+                        {
+                            var relic = Database.Instance.GetRelic(relicId);
+                            <span class="relic-badge" title="@relic?.Name: @relic?.Description">
+                                🔮 @relic?.Name
+                            </span>
+                        }
+                        @foreach (var artifactId in Run.ArtifactIds)
+                        {
+                            var artifact = Database.Instance.GetArtifact(artifactId);
+                            var isCursed = artifact?.Rarity == "CURSED";
+                            var isBlessed = artifact?.Rarity == "BLESSED";
+                            <span class="relic-badge @(isCursed ? "cursed" : isBlessed ? "blessed" : "")" 
+                                  title="@artifact?.Name: @artifact?.Description">
+                                @(isCursed ? "💀" : isBlessed ? "✨" : "🎭") @artifact?.Name
+                            </span>
+                        }
+                    </div>
+                }
+            </div>
+
+            <!-- Hand Section -->
+            <div class="hand-section">
+                <div class="hand-header">
+                    <h4>Your Hand</h4>
+                    <span class="hand-size-indicator @(player.Hand.Count > player.MaxHandSize ? "over-limit" : "")">
+                        @player.Hand.Count / @player.MaxHandSize
+                        @if (player.Hand.Count > player.MaxHandSize)
+                        {
+                            <span class="warning-text"> ⚠️ Will discard @(player.Hand.Count - player.MaxHandSize) at turn end</span>
+                        }
+                    </span>
+                </div>
+                <div class="hand-cards">
+                    @if (player.Hand.Count == 0)
+                    {
+                        <p class="empty-hand">No cards in hand - End turn to draw</p>
+                    }
+                    else
+                    {
+                        @foreach (var card in player.Hand)
+                        {
+                            var cardDef = Database.Instance.GetCard(card.CardId);
+                            var canPlay = player.Energy >= (cardDef?.Cost ?? 999);
+                            var cardType = GetCardType(cardDef);
+                            var rarity = cardDef?.Rarity?.ToLower() ?? "common";
+                            <button class="game-card @(canPlay ? "" : "disabled") @cardType.ToLower() rarity-@rarity" 
+                                    @onclick="() => PlayCard(card)" 
+                                    disabled="@(!canPlay)"
+                                    title="@GetCardTooltip(cardDef)">
+                                <div class="card-header">
+                                    <span class="card-type-icon">@GetCardTypeIcon(cardType)</span>
+                                    <span class="card-name">@cardDef?.Name@(card.IsUpgraded ? "+" : "")</span>
+                                </div>
+                                <div class="card-divider"></div>
+                                <div class="card-description">
+                                    @GetCardDescription(cardDef, card.IsUpgraded)
+                                </div>
+                                <div class="card-footer">
+                                    <div class="card-effects-icons">
+                                        @GetCardEffects(cardDef, card.IsUpgraded)
+                                    </div>
+                                    <span class="card-cost">@cardDef?.Cost⚡</span>
+                                </div>
+                            </button>
+                        }
+                    }
+                </div>
+                <button class="end-turn-btn" @onclick="EndTurn">End Turn ⏭️</button>
+                <button class="view-deck-btn" @onclick="ToggleEnemyDeck">View Enemy Deck 👁️</button>
+            </div>
+            
+            <!-- Inventory Section -->
+            @if (player.Inventory.Count > 0)
+            {
+                <div class="inventory-section">
+                    <h4><i class="fi fi-sr-backpack"></i> Inventory</h4>
+                    <div class="inventory-items">
+                        @foreach (var itemId in player.Inventory)
+                        {
+                            var item = Database.Instance.GetItem(itemId);
+                            var isSnack = item?.IsSnack() ?? false;
+                            var canUse = isSnack || player.Energy == player.MaxEnergy;
+                            <button class="inventory-item @(canUse ? "" : "disabled")" 
+                                    @onclick="() => UseItem(itemId)" 
+                                    disabled="@(!canUse)"
+                                    title="@item?.Description">
+                                <div class="item-name">@item?.Name</div>
+                                <div class="item-cost">@(isSnack ? "Free" : "All ⚡")</div>
+                            </button>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@if (showEnemyDeck && enemy != null)
+{
+    <div class="modal-overlay" @onclick="ToggleEnemyDeck">
+        <div class="deck-modal" @onclick:stopPropagation="true">
+            <h2>Enemy Deck (@GetEnemyFullDeck().Count cards)</h2>
+            <div class="deck-list">
+                @foreach (var group in GetEnemyFullDeck().GroupBy(c => c.CardId).OrderBy(g => g.Key))
+                {
+                    var card = Database.Instance.GetCard(group.Key);
+                    var count = group.Count();
+                    var cardType = GetCardType(card);
+                    var rarity = card?.Rarity?.ToLower() ?? "common";
+                    <div class="game-card @cardType.ToLower() rarity-@rarity deck-card-view" title="@GetCardTooltip(card)">
+                        <div class="card-header">
+                            <span class="card-type-icon">@GetCardTypeIcon(cardType)</span>
+                            <span class="card-name">@card?.Name</span>
+                        </div>
+                        <div class="card-divider"></div>
+                        <div class="card-description">
+                            @GetCardDescription(card, false)
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-effects-icons">
+                                @GetCardEffects(card, false)
+                            </div>
+                            <span class="card-cost">@card?.Cost⚡</span>
+                        </div>
+                        @if (count > 1)
+                        {
+                            <div class="card-count-badge">x@(count)</div>
+                        }
+                    </div>
+                }
+            </div>
+            <button @onclick="ToggleEnemyDeck">Close</button>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter] public RunState Run { get; set; } = null!;
+    [Parameter] public MapNode Node { get; set; } = null!;
+    [Parameter] public EventCallback<bool> OnCombatEnd { get; set; }
+    
+    private GameEngine engine = new();
+    private AIEngine aiEngine = null!;
+    private GameState? state;
+    private PlayerState player = null!;
+    private PlayerState enemy = null!;
+    private int goldReward;
+    private List<string> cardRewards = new();
+    private bool showEnergyReward;
+    private bool showHealthReward;
+    private bool showEnemyDeck = false;
+    private List<string> combatLog = new();
+    
+    protected override void OnInitialized()
+    {
+        aiEngine = new AIEngine(engine);
+        state = engine.InitializeCombat(Run, Node);
+        
+        // Process initial draw phase
+        if (state.Phase == "DRAW")
+        {
+            state = engine.ProcessAction(state, new GameAction { Type = "DRAW_CARD", PlayerId = 1 });
+        }
+        
+        UpdatePlayerRefs();
+        
+        var enemyDef = Database.Instance.GetEnemy(Node.EnemyId!);
+        AddLog($"⚔️ Battle begins against {enemyDef?.Name}!");
+        
+        if (!string.IsNullOrEmpty(Node.ArtifactId))
+        {
+            var artifact = Database.Instance.GetArtifact(Node.ArtifactId);
+            AddLog($"⚠️ Enemy wields {artifact?.Name}!");
+        }
+        
+        AddLog($"📜 Drew {player.Hand.Count} cards");
+    }
+    
+    private void UpdatePlayerRefs()
+    {
+        if (state == null) return;
+        player = state.Players.First(p => p.PlayerId == 1);
+        enemy = state.Players.First(p => p.PlayerId == 2);
+    }
+    
+    private void AddLog(string message)
+    {
+        combatLog.Add(message);
+        if (combatLog.Count > 20) combatLog.RemoveAt(0);
+    }
+    
+    private async Task PlayCard(CardInstance card)
+    {
+        if (state == null) return;
+        
+        var cardDef = Database.Instance.GetCard(card.CardId);
+        var oldEnemyHP = enemy.HP;
+        
+        state = engine.ProcessAction(state, new GameAction
+        {
+            Type = "PLAY_CARD",
+            PlayerId = 1,
+            CardInstanceId = card.InstanceId,
+            TargetPlayerId = 2
+        });
+        
+        UpdatePlayerRefs();
+        
+        var damage = oldEnemyHP - enemy.HP;
+        if (damage > 0)
+            AddLog($"🗡️ {cardDef?.Name} dealt {damage} damage!");
+        else
+            AddLog($"✨ Played {cardDef?.Name}");
+        
+        StateHasChanged();
+        await CheckGameOver();
+    }
+    
+    private async Task UseItem(string itemId)
+    {
+        if (state == null) return;
+        
+        var item = Database.Instance.GetItem(itemId);
+        
+        state = engine.ProcessAction(state, new GameAction
+        {
+            Type = "USE_ITEM",
+            PlayerId = 1,
+            ItemId = itemId
+        });
+        
+        UpdatePlayerRefs();
+        AddLog($"💊 Used {item?.Name}");
+        
+        StateHasChanged();
+        await CheckGameOver();
+    }
+    
+    private async Task EndTurn()
+    {
+        if (state == null) return;
+        
+        AddLog("⏭️ Turn ended");
+        state = engine.ProcessAction(state, new GameAction { Type = "END_TURN", PlayerId = 1 });
+        UpdatePlayerRefs();
+        
+        if (!state.IsGameOver)
+        {
+            await Task.Delay(500);
+            StateHasChanged();
+            
+            var enemyDef = Database.Instance.GetEnemy(Node.EnemyId!);
+            AddLog($"👹 {enemy.Name}'s turn...");
+            
+            var oldPlayerHP = player.HP;
+            state = aiEngine.ExecuteAITurn(state, 2, enemyDef?.AIPattern ?? "AGGRESSIVE", Node.EnemyId!);
+            UpdatePlayerRefs();
+            
+            if (aiEngine.Log.Entries.Count > 0)
+            {
+                foreach (var entry in aiEngine.Log.Entries)
+                    AddLog($"🎯 {entry}");
+            }
+            
+            var damageDealt = oldPlayerHP - player.HP;
+            if (damageDealt > 0)
+                AddLog($"💥 Enemy dealt {damageDealt} damage!");
+            
+            // Process draw phase for player's next turn
+            if (state.Phase == "DRAW")
+            {
+                state = engine.ProcessAction(state, new GameAction { Type = "DRAW_CARD", PlayerId = 1 });
+                UpdatePlayerRefs();
+                AddLog($"📜 Drew {player.Hand.Count} cards");
+            }
+            
+            await CheckGameOver();
+        }
+    }
+    
+    private async Task CheckGameOver()
+    {
+        if (state?.IsGameOver == true && state.WinnerPlayerId == 1)
+        {
+            var enemyDef = Database.Instance.GetEnemy(Node.EnemyId!);
+            goldReward = enemyDef?.GoldReward ?? 0;
+            new RunManager().AddGold(Run, goldReward);
+            
+            var rng = new Random(Run.Seed + Run.TotalCombats);
+            var manager = new RunManager();
+            var rarity = manager.GetRandomRarity(rng);
+            cardRewards = manager.GetAvailableCards(rarity, rng);
+            
+            // Artifact drop chance: 3% base, +15% if enemy had artifact
+            var artifactRoll = rng.Next(100);
+            var artifactChance = string.IsNullOrEmpty(Node.ArtifactId) ? 3 : 18;
+            if (artifactRoll < artifactChance && !string.IsNullOrEmpty(Node.ArtifactId))
+            {
+                Run.ArtifactIds.Add(Node.ArtifactId);
+                var artifact = Database.Instance.GetArtifact(Node.ArtifactId);
+                AddLog($"🎁 Acquired artifact: {artifact?.Name}!");
+            }
+            else if (artifactRoll < 3)
+            {
+                var artifacts = Database.Instance.Artifacts.Keys.ToList();
+                var randomArtifact = artifacts[rng.Next(artifacts.Count)];
+                Run.ArtifactIds.Add(randomArtifact);
+                var artifact = Database.Instance.GetArtifact(randomArtifact);
+                AddLog($"🎁 Acquired artifact: {artifact?.Name}!");
+            }
+            
+            // 30% chance for energy reward, 40% chance for health reward (independent rolls)
+            var energyRoll = rng.Next(100);
+            var healthRoll = rng.Next(100);
+            showEnergyReward = energyRoll < 30;
+            showHealthReward = healthRoll < 40;
+            
+            Run.TotalCombats++;
+            
+            AddLog($"🏆 Victory! Earned {goldReward} gold");
+            AddLog($"✨ {rarity} card rewards available!");
+        }
+        else if (state?.IsGameOver == true)
+        {
+            AddLog("💀 You have been defeated...");
+        }
+        
+        StateHasChanged();
+    }
+    
+    private void SelectCardReward(string cardId)
+    {
+        new RunManager().AddCardToRun(Run, cardId);
+        Run.HP = player.HP;
+        OnCombatEnd.InvokeAsync(true);
+    }
+    
+    private void SelectEnergyReward()
+    {
+        Run.MaxEnergy++;
+        Run.HP = player.HP;
+        OnCombatEnd.InvokeAsync(true);
+    }
+    
+    private void SelectHealthReward()
+    {
+        Run.MaxHP += 10;
+        Run.HP = Math.Min(Run.HP + 10, Run.MaxHP);
+        OnCombatEnd.InvokeAsync(true);
+    }
+    
+    private void SkipReward()
+    {
+        Run.HP = player.HP;
+        OnCombatEnd.InvokeAsync(true);
+    }
+    
+    private void ToggleEnemyDeck()
+    {
+        showEnemyDeck = !showEnemyDeck;
+        StateHasChanged();
+    }
+    
+    private List<CardInstance> GetEnemyFullDeck()
+    {
+        if (enemy == null) return new List<CardInstance>();
+        
+        var allCards = new List<CardInstance>();
+        allCards.AddRange(enemy.Deck);
+        allCards.AddRange(enemy.Hand);
+        allCards.AddRange(enemy.Discard);
+        
+        return allCards;
+    }
+    
+    private string GetCardTooltip(CardDefinition? card)
+    {
+        if (card == null) return "";
+        
+        var tooltip = $"Cost: {card.Cost} Energy\n";
+        
+        if (card.Effects.Count > 0)
+        {
+            tooltip += "Effects:\n";
+            foreach (var effect in card.Effects)
+            {
+                tooltip += $"• {GetEffectDescription(effect)}\n";
+            }
+        }
+        
+        return tooltip.TrimEnd();
+    }
+    
+    private string GetEffectDescription(EffectDefinition effect)
+    {
+        return effect.Type switch
+        {
+            "DAMAGE" => $"Deal {effect.Value} damage",
+            "HEAL" => $"Heal {effect.Value} HP",
+            "SHIELD" => $"Gain {effect.Value} shield",
+            "DRAW" => $"Draw {effect.Value} card(s)",
+            "APPLY_STATUS" => $"Apply {effect.StatusType} {effect.Value} for {effect.Duration} turn(s)",
+            _ => $"{effect.Type} {effect.Value}"
+        };
+    }
+    
+    private string GetCardEffects(CardDefinition? card, bool upgraded = false)
+    {
+        if (card == null) return "";
+        var effects = upgraded && card.UpgradedEffects.Count > 0 ? card.UpgradedEffects : card.Effects;
+        return string.Join(" • ", effects.Select(e => $"{GetEffectIcon(e.Type)} {e.Value}"));
+    }
+    
+    private string GetCardType(CardDefinition? card)
+    {
+        if (card == null) return "SKILL";
+        if (card.Tags.Contains("ATTACK")) return "ATTACK";
+        if (card.Tags.Contains("DEFENSE")) return "DEFENSE";
+        if (card.Tags.Contains("MAGIC")) return "MAGIC";
+        if (card.Tags.Contains("HEAL")) return "HEAL";
+        return "SKILL";
+    }
+    
+    private string GetCardTypeIcon(string type) => type switch
+    {
+        "ATTACK" => "⚔️",
+        "DEFENSE" => "🛡️",
+        "MAGIC" => "✨",
+        "HEAL" => "💚",
+        _ => "📜"
+    };
+    
+    private string GetCardDescription(CardDefinition? card, bool upgraded = false)
+    {
+        if (card == null) return "";
+        var effects = upgraded && card.UpgradedEffects.Count > 0 ? card.UpgradedEffects : card.Effects;
+        
+        var descriptions = new List<string>();
+        foreach (var effect in effects)
+        {
+            var desc = effect.Type switch
+            {
+                "DAMAGE" => $"Deal {effect.Value} damage",
+                "HEAL" => $"Heal {effect.Value} HP",
+                "SHIELD" => $"Gain {effect.Value} shield",
+                "DRAW" => $"Draw {effect.Value} card(s)",
+                "APPLY_STATUS" => $"Apply {effect.StatusType} {effect.Value}",
+                _ => $"{effect.Type}"
+            };
+            descriptions.Add(desc);
+        }
+        
+        return string.Join(". ", descriptions) + ".";
+    }
+    
+    private string GetEffectIcon(string type) => type switch
+    {
+        "DAMAGE" => "⚔️",
+        "HEAL" => "💚",
+        "SHIELD" => "🛡️",
+        "DRAW" => "📜",
+        "POISON" => "☠️",
+        "STRENGTH" => "💪",
+        "WEAK" => "🔻",
+        _ => "✨"
+    };
+    
+    private string GetStatusIcon(string type) => type switch
+    {
+        "POISON" => "☠️",
+        "BURN" => "🔥",
+        "REGENERATION" => "💚",
+        "STRENGTH" => "💪",
+        "WEAK" => "🔻",
+        "SHIELD" => "🛡️",
+        "STUN" => "😵",
+        "SILENT" => "🤐",
+        "FEAR" => "😱",
+        "ENERGY_SURGE" => "⚡",
+        "SLOW" => "🐌",
+        "BURN_RESISTANCE" => "💧",
+        "POISON_RESISTANCE" => "🌿",
+        "PHYSICAL_RESISTANCE" => "⚔️",
+        "MAGIC_RESISTANCE" => "🔮",
+        _ => "✨"
+    };
+    
+    private string GetStatusDescription(StatusEffect eff) => eff.Type switch
+    {
+        "POISON" => $"Takes {eff.Value} damage per turn for {eff.Duration} turns",
+        "BURN" => $"Takes {eff.Value} damage per turn for {eff.Duration} turns",
+        "REGENERATION" => $"Heals {eff.Value} HP per turn for {eff.Duration} turns",
+        "STRENGTH" => $"+{eff.Value} damage for {eff.Duration} turns",
+        "WEAK" => $"-{eff.Value} damage for {eff.Duration} turns",
+        "SHIELD" => $"{eff.Value} damage absorption",
+        "STUN" => $"Cannot play cards for {eff.Duration} turns",
+        "SILENT" => $"Cannot play magic cards for {eff.Duration} turns",
+        "FEAR" => $"Discards 1 card after playing for {eff.Duration} turns",
+        "ENERGY_SURGE" => $"Reduces card cost by {eff.Value} this turn",
+        "SLOW" => $"Cards cost +{eff.Value} energy for {eff.Duration} turns",
+        "BURN_RESISTANCE" => $"Reduces burn damage by {eff.Value}%",
+        "POISON_RESISTANCE" => $"Reduces poison damage by {eff.Value}%",
+        "PHYSICAL_RESISTANCE" => $"Reduces physical damage by {eff.Value}%",
+        "MAGIC_RESISTANCE" => $"Reduces magic damage by {eff.Value}%",
+        _ => $"{eff.Type}: {eff.Value}"
+    };
+}
