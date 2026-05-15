@@ -105,4 +105,6 @@ public class Database
     public NPCDefinition? GetNPC(string npcId) => NPCs.GetValueOrDefault(npcId);
     public BlessingDefinition? GetBlessing(string blessingId) => Blessings.GetValueOrDefault(blessingId);
     public ItemDefinition? GetItem(string itemId) => Items.GetValueOrDefault(itemId);
+    
+    public List<CardDefinition> GetAllCards() => Cards.Values.ToList();
 }

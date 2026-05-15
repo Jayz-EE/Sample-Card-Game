@@ -43,6 +43,11 @@ public class ArcanaDefinition
     public List<string> StartingDeck { get; set; } = new();
     public int StartingHP { get; set; } = 70;
     public int StartingGold { get; set; } = 100;
+    
+    // Card affinity system
+    public string ArchetypeType { get; set; } = "BALANCED"; // PHYSICAL, MAGIC, BALANCED
+    public List<string> PreferredTags { get; set; } = new(); // FIRE, HOLY, POISON, PHYSICAL, etc.
+    public List<string> AvoidedTags { get; set; } = new(); // Tags this class rarely gets
 }
 
 public class EnemyDefinition
@@ -58,6 +63,11 @@ public class EnemyDefinition
     public List<string> Dialogue { get; set; } = new();
     public List<string> AttackLines { get; set; } = new();
     public List<string> HurtLines { get; set; } = new();
+    
+    // Card affinity system
+    public string ArchetypeType { get; set; } = "PHYSICAL"; // PHYSICAL, MAGIC, BALANCED
+    public List<string> PreferredTags { get; set; } = new(); // FIRE, POISON, PHYSICAL, etc.
+    public List<string> AvoidedTags { get; set; } = new(); // Tags this enemy rarely gets
 }
 
 public class RelicDefinition

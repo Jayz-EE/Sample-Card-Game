@@ -182,6 +182,9 @@ public class RunManager
     
     private void AddRandomCardsToStartingDeck(RunState run, Random rng, int count)
     {
+        var arcana = _db.GetArcana(run.ArcanaId);
+        if (arcana == null) return;
+        
         // Get all player cards (exclude curses and enemy-only cards)
         var availableCards = _db.Cards.Values
             .Where(c => c.Rarity != "CURSE" && !c.Id.StartsWith("monster_"))
@@ -210,17 +213,84 @@ public class RunManager
             // If still no cards, skip
             if (cardsOfRarity.Count == 0) continue;
             
-            // Pick a random card
-            var randomCard = cardsOfRarity[rng.Next(cardsOfRarity.Count)];
+            // Apply affinity-based selection
+            var selectedCard = SelectCardByAffinity(cardsOfRarity, arcana, rng);
             
             // Add to deck
             run.Deck.Add(new CardInstance
             {
-                CardId = randomCard.Id,
+                CardId = selectedCard.Id,
                 OwnerPlayerId = 1,
                 IsUpgraded = false
             });
         }
+    }
+    
+    private CardDefinition SelectCardByAffinity(List<CardDefinition> cards, ArcanaDefinition arcana, Random rng)
+    {
+        // Calculate affinity scores for each card
+        var cardScores = new List<(CardDefinition card, double score)>();
+        
+        foreach (var card in cards)
+        {
+            double score = 1.0; // Base score
+            
+            // Check archetype match (Physical vs Magic)
+            if (arcana.ArchetypeType == "PHYSICAL")
+            {
+                // Physical classes prefer non-magic cards
+                if (!card.Tags.Contains("MAGIC"))
+                    score *= 2.5; // 2.5x more likely
+                else
+                    score *= 0.3; // 70% less likely to get magic cards
+            }
+            else if (arcana.ArchetypeType == "MAGIC")
+            {
+                // Magic classes prefer magic cards
+                if (card.Tags.Contains("MAGIC"))
+                    score *= 2.5; // 2.5x more likely
+                else
+                    score *= 0.6; // 40% less likely to get physical cards
+            }
+            // BALANCED archetype has no modifier
+            
+            // Check preferred tags (strong affinity)
+            foreach (var preferredTag in arcana.PreferredTags)
+            {
+                if (card.Tags.Contains(preferredTag))
+                {
+                    score *= 3.0; // 3x more likely for preferred tags
+                }
+            }
+            
+            // Check avoided tags (strong anti-affinity)
+            foreach (var avoidedTag in arcana.AvoidedTags)
+            {
+                if (card.Tags.Contains(avoidedTag))
+                {
+                    score *= 0.2; // 80% less likely for avoided tags
+                }
+            }
+            
+            cardScores.Add((card, score));
+        }
+        
+        // Weighted random selection based on scores
+        var totalScore = cardScores.Sum(cs => cs.score);
+        var randomValue = rng.NextDouble() * totalScore;
+        
+        double cumulative = 0;
+        foreach (var (card, score) in cardScores)
+        {
+            cumulative += score;
+            if (randomValue <= cumulative)
+            {
+                return card;
+            }
+        }
+        
+        // Fallback to last card (shouldn't happen)
+        return cardScores.Last().card;
     }
     
     private string GetRandomCardRarity(Random rng)

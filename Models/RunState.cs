@@ -13,7 +13,7 @@ public class RunState
     public int HP { get; set; }
     public int MaxHP { get; set; }
     public int MaxEnergy { get; set; } = 3;
-    public int MaxHandSize { get; set; } = 4;
+    public int MaxHandSize { get; set; } = 10;
     
     // Collections
     public List<CardInstance> Deck { get; set; } = new();

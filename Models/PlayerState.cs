@@ -11,7 +11,7 @@ public class PlayerState
     public int Energy { get; set; }
     public int MaxEnergy { get; set; }
     
-    public int MaxHandSize { get; set; } = 4;
+    public int MaxHandSize { get; set; } = 10; // Default hand size limit
 
     public List<CardInstance> Deck { get; set; } = new();
     public List<CardInstance> Hand { get; set; } = new();

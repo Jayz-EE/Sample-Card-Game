@@ -621,31 +621,57 @@ public class GameEngine
             .OrderBy(_ => rng.Next())
             .ToList();
         
-        // Add 1 Rare and 2 Uncommon cards from enemy card pool
+        // Add cards from enemy card pool with affinity-based selection
         var enemyCardPool = GetEnemyCardPool();
         
-        // Add 1 Rare
-        var rareCards = enemyCardPool.Where(c => c.Rarity == "RARE").ToList();
-        if (rareCards.Count > 0)
+        // Scale additional cards based on enemy tier
+        // Tier 1: +2 cards (1 uncommon, 1 common)
+        // Tier 2: +3 cards (1 rare, 2 uncommon)
+        // Tier 3: +4 cards (1 rare, 2 uncommon, 1 common)
+        // Tier 4: +5 cards (2 rare, 2 uncommon, 1 common)
+        
+        int tier = enemy.Tier;
+        
+        if (tier >= 2)
         {
-            var randomRare = rareCards[rng.Next(rareCards.Count)];
+            // Add Rare cards for tier 2+
+            var rareCards = enemyCardPool.Where(c => c.Rarity == "RARE").ToList();
+            int rareCount = tier >= 4 ? 2 : 1;
+            for (int i = 0; i < rareCount && rareCards.Count > 0; i++)
+            {
+                var selectedRare = SelectCardByEnemyAffinity(rareCards, enemy, rng);
+                deck.Add(new CardInstance 
+                { 
+                    CardId = selectedRare.Id, 
+                    OwnerPlayerId = 2 
+                });
+            }
+        }
+        
+        // Add Uncommon cards (1 for tier 1, 2 for tier 2+)
+        var uncommonCards = enemyCardPool.Where(c => c.Rarity == "UNCOMMON").ToList();
+        int uncommonCount = tier >= 2 ? 2 : 1;
+        for (int i = 0; i < uncommonCount && uncommonCards.Count > 0; i++)
+        {
+            var selectedUncommon = SelectCardByEnemyAffinity(uncommonCards, enemy, rng);
             deck.Add(new CardInstance 
             { 
-                CardId = randomRare.Id, 
+                CardId = selectedUncommon.Id, 
                 OwnerPlayerId = 2 
             });
         }
         
-        // Add 2 Uncommon
-        var uncommonCards = enemyCardPool.Where(c => c.Rarity == "UNCOMMON").ToList();
-        for (int i = 0; i < 2; i++)
+        // Add Common cards (1 for tier 1, 3, 4)
+        if (tier == 1 || tier >= 3)
         {
-            if (uncommonCards.Count > 0)
+            var commonCards = enemyCardPool.Where(c => c.Rarity == "COMMON").ToList();
+            int commonCount = tier >= 3 ? 1 : 1;
+            for (int i = 0; i < commonCount && commonCards.Count > 0; i++)
             {
-                var randomUncommon = uncommonCards[rng.Next(uncommonCards.Count)];
+                var selectedCommon = SelectCardByEnemyAffinity(commonCards, enemy, rng);
                 deck.Add(new CardInstance 
                 { 
-                    CardId = randomUncommon.Id, 
+                    CardId = selectedCommon.Id, 
                     OwnerPlayerId = 2 
                 });
             }
@@ -776,6 +802,73 @@ public class GameEngine
         if (roll < 85) return "RARE";        // 15%
         if (roll < 95) return "EPIC";        // 10%
         return "LEGENDARY";                   // 5%
+    }
+    
+    private CardDefinition SelectCardByEnemyAffinity(List<CardDefinition> cards, EnemyDefinition enemy, Random rng)
+    {
+        // Calculate affinity scores for each card
+        var cardScores = new List<(CardDefinition card, double score)>();
+        
+        foreach (var card in cards)
+        {
+            double score = 1.0; // Base score
+            
+            // Check archetype match (Physical vs Magic)
+            if (enemy.ArchetypeType == "PHYSICAL")
+            {
+                // Physical enemies prefer non-magic cards
+                if (!card.Tags.Contains("MAGIC"))
+                    score *= 3.0; // 3x more likely
+                else
+                    score *= 0.2; // 80% less likely to get magic cards
+            }
+            else if (enemy.ArchetypeType == "MAGIC")
+            {
+                // Magic enemies prefer magic cards
+                if (card.Tags.Contains("MAGIC"))
+                    score *= 3.0; // 3x more likely
+                else
+                    score *= 0.4; // 60% less likely to get physical cards
+            }
+            // BALANCED archetype has no modifier
+            
+            // Check preferred tags (strong affinity)
+            foreach (var preferredTag in enemy.PreferredTags)
+            {
+                if (card.Tags.Contains(preferredTag))
+                {
+                    score *= 4.0; // 4x more likely for preferred tags
+                }
+            }
+            
+            // Check avoided tags (strong anti-affinity)
+            foreach (var avoidedTag in enemy.AvoidedTags)
+            {
+                if (card.Tags.Contains(avoidedTag))
+                {
+                    score *= 0.15; // 85% less likely for avoided tags
+                }
+            }
+            
+            cardScores.Add((card, score));
+        }
+        
+        // Weighted random selection based on scores
+        var totalScore = cardScores.Sum(cs => cs.score);
+        var randomValue = rng.NextDouble() * totalScore;
+        
+        double cumulative = 0;
+        foreach (var (card, score) in cardScores)
+        {
+            cumulative += score;
+            if (randomValue <= cumulative)
+            {
+                return card;
+            }
+        }
+        
+        // Fallback to last card (shouldn't happen)
+        return cardScores.Last().card;
     }
 }
 

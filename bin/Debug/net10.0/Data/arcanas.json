@@ -5,6 +5,9 @@
     "description": "Master of flames. Deals bonus damage with fire cards.",
     "passiveEffect": "FIRE_MASTERY",
     "innateBlessingId": "pyromancer_innate",
+    "archetypeType": "MAGIC",
+    "preferredTags": ["FIRE", "BURN", "MAGIC", "DAMAGE"],
+    "avoidedTags": ["HOLY", "POISON", "PHYSICAL"],
     "startingDeck": ["strike", "strike", "fireball", "fireball", "shield", "shield", "heal"],
     "startingHP": 70,
     "startingGold": 100
@@ -15,6 +18,9 @@
     "description": "Divine healer. Gains shield when healing.",
     "passiveEffect": "DIVINE_BLESSING",
     "innateBlessingId": "cleric_innate",
+    "archetypeType": "MAGIC",
+    "preferredTags": ["HOLY", "HEAL", "SHIELD", "MAGIC"],
+    "avoidedTags": ["FIRE", "POISON", "BURN"],
     "startingDeck": ["strike", "strike", "cleave", "heal", "heal", "shield", "draw_two"],
     "startingHP": 80,
     "startingGold": 100
@@ -25,6 +31,9 @@
     "description": "Swift striker. Draws extra cards and plays fast.",
     "passiveEffect": "SWIFT_HANDS",
     "innateBlessingId": "rogue_innate",
+    "archetypeType": "PHYSICAL",
+    "preferredTags": ["POISON", "PHYSICAL", "DAMAGE", "DEBUFF"],
+    "avoidedTags": ["HOLY", "FIRE", "SHIELD"],
     "startingDeck": ["strike", "strike", "strike", "draw_two", "draw_two", "shield", "poison_strike"],
     "startingHP": 60,
     "startingGold": 120
@@ -35,6 +44,9 @@
     "description": "Stalwart defender. Gains extra shield value.",
     "passiveEffect": "IRON_WALL",
     "innateBlessingId": "knight_innate",
+    "archetypeType": "PHYSICAL",
+    "preferredTags": ["PHYSICAL", "SHIELD", "HOLY", "DEFENSE"],
+    "avoidedTags": ["POISON", "BURN", "FIRE"],
     "startingDeck": ["strike", "strike", "cleave", "shield", "shield", "heal", "power_strike"],
     "startingHP": 90,
     "startingGold": 80

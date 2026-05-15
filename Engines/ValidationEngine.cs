@@ -23,33 +23,78 @@ public static class ValidationEngine
         var db = Database.Instance;
         
         // Validate basic bounds
-        if (run.Gold < 0 || run.Gold > MAX_GOLD) return false;
-        if (run.HP < 0 || run.HP > MAX_HP) return false;
-        if (run.MaxHP < 1 || run.MaxHP > MAX_HP) return false;
-        if (run.HP > run.MaxHP) return false;
-        if (run.CurrentFloor < 1 || run.CurrentFloor > run.MaxFloor) return false;
+        if (run.Gold < 0 || run.Gold > MAX_GOLD)
+        {
+            Console.WriteLine($"Validation failed: Gold {run.Gold} out of bounds (0-{MAX_GOLD})");
+            return false;
+        }
+        if (run.HP < 0 || run.HP > MAX_HP)
+        {
+            Console.WriteLine($"Validation failed: HP {run.HP} out of bounds (0-{MAX_HP})");
+            return false;
+        }
+        if (run.MaxHP < 1 || run.MaxHP > MAX_HP)
+        {
+            Console.WriteLine($"Validation failed: MaxHP {run.MaxHP} out of bounds (1-{MAX_HP})");
+            return false;
+        }
+        if (run.HP > run.MaxHP)
+        {
+            Console.WriteLine($"Validation failed: HP {run.HP} > MaxHP {run.MaxHP}");
+            return false;
+        }
+        if (run.CurrentFloor < 1 || run.CurrentFloor > run.MaxFloor)
+        {
+            Console.WriteLine($"Validation failed: CurrentFloor {run.CurrentFloor} out of bounds (1-{run.MaxFloor})");
+            return false;
+        }
         
         // Validate deck
-        if (run.Deck.Count > MAX_DECK_SIZE) return false;
+        if (run.Deck.Count > MAX_DECK_SIZE)
+        {
+            Console.WriteLine($"Validation failed: Deck size {run.Deck.Count} exceeds max {MAX_DECK_SIZE}");
+            return false;
+        }
         foreach (var card in run.Deck)
         {
-            if (!db.IsValidCard(card.CardId)) return false;
-            if (card.OwnerPlayerId != 1) return false; // Player is always ID 1
+            if (!db.IsValidCard(card.CardId))
+            {
+                Console.WriteLine($"Validation failed: Invalid card ID {card.CardId}");
+                return false;
+            }
+            if (card.OwnerPlayerId != 1)
+            {
+                Console.WriteLine($"Validation failed: Card {card.CardId} has wrong owner {card.OwnerPlayerId}");
+                return false;
+            }
         }
         
         // Validate relics
         foreach (var relicId in run.RelicIds)
         {
-            if (!db.IsValidRelic(relicId)) return false;
+            if (!db.IsValidRelic(relicId))
+            {
+                Console.WriteLine($"Validation failed: Invalid relic ID {relicId}");
+                return false;
+            }
         }
         
         // Validate arcana
-        if (!db.IsValidArcana(run.ArcanaId)) return false;
+        if (!db.IsValidArcana(run.ArcanaId))
+        {
+            Console.WriteLine($"Validation failed: Invalid arcana ID {run.ArcanaId}");
+            return false;
+        }
         
         // Check for duplicate card instances (exploit prevention)
         var instanceIds = run.Deck.Select(c => c.InstanceId).ToList();
-        if (instanceIds.Count != instanceIds.Distinct().Count()) return false;
+        if (instanceIds.Count != instanceIds.Distinct().Count())
+        {
+            Console.WriteLine($"Validation failed: Duplicate card instances detected");
+            return false;
+        }
         
+        Console.WriteLine("Run state validation passed");
         return true;
     }
     

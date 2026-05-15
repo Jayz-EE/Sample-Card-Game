@@ -9,7 +9,10 @@
     "tier": 1,
     "dialogue": ["Grrr! Me smash!", "You look weak!", "Shiny gold mine!"],
     "attackLines": ["swings wildly", "lunges forward", "strikes with crude blade"],
-    "hurtLines": ["Ow! That hurt!", "Me still strong!", "Grr..."]
+    "hurtLines": ["Ow! That hurt!", "Me still strong!", "Grr..."],
+    "archetypeType": "PHYSICAL",
+    "preferredTags": ["PHYSICAL", "DAMAGE"],
+    "avoidedTags": ["MAGIC", "HOLY", "FIRE"]
   },
   {
     "id": "bandit",
@@ -21,7 +24,10 @@
     "tier": 1,
     "dialogue": ["Hand over your gold!", "This'll be easy.", "Nothing personal."],
     "attackLines": ["slashes with dagger", "strikes from the shadows", "aims for a weak spot"],
-    "hurtLines": ["Tch!", "Not bad...", "You'll pay for that!"]
+    "hurtLines": ["Tch!", "Not bad...", "You'll pay for that!"],
+    "archetypeType": "PHYSICAL",
+    "preferredTags": ["PHYSICAL", "POISON", "DEBUFF"],
+    "avoidedTags": ["MAGIC", "HOLY", "FIRE"]
   },
   {
     "id": "cultist",
@@ -33,7 +39,10 @@
     "tier": 1,
     "dialogue": ["The darkness calls...", "Your soul is forfeit.", "Witness true power!"],
     "attackLines": ["chants dark incantations", "channels eldritch energy", "casts a sinister spell"],
-    "hurtLines": ["Impossible!", "The shadows protect me!", "You dare..."]
+    "hurtLines": ["Impossible!", "The shadows protect me!", "You dare..."],
+    "archetypeType": "MAGIC",
+    "preferredTags": ["MAGIC", "FIRE", "CURSE", "SUMMON"],
+    "avoidedTags": ["PHYSICAL", "HOLY"]
   },
   {
     "id": "orc_warrior",
@@ -45,7 +54,10 @@
     "tier": 2,
     "dialogue": ["I crush you!", "Weak human!", "Feel my strength!"],
     "attackLines": ["swings massive axe", "charges with brutal force", "delivers a crushing blow"],
-    "hurtLines": ["Argh!", "Is that all?", "You fight well..."]
+    "hurtLines": ["Argh!", "Is that all?", "You fight well..."],
+    "archetypeType": "PHYSICAL",
+    "preferredTags": ["PHYSICAL", "DAMAGE", "SHIELD"],
+    "avoidedTags": ["MAGIC", "POISON", "FIRE"]
   },
   {
     "id": "necromancer",
@@ -57,7 +69,10 @@
     "tier": 2,
     "dialogue": ["Death is only the beginning.", "Rise, my servants!", "Your life force is mine."],
     "attackLines": ["summons dark magic", "drains life energy", "unleashes necrotic power"],
-    "hurtLines": ["Gah!", "I am eternal!", "This body is temporary..."]
+    "hurtLines": ["Gah!", "I am eternal!", "This body is temporary..."],
+    "archetypeType": "MAGIC",
+    "preferredTags": ["MAGIC", "CURSE", "SUMMON", "HEAL"],
+    "avoidedTags": ["PHYSICAL", "HOLY"]
   },
   {
     "id": "elite_guard",
@@ -69,7 +84,10 @@
     "tier": 3,
     "dialogue": ["You shall not pass!", "For honor and duty!", "I am the wall!"],
     "attackLines": ["strikes with precision", "counters with expert timing", "attacks with disciplined form"],
-    "hurtLines": ["Ugh!", "My armor holds!", "I will not fall!"]
+    "hurtLines": ["Ugh!", "My armor holds!", "I will not fall!"],
+    "archetypeType": "PHYSICAL",
+    "preferredTags": ["PHYSICAL", "SHIELD", "DEFENSE", "HOLY"],
+    "avoidedTags": ["POISON", "CURSE", "FIRE"]
   },
   {
     "id": "dragon",
@@ -81,7 +99,10 @@
     "tier": 4,
     "dialogue": ["Foolish mortal!", "My flames will consume you!", "I have lived for centuries!"],
     "attackLines": ["breathes scorching fire", "rakes with massive claws", "unleashes infernal fury"],
-    "hurtLines": ["ROAR!", "You dare wound me?!", "Impressive... but futile."]
+    "hurtLines": ["ROAR!", "You dare wound me?!", "Impressive... but futile."],
+    "archetypeType": "BALANCED",
+    "preferredTags": ["FIRE", "BURN", "DAMAGE", "PHYSICAL"],
+    "avoidedTags": ["POISON", "CURSE"]
   },
   {
     "id": "lich",
@@ -93,6 +114,9 @@
     "tier": 4,
     "dialogue": ["Death has no hold on me.", "Your soul will serve me eternally.", "I am beyond mortality!"],
     "attackLines": ["commands the undead", "casts soul-rending magic", "channels death itself"],
-    "hurtLines": ["Hahaha!", "Pain is meaningless!", "I cannot be destroyed!"]
+    "hurtLines": ["Hahaha!", "Pain is meaningless!", "I cannot be destroyed!"],
+    "archetypeType": "MAGIC",
+    "preferredTags": ["MAGIC", "CURSE", "SUMMON", "HEAL"],
+    "avoidedTags": ["PHYSICAL", "HOLY"]
   }
 ]
