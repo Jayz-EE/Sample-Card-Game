@@ -22,6 +22,7 @@ public class PlayerState
     public List<string> Inventory { get; set; } = new();
 
     public string ArcanaId { get; set; } = "";
+    public List<string> BlessingIds { get; set; } = new(); // Track active blessings
     
     // Combat statistics (for validation)
     public int DamageDealtThisCombat { get; set; }

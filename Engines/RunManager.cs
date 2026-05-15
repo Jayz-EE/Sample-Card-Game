@@ -32,6 +32,13 @@ public class RunManager
             MaxFloor = 100
         };
         
+        // Add innate blessing for the class
+        if (!string.IsNullOrEmpty(arcana.InnateBlessingId))
+        {
+            run.BlessingIds.Add(arcana.InnateBlessingId);
+            ApplyInnateBlessingEffect(run, arcana.InnateBlessingId);
+        }
+        
         // Build starting deck
         foreach (var cardId in arcana.StartingDeck)
         {
@@ -45,6 +52,9 @@ public class RunManager
                 });
             }
         }
+        
+        // Add 5 random cards from card pool (similar to enemy deck building)
+        AddRandomCardsToStartingDeck(run, rng, 5);
         
         // Add starting items
         run.Inventory.Add("health_potion");
@@ -148,6 +158,81 @@ public class RunManager
                 run.HP = Math.Max(1, run.HP - 10);
                 break;
         }
+    }
+    
+    private void ApplyInnateBlessingEffect(RunState run, string blessingId)
+    {
+        var blessing = _db.GetBlessing(blessingId);
+        if (blessing == null) return;
+        
+        switch (blessing.Effect)
+        {
+            case "SHIELD_BOOST":
+                // Knight: +10 max HP from innate blessing
+                run.MaxHP += 10;
+                run.HP += 10;
+                break;
+            case "FIRE_DAMAGE_BOOST":
+            case "HEAL_BOOST":
+            case "EXTRA_DRAW_AND_ENERGY":
+                // Applied during combat
+                break;
+        }
+    }
+    
+    private void AddRandomCardsToStartingDeck(RunState run, Random rng, int count)
+    {
+        // Get all player cards (exclude curses and enemy-only cards)
+        var availableCards = _db.Cards.Values
+            .Where(c => c.Rarity != "CURSE" && !c.Id.StartsWith("monster_"))
+            .ToList();
+        
+        if (availableCards.Count == 0) return;
+        
+        for (int i = 0; i < count; i++)
+        {
+            // Determine rarity based on weighted random
+            var rarity = GetRandomCardRarity(rng);
+            
+            // Get cards of that rarity
+            var cardsOfRarity = availableCards
+                .Where(c => c.Rarity == rarity)
+                .ToList();
+            
+            // If no cards of that rarity, try COMMON
+            if (cardsOfRarity.Count == 0)
+            {
+                cardsOfRarity = availableCards
+                    .Where(c => c.Rarity == "COMMON")
+                    .ToList();
+            }
+            
+            // If still no cards, skip
+            if (cardsOfRarity.Count == 0) continue;
+            
+            // Pick a random card
+            var randomCard = cardsOfRarity[rng.Next(cardsOfRarity.Count)];
+            
+            // Add to deck
+            run.Deck.Add(new CardInstance
+            {
+                CardId = randomCard.Id,
+                OwnerPlayerId = 1,
+                IsUpgraded = false
+            });
+        }
+    }
+    
+    private string GetRandomCardRarity(Random rng)
+    {
+        var roll = rng.Next(100);
+        
+        // Weighted distribution for starting deck
+        if (roll < 60) return "COMMON";      // 60% chance
+        if (roll < 85) return "UNCOMMON";    // 25% chance
+        if (roll < 95) return "RARE";        // 10% chance
+        if (roll < 99) return "EPIC";        // 4% chance
+        return "LEGENDARY";                   // 1% chance
     }
     
     public void AddGold(RunState run, int amount)

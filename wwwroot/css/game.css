@@ -281,17 +281,40 @@
     display: inline-block;
 }
 
-.enemy-cards-count {
+.enemy-stats-row {
     margin: 10px 0;
-    font-size: 16px;
+    font-size: 14px;
     color: #ffd700;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 20px;
 }
 
-.card-icon {
-    font-size: 20px;
+.enemy-stat {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.enemy-hand {
+    display: flex;
+    gap: 5px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+.card-back {
+    width: 40px;
+    height: 56px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1e 100%);
+    border: 2px solid #ffd700;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #ffd700;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
 .hp-bar {
@@ -732,6 +755,11 @@
     border-color: #555;
 }
 
+.inventory-item.muted {
+    filter: grayscale(80%);
+    opacity: 0.3;
+}
+
 .inventory-item .item-name {
     font-weight: bold;
     font-size: 14px;
@@ -742,6 +770,98 @@
 .inventory-item .item-cost {
     font-size: 12px;
     color: #00bcd4;
+    font-weight: bold;
+}
+
+/* Reward Modal */
+.reward-modal {
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    border: 3px solid #ffd700;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.reward-modal h2 {
+    color: #ffd700;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.reward-item {
+    background: rgba(255, 215, 0, 0.1);
+    border: 2px solid #ffd700;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 6px;
+    font-size: 18px;
+    color: #ffd700;
+    text-align: center;
+}
+
+.reward-section {
+    margin: 20px 0;
+}
+
+.reward-section h3 {
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+.reward-card {
+    background: rgba(76, 175, 80, 0.1);
+    border: 2px solid #4CAF50;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.reward-card .card-name {
+    color: #e0e0e0;
+    font-weight: bold;
+}
+
+.reward-card .card-rarity {
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.reward-card .rarity-common {
+    background: rgba(158, 158, 158, 0.3);
+    color: #9e9e9e;
+}
+
+.reward-card .rarity-uncommon {
+    background: rgba(33, 150, 243, 0.3);
+    color: #2196F3;
+}
+
+.reward-card .rarity-rare {
+    background: rgba(156, 39, 176, 0.3);
+    color: #9c27b0;
+}
+
+.reward-card .rarity-curse {
+    background: rgba(244, 67, 54, 0.3);
+    color: #f44336;
+}
+
+.reward-message {
+    background: rgba(255, 152, 0, 0.1);
+    border: 2px solid #ff9800;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 6px;
+    color: #ff9800;
+    text-align: center;
     font-weight: bold;
 }
 

@@ -1,0 +1,352 @@
+@inject IJSRuntime JS
+
+<div class="settings-overlay" @onclick="Close">
+    <div class="settings-modal" @onclick:stopPropagation="true">
+        <h2>⚙️ Settings</h2>
+        
+        <div class="settings-section">
+            <h3>🎨 Display</h3>
+            <div class="setting-item">
+                <label>
+                    <input type="checkbox" @bind="showAnimations" @bind:after="SaveSettings" />
+                    Enable Animations
+                </label>
+            </div>
+            <div class="setting-item">
+                <label>
+                    <input type="checkbox" @bind="showDamageNumbers" @bind:after="SaveSettings" />
+                    Show Damage Numbers
+                </label>
+            </div>
+            <div class="setting-item">
+                <label>
+                    <input type="checkbox" @bind="showCardTooltips" @bind:after="SaveSettings" />
+                    Show Card Tooltips
+                </label>
+            </div>
+        </div>
+        
+        <div class="settings-section">
+            <h3>🎮 Gameplay</h3>
+            <div class="setting-item">
+                <label>
+                    <input type="checkbox" @bind="confirmEndTurn" @bind:after="SaveSettings" />
+                    Confirm End Turn
+                </label>
+            </div>
+            <div class="setting-item">
+                <label>
+                    <input type="checkbox" @bind="autoSave" @bind:after="SaveSettings" />
+                    Auto-Save
+                </label>
+            </div>
+            <div class="setting-item">
+                <label>
+                    <input type="checkbox" @bind="showEnemyIntent" @bind:after="SaveSettings" />
+                    Show Enemy Intent
+                </label>
+            </div>
+        </div>
+        
+        <div class="settings-section">
+            <h3>🔊 Audio</h3>
+            <div class="setting-item">
+                <label>
+                    Master Volume
+                    <input type="range" min="0" max="100" @bind="masterVolume" @bind:after="SaveSettings" />
+                    <span>@masterVolume%</span>
+                </label>
+            </div>
+            <div class="setting-item">
+                <label>
+                    <input type="checkbox" @bind="soundEffects" @bind:after="SaveSettings" />
+                    Sound Effects
+                </label>
+            </div>
+            <div class="setting-item">
+                <label>
+                    <input type="checkbox" @bind="music" @bind:after="SaveSettings" />
+                    Background Music
+                </label>
+            </div>
+        </div>
+        
+        <div class="settings-section">
+            <h3>⌨️ Keyboard Shortcuts</h3>
+            <div class="shortcuts-list">
+                <div class="shortcut-item">
+                    <span class="key">Space</span>
+                    <span>End Turn</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="key">1-9</span>
+                    <span>Play Card</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="key">D</span>
+                    <span>View Deck</span>
+                </div>
+                <div class="shortcut-item">
+                    <span class="key">Esc</span>
+                    <span>Close Menu</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="settings-actions">
+            <button class="btn-primary" @onclick="SaveAndClose">Save & Close</button>
+            <button class="btn-secondary" @onclick="ResetDefaults">Reset to Defaults</button>
+        </div>
+    </div>
+</div>
+
+<style>
+.settings-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    animation: fadeIn 0.2s;
+}
+
+.settings-modal {
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    border: 3px solid #ffd700;
+    padding: 30px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    animation: slideIn 0.3s;
+}
+
+.settings-modal h2 {
+    color: #ffd700;
+    margin: 0 0 25px 0;
+    font-size: 28px;
+    text-align: center;
+}
+
+.settings-section {
+    margin-bottom: 25px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid #444;
+}
+
+.settings-section h3 {
+    color: #4CAF50;
+    margin: 0 0 15px 0;
+    font-size: 18px;
+}
+
+.setting-item {
+    margin: 12px 0;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+}
+
+.setting-item label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #e0e0e0;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.setting-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.setting-item input[type="range"] {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.shortcuts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.shortcut-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    color: #e0e0e0;
+}
+
+.key {
+    background: #444;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-weight: bold;
+    color: #ffd700;
+    border: 2px solid #666;
+}
+
+.settings-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.btn-primary {
+    flex: 1;
+    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+}
+
+.btn-secondary {
+    flex: 1;
+    background: linear-gradient(135deg, #666 0%, #555 100%);
+    color: white;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, #777 0%, #666 100%);
+}
+
+@@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+</style>
+
+@code {
+    [Parameter] public EventCallback OnClose { get; set; }
+    
+    // Display settings
+    private bool showAnimations = true;
+    private bool showDamageNumbers = true;
+    private bool showCardTooltips = true;
+    
+    // Gameplay settings
+    private bool confirmEndTurn = false;
+    private bool autoSave = true;
+    private bool showEnemyIntent = true;
+    
+    // Audio settings
+    private int masterVolume = 70;
+    private bool soundEffects = true;
+    private bool music = false;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadSettings();
+    }
+    
+    private async Task LoadSettings()
+    {
+        try
+        {
+            var settings = await JS.InvokeAsync<string>("localStorage.getItem", "gameSettings");
+            if (!string.IsNullOrEmpty(settings))
+            {
+                // Parse and apply settings
+                // For now, using defaults
+            }
+        }
+        catch
+        {
+            // Use defaults
+        }
+    }
+    
+    private async Task SaveSettings()
+    {
+        try
+        {
+            var settings = new
+            {
+                showAnimations,
+                showDamageNumbers,
+                showCardTooltips,
+                confirmEndTurn,
+                autoSave,
+                showEnemyIntent,
+                masterVolume,
+                soundEffects,
+                music
+            };
+            
+            await JS.InvokeVoidAsync("localStorage.setItem", "gameSettings", 
+                System.Text.Json.JsonSerializer.Serialize(settings));
+        }
+        catch
+        {
+            // Ignore save errors
+        }
+    }
+    
+    private async Task SaveAndClose()
+    {
+        await SaveSettings();
+        await OnClose.InvokeAsync();
+    }
+    
+    private void ResetDefaults()
+    {
+        showAnimations = true;
+        showDamageNumbers = true;
+        showCardTooltips = true;
+        confirmEndTurn = false;
+        autoSave = true;
+        showEnemyIntent = true;
+        masterVolume = 70;
+        soundEffects = true;
+        music = false;
+    }
+    
+    private async Task Close()
+    {
+        await OnClose.InvokeAsync();
+    }
+}

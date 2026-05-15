@@ -39,6 +39,7 @@ public class ArcanaDefinition
     public string Name { get; set; } = "";
     public string Description { get; set; } = "";
     public string PassiveEffect { get; set; } = "";
+    public string? InnateBlessingId { get; set; }
     public List<string> StartingDeck { get; set; } = new();
     public int StartingHP { get; set; } = 70;
     public int StartingGold { get; set; } = 100;

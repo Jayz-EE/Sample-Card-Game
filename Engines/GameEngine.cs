@@ -48,6 +48,45 @@ public class GameEngine
         
         return boostedEffect;
     }
+    
+    private EffectDefinition ApplyInnateBlessingBonus(EffectDefinition effect, CardDefinition card, PlayerState player)
+    {
+        // Create a copy of the effect to modify
+        var modifiedEffect = new EffectDefinition
+        {
+            Type = effect.Type,
+            Value = effect.Value,
+            Target = effect.Target,
+            StatusType = effect.StatusType,
+            Duration = effect.Duration,
+            Threshold = effect.Threshold,
+            Damage = effect.Damage,
+            Percentage = effect.Percentage
+        };
+        
+        // Pyromancer innate: Fire cards deal +2 damage
+        if (player.BlessingIds.Contains("pyromancer_innate") && 
+            effect.Type == "DAMAGE" && card.Tags.Contains("FIRE"))
+        {
+            modifiedEffect.Value += 2;
+        }
+        
+        // Cleric innate: Heal cards restore +3 HP
+        if (player.BlessingIds.Contains("cleric_innate") && 
+            effect.Type == "HEAL" && card.Tags.Contains("HEAL"))
+        {
+            modifiedEffect.Value += 3;
+        }
+        
+        // Knight innate: Shield cards grant +3 shield
+        if (player.BlessingIds.Contains("knight_innate") && 
+            effect.Type == "SHIELD")
+        {
+            modifiedEffect.Value += 3;
+        }
+        
+        return modifiedEffect;
+    }
 
     public GameState ProcessAction(GameState state, GameAction action)
     {
@@ -145,7 +184,8 @@ public class GameEngine
         foreach (var effect in effects)
         {
             var boostedEffect = ApplyRelicBoosts(effect, player);
-            state = EffectEngine.ApplyEffect(state, boostedEffect, action.PlayerId);
+            var modifiedEffect = ApplyInnateBlessingBonus(boostedEffect, def, player);
+            state = EffectEngine.ApplyEffect(state, modifiedEffect, action.PlayerId);
         }
         
         // Apply arcana passive effects
@@ -283,6 +323,9 @@ public class GameEngine
         if (run.RelicIds.Contains("energy_crystal")) maxEnergy++;
         if (run.BlessingIds.Contains("wisdom_blessing")) maxEnergy++;
         
+        // Rogue innate: +1 energy
+        if (run.BlessingIds.Contains("rogue_innate")) maxEnergy++;
+        
         var state = new GameState
         {
             RNGSeed = run.Seed + run.TotalCombats,
@@ -337,6 +380,55 @@ public class GameEngine
                 MaxStacks = 99
             });
         }
+        
+        // Apply innate blessing combat effects
+        if (run.BlessingIds.Contains("pyromancer_innate"))
+        {
+            // Pyromancer: Start with 3 shield
+            player.StatusEffects.Add(new StatusEffect 
+            { 
+                Type = "SHIELD", 
+                Value = 3, 
+                Duration = 1,
+                MaxStacks = 99
+            });
+        }
+        
+        if (run.BlessingIds.Contains("cleric_innate"))
+        {
+            // Cleric: Regenerate 2 HP per turn
+            player.StatusEffects.Add(new StatusEffect 
+            { 
+                Type = "REGENERATION", 
+                Value = 2, 
+                Duration = 999,
+                MaxStacks = 99
+            });
+        }
+        
+        // Draw starting hands for both players
+        var startingHandSize = 5;
+        
+        // Rogue innate: Draw 1 extra card
+        if (run.BlessingIds.Contains("rogue_innate"))
+        {
+            startingHandSize = 6;
+        }
+        
+        // Draw starting hand for player
+        for (int i = 0; i < startingHandSize; i++)
+        {
+            EffectEngine.DrawCard(player, rng);
+        }
+        
+        // Draw starting hand for enemy
+        for (int i = 0; i < startingHandSize; i++)
+        {
+            EffectEngine.DrawCard(enemyState, rng);
+        }
+        
+        // Set phase to MAIN since we've already drawn starting hands
+        state.Phase = "MAIN";
         
         return state;
     }
@@ -513,7 +605,8 @@ public class GameEngine
             MaxHandSize = run.MaxHandSize,
             Deck = deck,
             Inventory = new List<string>(run.Inventory),
-            ArcanaId = run.ArcanaId
+            ArcanaId = run.ArcanaId,
+            BlessingIds = new List<string>(run.BlessingIds)
         };
     }
     

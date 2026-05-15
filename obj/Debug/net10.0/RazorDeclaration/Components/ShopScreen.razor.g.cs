@@ -114,13 +114,16 @@ using Game.Definitions
         }
         #pragma warning restore 1998
 #nullable restore
-#line (34,8)-(68,1) "/home/classify/Documents/Misc/Practice/GameBlazor/Components/ShopScreen.razor"
+#line (84,8)-(229,1) "/home/classify/Documents/Misc/Practice/GameBlazor/Components/ShopScreen.razor"
 
     [Parameter] public RunState Run { get; set; } = null!;
+    [Parameter] public MapNode? Node { get; set; }
     [Parameter] public EventCallback OnShopEnd { get; set; }
     
     private List<string> availableCards = new();
     private List<string> availableRelics = new();
+    private List<string> availableItems = new();
+    private List<string> availableArtifacts = new();
     private EventEngine eventEngine = null!;
     
     protected override void OnInitialized()
@@ -129,8 +132,116 @@ using Game.Definitions
         var manager = new RunManager();
         eventEngine = new EventEngine(manager);
         
-        availableCards = manager.GetAvailableCards("UNCOMMON", rng);
-        availableRelics = manager.GetAvailableRelics("COMMON", rng);
+        if (Node?.Type == "BLACK_MARKET")
+        {
+            // Check if this black market was already visited
+            if (Node.Id != null && Run.ShopInventories.ContainsKey(Node.Id))
+            {
+                availableArtifacts = Run.ShopInventories[Node.Id];
+            }
+            else
+            {
+                // Generate cursed and blessed artifacts
+                var cursed = new List<string> { "cursed_strength", "cursed_energy", "cursed_draw" };
+                var blessed = new List<string> { "blessed_vitality", "blessed_power", "blessed_fortune" };
+                
+                availableArtifacts = cursed.OrderBy(_ => rng.Next()).Take(2)
+                    .Concat(blessed.OrderBy(_ => rng.Next()).Take(2))
+                    .ToList();
+                
+                if (Node.Id != null)
+                    Run.ShopInventories[Node.Id] = availableArtifacts;
+            }
+        }
+        else if (Node?.Type == "MARKET")
+        {
+            // Check if this market was already visited
+            if (Node.Id != null && Run.ShopInventories.ContainsKey(Node.Id))
+            {
+                availableItems = Run.ShopInventories[Node.Id];
+            }
+            else
+            {
+                // Generate new market inventory with snacks
+                var allItems = new List<string> { "energy_bar", "energy_bar", "power_snack", "health_potion", "shield_potion" };
+                availableItems = allItems.OrderBy(_ => rng.Next()).Take(4).ToList();
+                
+                if (Node.Id != null)
+                    Run.ShopInventories[Node.Id] = availableItems;
+            }
+        }
+        else
+        {
+            availableCards = manager.GetAvailableCards("UNCOMMON", rng);
+            availableRelics = manager.GetAvailableRelics("COMMON", rng);
+        }
+    }
+    
+    private string GetShopTitle()
+    {
+        return Node?.Type switch
+        {
+            "BLACK_MARKET" => "🌑 BLACK MARKET",
+            "MARKET" => "MARKET",
+            _ => "SHOP"
+        };
+    }
+    
+    private int GetItemPrice(ItemDefinition? item)
+    {
+        if (item == null) return 0;
+        return item.Rarity switch
+        {
+            "COMMON" => 20,
+            "UNCOMMON" => 35,
+            "RARE" => 50,
+            _ => 20
+        };
+    }
+    
+    private int GetArtifactPrice(RelicDefinition? artifact)
+    {
+        if (artifact == null) return 0;
+        return artifact.Rarity switch
+        {
+            "CURSED" => 150,
+            "BLESSED" => 300,
+            _ => 100
+        };
+    }
+    
+    private void BuyArtifact(string artifactId)
+    {
+        var artifact = Database.Instance.GetArtifact(artifactId);
+        var price = GetArtifactPrice(artifact);
+        
+        if (Run.Gold >= price)
+        {
+            Run.Gold -= price;
+            Run.ArtifactIds.Add(artifactId);
+            availableArtifacts.Remove(artifactId);
+            
+            if (Node?.Id != null)
+                Run.ShopInventories[Node.Id] = availableArtifacts;
+        }
+        StateHasChanged();
+    }
+    
+    private void BuyItem(string itemId)
+    {
+        var item = Database.Instance.GetItem(itemId);
+        var price = GetItemPrice(item);
+        
+        if (Run.Gold >= price)
+        {
+            Run.Gold -= price;
+            Run.Inventory.Add(itemId);
+            availableItems.Remove(itemId);
+            
+            if (Node?.Id != null)
+                Run.ShopInventories[Node.Id] = availableItems;
+        }
+        StateHasChanged();
     }
     
     private void BuyCard(string cardId)

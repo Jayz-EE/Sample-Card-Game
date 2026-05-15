@@ -105,7 +105,7 @@ using Game.Definitions
     #line default
     #line hidden
     #nullable restore
-    public partial class MapScreen : global::Microsoft.AspNetCore.Components.ComponentBase
+    public partial class SettingsMenu : global::Microsoft.AspNetCore.Components.ComponentBase
     #nullable disable
     {
         #pragma warning disable 1998
@@ -114,51 +114,119 @@ using Game.Definitions
         }
         #pragma warning restore 1998
 #nullable restore
-#line (56,8)-(95,1) "/home/classify/Documents/Misc/Practice/GameBlazor/Components/MapScreen.razor"
+#line (263,8)-(352,1) "/home/classify/Documents/Misc/Practice/GameBlazor/Components/SettingsMenu.razor"
 
-    [Parameter] public RunState Run { get; set; } = null!;
-    [Parameter] public EventCallback<MapNode> OnNodeSelected { get; set; }
-    [Parameter] public EventCallback OnViewDeck { get; set; }
-    [Parameter] public EventCallback OnQuit { get; set; }
+    [Parameter] public EventCallback OnClose { get; set; }
     
-    private List<MapNode> GetAvailableNodes()
+    // Display settings
+    private bool showAnimations = true;
+    private bool showDamageNumbers = true;
+    private bool showCardTooltips = true;
+    
+    // Gameplay settings
+    private bool confirmEndTurn = false;
+    private bool autoSave = true;
+    private bool showEnemyIntent = true;
+    
+    // Audio settings
+    private int masterVolume = 70;
+    private bool soundEffects = true;
+    private bool music = false;
+    
+    protected override async Task OnInitializedAsync()
     {
-        var nodes = Run.Map.Nodes
-            .Where(n => n.IsAccessible && !n.IsCompleted && n.Floor == Run.CurrentFloor)
-            .ToList();
-        
-        // Safety check: if no nodes available and we're beyond the map, show message
-        if (nodes.Count == 0 && Run.CurrentFloor > Run.Map.Nodes.Max(n => n.Floor))
-        {
-            // Player has completed the run
-            return new List<MapNode>();
-        }
-        
-        return nodes;
+        await LoadSettings();
     }
     
-    private string GetNodeIcon(string nodeType) => nodeType switch
+    private async Task LoadSettings()
     {
-        "COMBAT" => "fi fi-sr-sword",
-        "ELITE" => "fi fi-sr-skull-crossbones",
-        "BOSS" => "fi fi-sr-dragon",
-        "EVENT" => "fi fi-sr-book",
-        "SHOP" => "fi fi-sr-shop",
-        "MARKET" => "fi fi-sr-shopping-cart",
-        "BLACK_MARKET" => "fi fi-sr-moon",
-        "REST" => "fi fi-sr-campfire",
-        "CAMP" => "fi fi-sr-tent",
-        "TREASURE" => "fi fi-sr-treasure-chest",
-        "NPC" => "fi fi-sr-user",
-        "TRADER" => "fi fi-sr-handshake",
-        "BLESSING" => "fi fi-sr-magic-wand",
-        _ => "fi fi-sr-interrogation"
-    };
+        try
+        {
+            var settings = await JS.InvokeAsync<string>("localStorage.getItem", "gameSettings");
+            if (!string.IsNullOrEmpty(settings))
+            {
+                // Parse and apply settings
+                // For now, using defaults
+            }
+        }
+        catch
+        {
+            // Use defaults
+        }
+    }
+    
+    private async Task SaveSettings()
+    {
+        try
+        {
+            var settings = new
+            {
+                showAnimations,
+                showDamageNumbers,
+                showCardTooltips,
+                confirmEndTurn,
+                autoSave,
+                showEnemyIntent,
+                masterVolume,
+                soundEffects,
+                music
+            };
+            
+            await JS.InvokeVoidAsync("localStorage.setItem", "gameSettings", 
+                System.Text.Json.JsonSerializer.Serialize(settings));
+        }
+        catch
+        {
+            // Ignore save errors
+        }
+    }
+    
+    private async Task SaveAndClose()
+    {
+        await SaveSettings();
+        await OnClose.InvokeAsync();
+    }
+    
+    private void ResetDefaults()
+    {
+        showAnimations = true;
+        showDamageNumbers = true;
+        showCardTooltips = true;
+        confirmEndTurn = false;
+        autoSave = true;
+        showEnemyIntent = true;
+        masterVolume = 70;
+        soundEffects = true;
+        music = false;
+    }
+    
+    private async Task Close()
+    {
+        await OnClose.InvokeAsync();
+    }
 
 #line default
 #line hidden
 #nullable disable
 
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private 
+#nullable restore
+#line (1,9)-(1,19) "/home/classify/Documents/Misc/Practice/GameBlazor/Components/SettingsMenu.razor"
+IJSRuntime
+
+#line default
+#line hidden
+#nullable disable
+         
+#nullable restore
+#line (1,20)-(1,22) "/home/classify/Documents/Misc/Practice/GameBlazor/Components/SettingsMenu.razor"
+JS
+
+#line default
+#line hidden
+#nullable disable
+         { get; set; }
+         = default!;
     }
 }
 #pragma warning restore 1591

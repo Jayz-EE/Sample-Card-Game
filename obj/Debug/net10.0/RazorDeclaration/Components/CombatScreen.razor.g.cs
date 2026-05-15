@@ -114,7 +114,7 @@ using Game.Definitions
         }
         #pragma warning restore 1998
 #nullable restore
-#line (180,8)-(395,1) "/home/classify/Documents/Misc/Practice/GameBlazor/Components/CombatScreen.razor"
+#line (316,8)-(686,1) "/home/classify/Documents/Misc/Practice/GameBlazor/Components/CombatScreen.razor"
 
     [Parameter] public RunState Run { get; set; } = null!;
     [Parameter] public MapNode Node { get; set; } = null!;
@@ -127,12 +127,15 @@ using Game.Definitions
     private PlayerState enemy = null!;
     private int goldReward;
     private List<string> cardRewards = new();
+    private bool showEnergyReward;
+    private bool showHealthReward;
+    private bool showEnemyDeck = false;
     private List<string> combatLog = new();
     
     protected override void OnInitialized()
     {
         aiEngine = new AIEngine(engine);
-        state = engine.InitializeCombat(Run, Node.EnemyId!);
+        state = engine.InitializeCombat(Run, Node);
         
         // Process initial draw phase
         if (state.Phase == "DRAW")
@@ -144,6 +147,13 @@ using Game.Definitions
         
         var enemyDef = Database.Instance.GetEnemy(Node.EnemyId!);
         AddLog($"⚔️ Battle begins against {enemyDef?.Name}!");
+        
+        if (!string.IsNullOrEmpty(Node.ArtifactId))
+        {
+            var artifact = Database.Instance.GetArtifact(Node.ArtifactId);
+            AddLog($"⚠️ Enemy wields {artifact?.Name}!");
+        }
+        
         AddLog($"📜 Drew {player.Hand.Count} cards");
     }
     
@@ -223,6 +233,7 @@ using Game.Definitions
             var enemyDef = Database.Instance.GetEnemy(Node.EnemyId!);
             AddLog($"👹 {enemy.Name}'s turn...");
             
+            var oldPlayerHP = player.HP;
             state = aiEngine.ExecuteAITurn(state, 2, enemyDef?.AIPattern ?? "AGGRESSIVE", Node.EnemyId!);
             UpdatePlayerRefs();
             
@@ -231,6 +242,10 @@ using Game.Definitions
                 foreach (var entry in aiEngine.Log.Entries)
                     AddLog($"🎯 {entry}");
             }
+            
+            var damageDealt = oldPlayerHP - player.HP;
+            if (damageDealt > 0)
+                AddLog($"💥 Enemy dealt {damageDealt} damage!");
             
             // Process draw phase for player's next turn
             if (state.Phase == "DRAW")
@@ -256,6 +271,31 @@ using Game.Definitions
             var manager = new RunManager();
             var rarity = manager.GetRandomRarity(rng);
             cardRewards = manager.GetAvailableCards(rarity, rng);
+            
+            // Artifact drop chance: 3% base, +15% if enemy had artifact
+            var artifactRoll = rng.Next(100);
+            var artifactChance = string.IsNullOrEmpty(Node.ArtifactId) ? 3 : 18;
+            if (artifactRoll < artifactChance && !string.IsNullOrEmpty(Node.ArtifactId))
+            {
+                Run.ArtifactIds.Add(Node.ArtifactId);
+                var artifact = Database.Instance.GetArtifact(Node.ArtifactId);
+                AddLog($"🎁 Acquired artifact: {artifact?.Name}!");
+            }
+            else if (artifactRoll < 3)
+            {
+                var artifacts = Database.Instance.Artifacts.Keys.ToList();
+                var randomArtifact = artifacts[rng.Next(artifacts.Count)];
+                Run.ArtifactIds.Add(randomArtifact);
+                var artifact = Database.Instance.GetArtifact(randomArtifact);
+                AddLog($"🎁 Acquired artifact: {artifact?.Name}!");
+            }
+            
+            // 30% chance for energy reward, 40% chance for health reward (independent rolls)
+            var energyRoll = rng.Next(100);
+            var healthRoll = rng.Next(100);
+            showEnergyReward = energyRoll < 30;
+            showHealthReward = healthRoll < 40;
+            
             Run.TotalCombats++;
             
             AddLog($"🏆 Victory! Earned {goldReward} gold");
@@ -269,17 +309,80 @@ using Game.Definitions
         StateHasChanged();
     }
     
-    private void SelectCardReward(string cardId)
+    private async Task SelectCardReward(string cardId)
     {
         new RunManager().AddCardToRun(Run, cardId);
         Run.HP = player.HP;
-        OnCombatEnd.InvokeAsync(true);
+        await OnCombatEnd.InvokeAsync(true);
     }
     
-    private void SkipReward()
+    private async Task SelectEnergyReward()
+    {
+        Run.MaxEnergy++;
+        Run.HP = player.HP;
+        await OnCombatEnd.InvokeAsync(true);
+    }
+    
+    private async Task SelectHealthReward()
+    {
+        Run.MaxHP += 10;
+        Run.HP = Math.Min(Run.HP + 10, Run.MaxHP);
+        await OnCombatEnd.InvokeAsync(true);
+    }
+    
+    private async Task SkipReward()
     {
         Run.HP = player.HP;
-        OnCombatEnd.InvokeAsync(true);
+        await OnCombatEnd.InvokeAsync(true);
+    }
+    
+    private void ToggleEnemyDeck()
+    {
+        showEnemyDeck = !showEnemyDeck;
+        StateHasChanged();
+    }
+    
+    private List<CardInstance> GetEnemyFullDeck()
+    {
+        if (enemy == null) return new List<CardInstance>();
+        
+        var allCards = new List<CardInstance>();
+        allCards.AddRange(enemy.Deck);
+        allCards.AddRange(enemy.Hand);
+        allCards.AddRange(enemy.Discard);
+        
+        return allCards;
+    }
+    
+    private string GetCardTooltip(CardDefinition? card)
+    {
+        if (card == null) return "";
+        
+        var tooltip = $"Cost: {card.Cost} Energy\n";
+        
+        if (card.Effects.Count > 0)
+        {
+            tooltip += "Effects:\n";
+            foreach (var effect in card.Effects)
+            {
+                tooltip += $"• {GetEffectDescription(effect)}\n";
+            }
+        }
+        
+        return tooltip.TrimEnd();
+    }
+    
+    private string GetEffectDescription(EffectDefinition effect)
+    {
+        return effect.Type switch
+        {
+            "DAMAGE" => $"Deal {effect.Value} damage",
+            "HEAL" => $"Heal {effect.Value} HP",
+            "SHIELD" => $"Gain {effect.Value} shield",
+            "DRAW" => $"Draw {effect.Value} card(s)",
+            "APPLY_STATUS" => $"Apply {effect.StatusType} {effect.Value} for {effect.Duration} turn(s)",
+            _ => $"{effect.Type} {effect.Value}"
+        };
     }
     
     private string GetCardEffects(CardDefinition? card, bool upgraded = false)
@@ -287,6 +390,48 @@ using Game.Definitions
         if (card == null) return "";
         var effects = upgraded && card.UpgradedEffects.Count > 0 ? card.UpgradedEffects : card.Effects;
         return string.Join(" • ", effects.Select(e => $"{GetEffectIcon(e.Type)} {e.Value}"));
+    }
+    
+    private string GetCardType(CardDefinition? card)
+    {
+        if (card == null) return "SKILL";
+        if (card.Tags.Contains("ATTACK")) return "ATTACK";
+        if (card.Tags.Contains("DEFENSE")) return "DEFENSE";
+        if (card.Tags.Contains("MAGIC")) return "MAGIC";
+        if (card.Tags.Contains("HEAL")) return "HEAL";
+        return "SKILL";
+    }
+    
+    private string GetCardTypeIcon(string type) => type switch
+    {
+        "ATTACK" => "⚔️",
+        "DEFENSE" => "🛡️",
+        "MAGIC" => "✨",
+        "HEAL" => "💚",
+        _ => "📜"
+    };
+    
+    private string GetCardDescription(CardDefinition? card, bool upgraded = false)
+    {
+        if (card == null) return "";
+        var effects = upgraded && card.UpgradedEffects.Count > 0 ? card.UpgradedEffects : card.Effects;
+        
+        var descriptions = new List<string>();
+        foreach (var effect in effects)
+        {
+            var desc = effect.Type switch
+            {
+                "DAMAGE" => $"Deal {effect.Value} damage",
+                "HEAL" => $"Heal {effect.Value} HP",
+                "SHIELD" => $"Gain {effect.Value} shield",
+                "DRAW" => $"Draw {effect.Value} card(s)",
+                "APPLY_STATUS" => $"Apply {effect.StatusType} {effect.Value}",
+                _ => $"{effect.Type}"
+            };
+            descriptions.Add(desc);
+        }
+        
+        return string.Join(". ", descriptions) + ".";
     }
     
     private string GetEffectIcon(string type) => type switch
@@ -313,6 +458,11 @@ using Game.Definitions
         "SILENT" => "🤐",
         "FEAR" => "😱",
         "ENERGY_SURGE" => "⚡",
+        "SLOW" => "🐌",
+        "BURN_RESISTANCE" => "💧",
+        "POISON_RESISTANCE" => "🌿",
+        "PHYSICAL_RESISTANCE" => "⚔️",
+        "MAGIC_RESISTANCE" => "🔮",
         _ => "✨"
     };
     
@@ -328,6 +478,11 @@ using Game.Definitions
         "SILENT" => $"Cannot play magic cards for {eff.Duration} turns",
         "FEAR" => $"Discards 1 card after playing for {eff.Duration} turns",
         "ENERGY_SURGE" => $"Reduces card cost by {eff.Value} this turn",
+        "SLOW" => $"Cards cost +{eff.Value} energy for {eff.Duration} turns",
+        "BURN_RESISTANCE" => $"Reduces burn damage by {eff.Value}%",
+        "POISON_RESISTANCE" => $"Reduces poison damage by {eff.Value}%",
+        "PHYSICAL_RESISTANCE" => $"Reduces physical damage by {eff.Value}%",
+        "MAGIC_RESISTANCE" => $"Reduces magic damage by {eff.Value}%",
         _ => $"{eff.Type}: {eff.Value}"
     };
 

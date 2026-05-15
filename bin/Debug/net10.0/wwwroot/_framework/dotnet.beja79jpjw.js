@@ -5,7 +5,7 @@ var e=!1;const t=async()=>WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,
   "mainAssemblyName": "GameBlazor",
   "applicationEnvironment": "Development",
   "resources": {
-    "hash": "sha256-EGXPwIYWI7miYfZSAqDZxoewBRcr7lpvJQCZsyu9JkM=",
+    "hash": "sha256-uYuuL50535LFEXkGdIb10S4SQG4pgdWHnCNs8IO18s0=",
     "jsModuleNative": [
       {
         "name": "dotnet.native.mx9wzm9o5h.js"
@@ -1242,16 +1242,16 @@ var e=!1;const t=async()=>WebAssembly.validate(new Uint8Array([0,97,115,109,1,0,
       },
       {
         "virtualPath": "GameBlazor.wasm",
-        "name": "GameBlazor.nhfwuiwxzp.wasm",
-        "integrity": "sha256-a7wmcXfSfJF39Ix+8/f4ToN+ciIMhyYu4+5RsZ0IkKM=",
+        "name": "GameBlazor.7g2o7rybdr.wasm",
+        "integrity": "sha256-mUpmiJPkqgCXvkolCJU2YFmKoWf0wCQUzGmrKVFq3z0=",
         "cache": "force-cache"
       }
     ],
     "pdb": [
       {
         "virtualPath": "GameBlazor.pdb",
-        "name": "GameBlazor.tkfoezun85.pdb",
-        "integrity": "sha256-3T5kaPlZ5PBWqzGphcEeTRX0inQSGsXaLstYybAFjIE=",
+        "name": "GameBlazor.nrnq4g05mh.pdb",
+        "integrity": "sha256-LQFrclgUhP6i1IIlZmzvytLlL1O9gh3WJz8KUZ06P7w=",
         "cache": "force-cache"
       }
     ],

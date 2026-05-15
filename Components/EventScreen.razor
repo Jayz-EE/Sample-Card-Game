@@ -1,6 +1,37 @@
 
 <div class="event-screen">
-    @if (showCardSelection)
+    @if (showRewardModal)
+    {
+        <div class="modal-overlay" @onclick="CloseRewardModal">
+            <div class="reward-modal" @onclick:stopPropagation="true">
+                <h2>✨ Rewards Gained!</h2>
+                @if (rewardGold > 0)
+                {
+                    <div class="reward-item">💰 +@rewardGold Gold</div>
+                }
+                @if (rewardCards.Count > 0)
+                {
+                    <div class="reward-section">
+                        <h3>Cards Added:</h3>
+                        @foreach (var cardId in rewardCards)
+                        {
+                            var card = Database.Instance.GetCard(cardId);
+                            <div class="reward-card">
+                                <span class="card-name">@card?.Name</span>
+                                <span class="card-rarity rarity-@(card?.Rarity?.ToLower())">@card?.Rarity</span>
+                            </div>
+                        }
+                    </div>
+                }
+                @if (!string.IsNullOrEmpty(rewardMessage))
+                {
+                    <div class="reward-message">@rewardMessage</div>
+                }
+                <button class="event-choice" @onclick="CloseRewardModal">Continue</button>
+            </div>
+        </div>
+    }
+    else if (showCardSelection)
     {
         <h2>@selectionTitle</h2>
         <p class="event-description">@selectionDescription</p>
@@ -64,6 +95,11 @@
     private string selectionDescription = "";
     private string selectionType = "";
     private int pendingChoiceIndex = -1;
+    
+    private bool showRewardModal = false;
+    private int rewardGold = 0;
+    private List<string> rewardCards = new();
+    private string rewardMessage = "";
     
     protected override void OnInitialized()
     {
@@ -148,6 +184,14 @@
         var choice = eventDef.Choices[choiceIndex];
         var rng = new Random(Run.Seed + Run.CurrentFloor);
         
+        // Reset rewards
+        rewardGold = 0;
+        rewardCards.Clear();
+        rewardMessage = "";
+        
+        var oldGold = Run.Gold;
+        var oldDeckCount = Run.Deck.Count;
+        
         // Check if choice requires card selection
         var needsUpgrade = choice.Effects.Any(e => e.Type == "UPGRADE_CARD");
         var needsRemove = choice.Effects.Any(e => e.Type == "REMOVE_CARD");
@@ -160,7 +204,7 @@
             showCardSelection = true;
             pendingChoiceIndex = choiceIndex;
             
-            // Process non-card effects first (like LOSE_GOLD)
+            // Process non-card effects first (like LOSE_GOLD, ADD_CURSE)
             foreach (var effect in choice.Effects)
             {
                 if (effect.Type != "UPGRADE_CARD")
@@ -196,12 +240,45 @@
         // Normal event processing
         new EventEngine(new RunManager()).ProcessEventChoice(Run, Node.EventId!, choiceIndex, rng);
         
-        await Task.Delay(1000);
-        await OnEventEnd.InvokeAsync();
+        // Track rewards
+        rewardGold = Run.Gold - oldGold;
+        if (Run.Deck.Count > oldDeckCount)
+        {
+            var newCards = Run.Deck.Skip(oldDeckCount).ToList();
+            rewardCards = newCards.Select(c => c.CardId).ToList();
+        }
+        
+        // Check for curses
+        var curseCards = Run.Deck.Where(c => 
+            Database.Instance.GetCard(c.CardId)?.Rarity == "CURSE").ToList();
+        if (curseCards.Count > oldDeckCount)
+        {
+            rewardMessage = "⚠️ A curse has been added to your deck!";
+        }
+        
+        // Show rewards if any
+        if (rewardGold != 0 || rewardCards.Count > 0 || !string.IsNullOrEmpty(rewardMessage))
+        {
+            showRewardModal = true;
+            StateHasChanged();
+        }
+        else
+        {
+            await Task.Delay(1000);
+            await OnEventEnd.InvokeAsync();
+        }
     }
     
     private async Task Continue()
     {
+        await OnEventEnd.InvokeAsync();
+    }
+    
+    private async Task CloseRewardModal()
+    {
+        showRewardModal = false;
+        StateHasChanged();
+        await Task.Delay(300);
         await OnEventEnd.InvokeAsync();
     }
     

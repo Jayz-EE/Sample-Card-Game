@@ -68,5 +68,33 @@
     "description": "Reduce magic damage by 25%.",
     "effect": "MAGIC_RESISTANCE",
     "value": 25
+  },
+  {
+    "id": "pyromancer_innate",
+    "name": "Flames of Passion",
+    "description": "Innate: Fire cards deal +2 damage and you start each combat with 3 shield.",
+    "effect": "FIRE_DAMAGE_BOOST",
+    "value": 2
+  },
+  {
+    "id": "cleric_innate",
+    "name": "Divine Grace",
+    "description": "Innate: Heal cards restore +3 HP and you regenerate 2 HP per turn.",
+    "effect": "HEAL_BOOST",
+    "value": 3
+  },
+  {
+    "id": "rogue_innate",
+    "name": "Shadow Step",
+    "description": "Innate: Draw 1 extra card at start of turn and start each combat with +1 energy.",
+    "effect": "EXTRA_DRAW_AND_ENERGY",
+    "value": 1
+  },
+  {
+    "id": "knight_innate",
+    "name": "Stalwart Defense",
+    "description": "Innate: Shield cards grant +3 shield and you have +10 max HP.",
+    "effect": "SHIELD_BOOST",
+    "value": 3
   }
 ]

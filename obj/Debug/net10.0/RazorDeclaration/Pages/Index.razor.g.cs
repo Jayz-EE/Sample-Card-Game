@@ -158,7 +158,7 @@ using Game.Definitions
         {
             "COMBAT" or "ELITE" or "BOSS" => "combat",
             "EVENT" => "event",
-            "SHOP" or "MARKET" => "shop",
+            "SHOP" or "MARKET" or "BLACK_MARKET" => "shop",
             "REST" or "CAMP" => "rest",
             "TREASURE" or "NPC" or "TRADER" or "BLESSING" => "event",
             _ => "map"

@@ -110,7 +110,7 @@ public static class EffectEngine
                 break;
                 
             case "FEAR":
-                ApplyStatus(actor, "FEAR", effect.Value, effect.Duration > 0 ? effect.Duration : 1);
+                ApplyStatus(target, "FEAR", effect.Value, effect.Duration > 0 ? effect.Duration : 1);
                 break;
                 
             case "ENERGY_SURGE":

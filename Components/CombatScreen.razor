@@ -102,8 +102,16 @@
                         <div class="hp-fill" style="width: @((enemy.HP * 100.0 / enemy.MaxHP))%"></div>
                         <span class="hp-text">@enemy.HP / @enemy.MaxHP HP</span>
                     </div>
-                    <div class="enemy-cards-count">
-                        <span class="card-icon">🃏</span> @enemy.Hand.Count cards in hand
+                    <div class="enemy-stats-row">
+                        <span class="enemy-stat"><i class="fi fi-sr-bolt"></i> @enemy.Energy/@enemy.MaxEnergy</span>
+                        <span class="enemy-stat">🃏 @enemy.Hand.Count in hand</span>
+                        <span class="enemy-stat">📚 @enemy.Deck.Count in deck</span>
+                    </div>
+                    <div class="enemy-hand">
+                        @for (int i = 0; i < enemy.Hand.Count; i++)
+                        {
+                            <div class="card-back">🂠</div>
+                        }
                     </div>
                     @if (enemy.StatusEffects.Count > 0)
                     {
@@ -244,16 +252,18 @@
                 <div class="inventory-section">
                     <h4><i class="fi fi-sr-backpack"></i> Inventory</h4>
                     <div class="inventory-items">
-                        @foreach (var itemId in player.Inventory)
+                        @foreach (var itemGroup in player.Inventory.GroupBy(i => i))
                         {
+                            var itemId = itemGroup.Key;
+                            var count = itemGroup.Count();
                             var item = Database.Instance.GetItem(itemId);
                             var isSnack = item?.IsSnack() ?? false;
                             var canUse = isSnack || player.Energy == player.MaxEnergy;
-                            <button class="inventory-item @(canUse ? "" : "disabled")" 
+                            <button class="inventory-item @(canUse ? "" : "disabled muted")" 
                                     @onclick="() => UseItem(itemId)" 
                                     disabled="@(!canUse)"
                                     title="@item?.Description">
-                                <div class="item-name">@item?.Name</div>
+                                <div class="item-name">@item?.Name @(count > 1 ? $"x{count}" : "")</div>
                                 <div class="item-cost">@(isSnack ? "Free" : "All ⚡")</div>
                             </button>
                         }
@@ -497,31 +507,31 @@
         StateHasChanged();
     }
     
-    private void SelectCardReward(string cardId)
+    private async Task SelectCardReward(string cardId)
     {
         new RunManager().AddCardToRun(Run, cardId);
         Run.HP = player.HP;
-        OnCombatEnd.InvokeAsync(true);
+        await OnCombatEnd.InvokeAsync(true);
     }
     
-    private void SelectEnergyReward()
+    private async Task SelectEnergyReward()
     {
         Run.MaxEnergy++;
         Run.HP = player.HP;
-        OnCombatEnd.InvokeAsync(true);
+        await OnCombatEnd.InvokeAsync(true);
     }
     
-    private void SelectHealthReward()
+    private async Task SelectHealthReward()
     {
         Run.MaxHP += 10;
         Run.HP = Math.Min(Run.HP + 10, Run.MaxHP);
-        OnCombatEnd.InvokeAsync(true);
+        await OnCombatEnd.InvokeAsync(true);
     }
     
-    private void SkipReward()
+    private async Task SkipReward()
     {
         Run.HP = player.HP;
-        OnCombatEnd.InvokeAsync(true);
+        await OnCombatEnd.InvokeAsync(true);
     }
     
     private void ToggleEnemyDeck()
